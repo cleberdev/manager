@@ -1,6 +1,7 @@
 <?php
 /*
- * @param autoload for include for files
+ * Autor: Cleber Santos
+ *  @param autoload for include for files
  */
 require_once ("AutoLoad.php");
 /*
