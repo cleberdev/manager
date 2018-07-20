@@ -15,14 +15,14 @@ Class Write extends database {
 				$newGetDataKey[]    = $key;
 				$newGetDataValues[] = $value;
 			}
-				$nomeCamposForms = implode(',', $newGetDataKey);
+			$nameInputs = implode(',', $newGetDataKey);
 
-					foreach ($newGetDataValues as $key) {
-						$valoresTratatos[] = str_replace($key, "'".$key."'", $key);
-					}
+			foreach ($newGetDataValues as $key) {
+				$valoresTratatos[] = str_replace($key, "'".$key."'", $key);
+			}
 
-					$nomeValorForms = implode(',', $valoresTratatos);
-					$SQL            = "insert into ".$table." (".$nomeCamposForms.")values(".$nomeValorForms.")";
+			$nameInputsForm = implode(',', $valoresTratatos);
+			$SQL            = "insert into ".$table." (".$nameInputs.")values(".$nameInputsForm.")";
 
 			return $this->insertDB($SQL);
 

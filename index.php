@@ -18,13 +18,13 @@ use System\Config;
  */
 require_once ("Smarty_ini.php");
 
-$moduleNow = Config::_MCLASS_."\\"._ROUTER_NOW_;
-$Obj_str   = new $moduleNow($_POST);
+// $moduleNow = Config::_MCLASS_."\\"._ROUTER_NOW_;
+// $Obj_str   = new $moduleNow($_POST);
 
-print("<pre>");
-var_dump($Obj_str);
+// print("<pre>");
+// var_dump($Obj_str);
 
-die;
+// die;
 /*
  *Library of system that handling templates for he
  */

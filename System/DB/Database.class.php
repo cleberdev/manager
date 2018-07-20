@@ -2,9 +2,9 @@
 namespace System\DB;
 
 /*Method construct of Database*/
-Abstract class Database {
+abstract class Database {
 
-	function __construct() {}
+	private function __construct() {}
 
 	/*Evita que a classe seja clonada*/
 	private function __clone() {}
@@ -20,7 +20,7 @@ Abstract class Database {
 	private static $dbtype   = "mysql";
 	private static $host     = "localhost";
 	private static $port     = "";
-	private static $user     = "db_sistema";
+	private static $user     = "sistema_c";
 	private static $password = "cl159ss";
 	private static $db       = "sistema_c";
 
@@ -38,7 +38,7 @@ Abstract class Database {
 		{
 			$this->conexao = new \PDO($this->getDBType().":host=".$this->getHost().";port=".$this->getPort().";dbname=".$this->getDB(), $this->getUser(), $this->getPassword());
 		}
-		 catch (PDOException $i) {
+		catch (PDOException $i) {
 			//se houver exceção, exibe
 			die("Erro: <code>".$i->getMessage()."</code>");
 		}
@@ -96,4 +96,8 @@ Abstract class Database {
 		return $rs;
 	}
 
-}
+
+	public function test(){
+		print(" test in database ");
+	}
+}//final class

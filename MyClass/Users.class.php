@@ -33,33 +33,37 @@ Class Users
 			try {
 				switch ($action) {
 					case 'add':
-						  if ($this->validate_Data_Users($setData) !== true) {
-							return $this->setResponse = $this->validate_Data_Users($setData);
-							exit;
+					if ($this->validate_Data_Users($setData) !== true) {
+						return $this->setResponse = $this->validate_Data_Users($setData);
+						exit;
 					} else {
-							unset($setData['action']);
-							unset($setData['module']);
+						unset($setData['action']);
+						unset($setData['module']);
 
-							$setData['password']  = sha1(md5($data['password']));
-							$setData['inputDate'] = (new \Datetime())->format('Y-m-d H:i:s');
-							new Write($setData, $this->table);
+						$setData['password']  = sha1(md5($data['password']));
+						$setData['inputDate'] = (new \Datetime())->format('Y-m-d H:i:s');
+						new Write($setData, $this->table);
+						
 					}
 					break;
 
 					case 'update':
-						return $this->setResponse = "Update data in database";
-						break;
+					return $this->setResponse = "Update data in database";
+					break;
 
-						default:
-						return $this->setResponse = GetRecord::get_list($this->table);
-						break;
-				}//and switch
+					default:
+					return $this->setResponse = GetRecord($this->table);
+					break;
+				}//and switchs
 			} catch (\Exception $e) {
 				print($e->getMessage());
 			}
 
 		} else {
-			return $this->setResponse = GetRecord::get_list($this->table);
+			$dt = new GetRecord();
+			$this->setResponse = $dt->get_list($this->table); 
+			return $this->setResponse;
+
 		}
 	}
 
@@ -80,6 +84,14 @@ Class Users
 		} else {
 			return $dt->get_errors();
 		}
+	}
+
+	private function redirect($url, $permanent = false) {
+		if($permanent) {
+			header('HTTP/1.1 301 Moved Permanently');
+		}
+		header('Location: '.$url);
+		exit();
 	}
 
 }

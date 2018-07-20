@@ -38,4 +38,4 @@ $routing->add("/Permission");
 $routing->add("/Dashboard");
 define('_ROUTER_NOW_', $routing->submit());
 
-//$smarty->display(Config::_VIEWS_C.'head.html');
+$smarty->display(Config::_VIEWS_C.'head.html');
