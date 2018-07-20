@@ -3,3 +3,12 @@ RewriteBase /projetoA/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+)$ /manager/index.php?uri=$1 [QSA]
+
+# Disable directory browsing
+#Options -Indexes
+
+# Hide the contents of directories
+IndexIgnore *
+
+# Hide files of type .png, .zip, .jpg, .gif and .doc from listing
+#IndexIgnore *.png *.zip *.jpg *.gif *.doc

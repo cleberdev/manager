@@ -3,8 +3,8 @@
 namespace MyClass;
 
 use MyClass\DataValidator;
-use MyClass\ORM\GetRecord;
-use MyClass\ORM\Write;
+use MyClass\Persistence\GetRecord;
+use MyClass\Persistence\Write;
 
 Class Users
 {
@@ -43,7 +43,7 @@ Class Users
 						$setData['password']  = sha1(md5($data['password']));
 						$setData['inputDate'] = (new \Datetime())->format('Y-m-d H:i:s');
 						new Write($setData, $this->table);
-						
+
 					}
 					break;
 
@@ -60,8 +60,9 @@ Class Users
 			}
 
 		} else {
+
 			$dt = new GetRecord();
-			$this->setResponse = $dt->get_list($this->table); 
+			$this->setResponse = $dt->getAllList($this->table);
 			return $this->setResponse;
 
 		}
@@ -77,21 +78,13 @@ Class Users
 		$dt = new DataValidator();
 		$dt->set('name', $data['name'])->is_required()->min_length(3)
 		->set('email', $data['email'])->is_email()
-		->set('login', $data['login'])->min_length(5);
+		->set('login', $data['login'])->min_length(3);
 
 		if ($dt->validate()) {
 			return true;
 		} else {
 			return $dt->get_errors();
 		}
-	}
-
-	private function redirect($url, $permanent = false) {
-		if($permanent) {
-			header('HTTP/1.1 301 Moved Permanently');
-		}
-		header('Location: '.$url);
-		exit();
 	}
 
 }

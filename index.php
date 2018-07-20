@@ -4,7 +4,7 @@
  *  @param autoload for include for files
  * Add new line
  */
-require_once ("AutoLoad.php");
+require_once ("Autoload.php");
 /*
  *
  * Start System Configuration
@@ -13,21 +13,15 @@ require_once ("AutoLoad.php");
 
 use System\Config;
 /*
- * initialize objects of system of template smarty
- * Also add atribs for routers of inicialize pages internals
- */
+*
+* Library of system that handling templates for he
+*/
+
+
 require_once ("Smarty_ini.php");
 
-// $moduleNow = Config::_MCLASS_."\\"._ROUTER_NOW_;
-// $Obj_str   = new $moduleNow($_POST);
 
-// print("<pre>");
-// var_dump($Obj_str);
 
-// die;
-/*
- *Library of system that handling templates for he
- */
 if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MCLASS_."/"._ROUTER_NOW_.".class.php")) {
 	$moduleNow = Config::_MCLASS_."\\"._ROUTER_NOW_;
 	$Obj_str   = new $moduleNow($_POST);

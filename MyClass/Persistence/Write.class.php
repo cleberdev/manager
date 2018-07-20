@@ -1,6 +1,6 @@
 <?php
 
-namespace MyClass\ORM;
+namespace MyClass\Persistence;
 use System\DB\Database;
 
 Class Write extends database {

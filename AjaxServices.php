@@ -2,7 +2,7 @@
 /*
  * @param autoload for include for files
  */
-require_once ("AutoLoad.php");
+require_once ("Autoload.php");
 /*
  *
  * Start System Configuration
@@ -14,7 +14,7 @@ use System\Config;
 $module = filter_var($_POST['module'], FILTER_SANITIZE_STRING);
 
 /*
- *Library of system that handling templates for he
+ * service ajax
  */
 if (file_exists(Config::_MCLASS_."/".$module.".class.php")) {
 	$moduleNow = Config::_MCLASS_."\\".$module;

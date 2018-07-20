@@ -8,7 +8,7 @@
  */
 namespace manager;
 
-Class AutoLoad {
+Class Autoload {
 
 	private $archives;
 
