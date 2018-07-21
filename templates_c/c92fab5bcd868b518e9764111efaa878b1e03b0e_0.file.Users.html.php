@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-20 20:45:07
+/* Smarty version 3.1.32, created on 2018-07-21 14:05:22
   from '/Applications/AMPPS/www/manager/views/Users.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5249d3b8cc28_00954351',
+  'unifunc' => 'content_5b533da22f0e36_73908218',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c92fab5bcd868b518e9764111efaa878b1e03b0e' => 
     array (
       0 => '/Applications/AMPPS/www/manager/views/Users.html',
-      1 => 1532119505,
+      1 => 1532181861,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5249d3b8cc28_00954351 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b533da22f0e36_73908218 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Header -->
 <!-- In the PHP version you can set the following options from inc/config file -->
 <!--
@@ -34,16 +34,16 @@ function content_5b5249d3b8cc28_00954351 (Smarty_Internal_Template $_smarty_tpl)
 
                         'navbar-fixed-bottom'       for a bottom fixed header (fixed main sidebar with scroll will be auto initialized, functionality can be found in js/app.js - handleSidebar()))
                             'header-fixed-bottom'   has to be added on #page-container only if the class 'navbar-fixed-bottom' was added
-                        -->
+                          -->
 <header class="navbar navbar-inverse navbar-fixed-top">
   <!-- Left Header Navigation -->
   <ul class="nav navbar-nav-custom">
     <!-- Main Sidebar Toggle Button -->
     <li>
       <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
-                                        <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
-                                        <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
-                                    </a>
+                                  <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
+                                  <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
+                                </a>
     </li>
     <!-- END Main Sidebar Toggle Button -->
 
@@ -68,58 +68,58 @@ function content_5b5249d3b8cc28_00954351 (Smarty_Internal_Template $_smarty_tpl)
     <!-- Alternative Sidebar Toggle Button -->
     <li>
       <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar-alt');this.blur();">
-                                        <i class="gi gi-settings"></i>
-                                    </a>
+                                  <i class="gi gi-settings"></i>
+                                </a>
     </li>
     <!-- END Alternative Sidebar Toggle Button -->
 
     <!-- User Dropdown -->
     <li class="dropdown">
       <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="<?php echo $_smarty_tpl->tpl_vars['link_img']->value;?>
+                                  <img src="<?php echo $_smarty_tpl->tpl_vars['link_img']->value;?>
 placeholders/avatars/avatar9.jpg" alt="avatar">
-                                    </a>
+                                </a>
       <ul class="dropdown-menu dropdown-menu-right">
         <li class="dropdown-header">
           <strong>ADMINISTRATOR</strong>
         </li>
         <li>
           <a href="page_app_email.html">
-                                                <i class="fa fa-inbox fa-fw pull-right"></i>
-                                                Inbox
-                                            </a>
+                                      <i class="fa fa-inbox fa-fw pull-right"></i>
+                                      Inbox
+                                    </a>
         </li>
         <li>
           <a href="page_app_social.html">
-                                                <i class="fa fa-pencil-square fa-fw pull-right"></i>
-                                                Profile
-                                            </a>
+                                      <i class="fa fa-pencil-square fa-fw pull-right"></i>
+                                      Profile
+                                    </a>
         </li>
         <li>
           <a href="page_app_media.html">
-                                                <i class="fa fa-picture-o fa-fw pull-right"></i>
-                                                Media Manager
-                                            </a>
+                                      <i class="fa fa-picture-o fa-fw pull-right"></i>
+                                      Media Manager
+                                    </a>
         </li>
         <li class="divider">
           <li>
             <li>
               <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar-alt');">
-                                                    <i class="gi gi-settings fa-fw pull-right"></i>
-                                                    Settings
-                                                </a>
+                                          <i class="gi gi-settings fa-fw pull-right"></i>
+                                          Settings
+                                        </a>
             </li>
             <li>
               <a href="page_ready_lock_screen.html">
-                                                    <i class="gi gi-lock fa-fw pull-right"></i>
-                                                    Lock Account
-                                                </a>
+                                          <i class="gi gi-lock fa-fw pull-right"></i>
+                                          Lock Account
+                                        </a>
             </li>
             <li>
               <a href="page_ready_login.html">
-                                                    <i class="fa fa-power-off fa-fw pull-right"></i>
-                                                    Log out
-                                                </a>
+                                          <i class="fa fa-power-off fa-fw pull-right"></i>
+                                          Log out
+                                        </a>
             </li>
       </ul>
       </li>
@@ -216,8 +216,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <h3 class="modal-title"><i class="fa fa-plus"></i> <strong>Novo Usuário</strong></h3>
       </div>
       <div class="modal-body">
-        <form action="javascript:void(0)" method="post" id="form_users" class="form-horizontal form-bordered">
-          <input type="hidden" value="Users" name="module">
+        <form action="Users" method="post" id="form_users" class="form-horizontal form-bordered">
+          <input type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['MOD']->value;?>
+" name="module">
           <input type="hidden" value="add" name="action">
           <input type="hidden" value="1" name="type">
 
@@ -260,19 +261,19 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             <label class="col-xs-3 control-label" for="add-contact-mobile">Senha</label>
             <div class="col-xs-9">
               <input type="password" id="add-pass-mobile" name="password" class="form-control data-loading-text=" Loading... " placeholder="Entre com a senha.. ">
-                                                    </div>
-                                                </div>
+                                              </div>
+                                            </div>
 
 
-                                                <div class="form-group form-actions ">
-                                                    <div class="col-xs-12 text-right ">
-                                                        <button type="submit " class="btn btn-effect-ripple btn-success ">Salvar</button>
-                                                    </div>
-                                                </div>
-                                            </form>
+                                            <div class="form-group form-actions ">
+                                              <div class="col-xs-12 text-right ">
+                                                <button type="submit " class="btn btn-effect-ripple btn-success ">Salvar</button>
+                                              </div>
+                                            </div>
+                                          </form>
                                         </div>
+                                      </div>
                                     </div>
-                                </div>
-                            </div>
+                                  </div>
 <!-- END Add Contact Modal --><?php }
 }

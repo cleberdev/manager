@@ -2,7 +2,7 @@
 
 namespace MyClass;
 
-use MyClass\Vendor\ValidatesPosts;
+use MyClass\Vendor\ValidatePosts;
 use MyClass\Persistence\GetRecord;
 use MyClass\Persistence\Write;
 
@@ -24,48 +24,61 @@ Class Users
 	* @param $data is a array
 	*/
 	public function __construct($data = []) {
-		self::actionMethods($data);
+		self::actionUser($data);
 	}
 
-	private function actionMethods($setData = []) {
+
+	private function actionUser($setData = []) {
 		if (isset($setData['action'])) {
 			$action = $setData['action'];
-			try {
+
 				switch ($action) {
 					case 'add':
-					if (ValidatesPosts::valida_users($setData) !== true) {
-						return $this->setResponse = ValidatesPosts::valida_users($setData);
-						exit;
-					} else {
-						unset($setData['action']);
-						unset($setData['module']);
 
-						$setData['password']  = sha1(md5($data['password']));
-						$setData['inputDate'] = (new \Datetime())->format('Y-m-d H:i:s');
-						new Write($setData, $this->table);
+									if (ValidatePosts::valida_users($setData) !== true) {
+											return $this->setResponse = ValidatePosts::valida_users($setData);
+											exit;
+									} else {
+											$this->addRecord($setData);
+									}
 
-					}
-					break;
+				 break;
 
-					case 'update':
-					return $this->setResponse = "Update data in database";
+				  case 'update':
+									return $this->setResponse = "Update data in database";
 					break;
 
 					default:
-					return $this->setResponse = GetRecord($this->table);
+									return $this->getAllRecord();
 					break;
 				}//and switchs
-			} catch (\Exception $e) {
-				print($e->getMessage());
-			}
 
 		} else {
-
-			$dt = new GetRecord();
-			$this->setResponse = $dt->getAllList($this->table);
-			return $this->setResponse;
-
+					$this->getAllRecord($this->table);
 		}
+	}
+
+
+	private function addRecord($setData){
+					unset($setData['action']);
+					unset($setData['module']);
+
+					$setData['password']  = sha1(md5($data['password']));
+					$setData['inputDate'] = (new \Datetime())->format('Y-m-d H:i:s');
+					new Write($setData, $this->table);
+	}
+
+
+	private function getAllRecord($tableName = ''){
+		if(!empty($tableName)){
+				try {
+								$dt = new GetRecord();
+								$this->setResponse = $dt->getAllList($tableName);
+								return $this->setResponse;
+				}catch (\Exception $e) {
+								print($e->getMessage());
+				}
+ 		 }
 	}
 
 }

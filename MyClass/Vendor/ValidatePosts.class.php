@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 namespace MyClass\Vendor;
 
 use MyClass\DataValidator;
 
-class ValidatesPosts
+class ValidatePosts
 {
 	public function __construct()
 	{
@@ -29,4 +29,5 @@ class ValidatesPosts
 			return $dt->get_errors();
 		}
 	}
+	
 }

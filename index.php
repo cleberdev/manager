@@ -48,6 +48,7 @@ if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MC
 	$moduleNow = Config::_MCLASS_."\\"._ROUTER_NOW_;
 	$Obj_str   = new $moduleNow($_POST);
 
+	$smarty->assign('MOD', _ROUTER_NOW_);
 	$smarty->assign('response', $Obj_str->setResponse);
 	$smarty->display(Config::_VIEWS_._ROUTER_NOW_.'.html');
 
