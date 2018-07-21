@@ -2,7 +2,7 @@
 
 namespace MyClass;
 
-use MyClass\DataValidator;
+use MyClass\Vendor\ValidatesPosts;
 use MyClass\Persistence\GetRecord;
 use MyClass\Persistence\Write;
 
@@ -33,8 +33,8 @@ Class Users
 			try {
 				switch ($action) {
 					case 'add':
-					if ($this->validate_Data_Users($setData) !== true) {
-						return $this->setResponse = $this->validate_Data_Users($setData);
+					if (ValidatesPosts::valida_users($setData) !== true) {
+						return $this->setResponse = ValidatesPosts::valida_users($setData);
 						exit;
 					} else {
 						unset($setData['action']);
@@ -65,25 +65,6 @@ Class Users
 			$this->setResponse = $dt->getAllList($this->table);
 			return $this->setResponse;
 
-		}
-	}
-
-	/*
-	* Method for validation of datas the users
-	* Receive parameters data of type array
-	* @return True if validation positive
-	*/
-	private function validate_Data_Users($data = []) {
-
-		$dt = new DataValidator();
-		$dt->set('name', $data['name'])->is_required()->min_length(3)
-		->set('email', $data['email'])->is_email()
-		->set('login', $data['login'])->min_length(3);
-
-		if ($dt->validate()) {
-			return true;
-		} else {
-			return $dt->get_errors();
 		}
 	}
 

@@ -1,15 +1,19 @@
 <?php
 
 namespace MyClass\Persistence;
+
 use System\DB\Database;
 
-Class Write extends database {
+Class Write extends database
+{
 
-	public function __construct($getData = [], $table = "") {
+	public function __construct($getData = [], $table = "") 
+	{
 		self::writeInDB($getData, $table);
 	}
 
-	private function writeInDB($getData = [], $table = "") {
+	private function writeInDB($getData = [], $table = "")
+	{
 		if (!empty($getData) && !empty($table)) {
 			foreach ($getData as $key => $value) {
 				$newGetDataKey[]    = $key;
