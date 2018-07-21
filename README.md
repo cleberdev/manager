@@ -1,0 +1,2 @@
+# manager
+my project personal
