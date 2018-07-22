@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-21 01:03:11
+/* Smarty version 3.1.32, created on 2018-07-22 20:03:00
   from 'C:\Program Files (x86)\Ampps\www\manager\views\Users.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b52864fdd61c6_57617514',
+  'unifunc' => 'content_5b54e2f489e219_14200238',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ce5a4d56d2eab060d46037e781afa16e1f3c01a7' => 
     array (
       0 => 'C:\\Program Files (x86)\\Ampps\\www\\manager\\views\\Users.html',
-      1 => 1532134985,
+      1 => 1532289777,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b52864fdd61c6_57617514 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b54e2f489e219_14200238 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Header -->
 <!-- In the PHP version you can set the following options from inc/config file -->
 <!--
@@ -193,8 +193,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['curr_id']->value) {
 placeholders/avatars/avatar9.jpg" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar pull-left">
                                           <h3 class="widget-heading h4"><strong><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->name;?>
 </strong></h3>
-                                          <span class="text-muted"><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->type;?>
-</span>
+                                          <button href="#modal-add-user" class="btn btn_update"  data-toggle="modal" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+">Editar: <?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+</button>
                                         </div>
                                       </a>
                                     </div>
@@ -217,7 +218,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                         </div>
                                         <div class="modal-body">
                                           <form action="Users" method="post" id="form_users" class="form-horizontal form-bordered">
-                                            <input type="hidden" value="Users" name="module">
+                                            <input type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['MOD']->value;?>
+" name="module">
                                             <input type="hidden" value="add" name="action">
                                             <input type="hidden" value="1" name="type">
 
@@ -274,5 +276,5 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                       </div>
                                     </div>
                                   </div>
-<!-- END Add Contact Modal --><?php }
+                                  <!-- END Add Contact Modal --><?php }
 }

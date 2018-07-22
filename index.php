@@ -53,7 +53,6 @@ if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MC
 	$smarty->display(Config::_VIEWS_._ROUTER_NOW_.'.html');
 
 } else {
-
 	$smarty->display(Config::_VIEWS_.'Dashboard.html');
 }
 
