@@ -17,6 +17,8 @@ $smarty->assign("title", "Manager Sites", true);
  * navegation of system
  */
 $smarty->assign("assets", Config::_ASSETSCSS_);
+
+$smarty->assign("link_notify", Config::_ASSETSJS_);
 $smarty->assign("link_css", Config::_THCSS_);
 $smarty->assign("link_JSv", Config::_THJSv_);
 $smarty->assign("link_img", Config::_THIMG_);

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-19 21:04:16
+/* Smarty version 3.1.32, created on 2018-07-23 20:22:48
   from '/Applications/AMPPS/www/manager/views/commons/head.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b50fcd08366e9_41898554',
+  'unifunc' => 'content_5b5639182a0bb5_91544503',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f454bad6bf91cfd420008390a6e5751dbea28b0f' => 
     array (
       0 => '/Applications/AMPPS/www/manager/views/commons/head.html',
-      1 => 1531772934,
+      1 => 1532377273,
       2 => 'file',
     ),
   ),
@@ -20,12 +20,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b50fcd08366e9_41898554 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b5639182a0bb5_91544503 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
-<!--[if gt IE 9]><!--> 
-<html class="no-js"> <!--<![endif]-->
-<head>
+<!--[if gt IE 9]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+
+  <head>
     <meta charset="utf-8">
 
     <title><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
@@ -85,38 +87,45 @@ themes.css">
     <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['assets']->value;?>
 mystyle.css">
 
+    <!-- Style personal for Confirmation Box -->
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['assets']->value;?>
+jquery-confirm.css">
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['assets']->value;?>
+jquery-confirm.less">
+
     <!-- Modernizr (browser feature detection library) -->
     <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['link_JSv']->value;?>
 modernizr-2.8.3.min.js"><?php echo '</script'; ?>
 >
-</head>
-<body>
+  </head>
+
+  <body>
     <!-- Page Wrapper -->
     <!-- In the PHP version you can set the following options from inc/config file -->
-        <!--
+    <!--
             Available classes:
 
             'page-loading'      enables page preloader
         -->
-        <div id="page-wrapper" class="page-loading">
-            <!-- Preloader -->
-            <!-- Preloader functionality (initialized in js/app.js) - pageLoading() -->
-            <!-- Used only if page preloader enabled from inc/config (PHP version) or the class 'page-loading' is added in #page-wrapper element (HTML version) -->
-            <div class="preloader">
-                <div class="inner">
-                    <!-- Animation spinner for all modern browsers -->
-                    <div class="preloader-spinner themed-background hidden-lt-ie10"></div>
+    <div id="page-wrapper" class="page-loading">
+      <!-- Preloader -->
+      <!-- Preloader functionality (initialized in js/app.js) - pageLoading() -->
+      <!-- Used only if page preloader enabled from inc/config (PHP version) or the class 'page-loading' is added in #page-wrapper element (HTML version) -->
+      <div class="preloader">
+        <div class="inner">
+          <!-- Animation spinner for all modern browsers -->
+          <div class="preloader-spinner themed-background hidden-lt-ie10"></div>
 
-                    <!-- Text for IE9 -->
-                    <h3 class="text-primary visible-lt-ie10"><strong>Loading..</strong></h3>
-                </div>
-            </div>
-            <!-- END Preloader -->
+          <!-- Text for IE9 -->
+          <h3 class="text-primary visible-lt-ie10"><strong>Loading..</strong></h3>
+        </div>
+      </div>
+      <!-- END Preloader -->
 
-            <!-- Page Container -->
-            <!-- In the PHP version you can set the following options from inc/config file -->
-            <!--
+      <!-- Page Container -->
+      <!-- In the PHP version you can set the following options from inc/config file -->
+      <!--
                 Available #page-container classes:
 
                 'sidebar-light'                                 for a light main sidebar (You can add it along with any other class)
@@ -133,82 +142,82 @@ modernizr-2.8.3.min.js"><?php echo '</script'; ?>
 
                 'enable-cookies'                                enables cookies for remembering active color theme when changed from the sidebar links (You can add it along with any other class)
             -->
-            <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
-                <!-- Alternative Sidebar -->
-                <div id="sidebar-alt" tabindex="-1" aria-hidden="true">
-                    <!-- Toggle Alternative Sidebar Button (visible only in static layout) -->
-                    <a href="javascript:void(0)" id="sidebar-alt-close" onclick="App.sidebar('toggle-sidebar-alt');"><i class="fa fa-times"></i></a>
+      <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
+        <!-- Alternative Sidebar -->
+        <div id="sidebar-alt" tabindex="-1" aria-hidden="true">
+          <!-- Toggle Alternative Sidebar Button (visible only in static layout) -->
+          <a href="javascript:void(0)" id="sidebar-alt-close" onclick="App.sidebar('toggle-sidebar-alt');"><i class="fa fa-times"></i></a>
 
-                    <!-- Wrapper for scrolling functionality -->
-                    <div id="sidebar-scroll-alt">
-                        <!-- Sidebar Content -->
-                        <div class="sidebar-content">
-                            <!-- Sidebar Section -->
-                            <div class="sidebar-section">
-                                <h2 class="text-light">Header</h2>
-                                <p>Section content..</p>
-                            </div>
-                            <!-- END Sidebar Section -->
-                        </div>
-                        <!-- END Sidebar Content -->
-                    </div>
-                    <!-- END Wrapper for scrolling functionality -->
-                </div>
-                <!-- END Alternative Sidebar -->
+          <!-- Wrapper for scrolling functionality -->
+          <div id="sidebar-scroll-alt">
+            <!-- Sidebar Content -->
+            <div class="sidebar-content">
+              <!-- Sidebar Section -->
+              <div class="sidebar-section">
+                <h2 class="text-light">Header</h2>
+                <p>Section content..</p>
+              </div>
+              <!-- END Sidebar Section -->
+            </div>
+            <!-- END Sidebar Content -->
+          </div>
+          <!-- END Wrapper for scrolling functionality -->
+        </div>
+        <!-- END Alternative Sidebar -->
 
-                <!-- Main Sidebar -->
-                <div id="sidebar">
-                    <!-- Sidebar Brand -->
-                    <div id="sidebar-brand" class="themed-background">
-                        <a href="Dashboard" class="sidebar-title">
+        <!-- Main Sidebar -->
+        <div id="sidebar">
+          <!-- Sidebar Brand -->
+          <div id="sidebar-brand" class="themed-background">
+            <a href="Dashboard" class="sidebar-title">
                             <i class="fa fa-cube"></i> <span class="sidebar-nav-mini-hide"><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
 <strong></strong></span>
                         </a>
-                    </div>
-                    <!-- END Sidebar Brand -->
+          </div>
+          <!-- END Sidebar Brand -->
 
-                    <!-- Wrapper for scrolling functionality -->
-                    <div id="sidebar-scroll">
-                        <!-- Sidebar Content -->
-                        <div class="sidebar-content">
-                            <!-- Sidebar Navigation -->
-                            <ul class="sidebar-nav">
-                                <li>
-                                    <a href="javascript:void(0)" class="active"><i class="gi gi-compass sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Navegar</span></a>
-                                </li>
-                                <li class="sidebar-separator">
-                                    <i class="fa fa-ellipsis-h"></i>
-                                </li>
-                                <li>
-                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-chevron-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-cog sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Sistema</span></a>
-                                    <ul>
-                                        <li>
-                                            <a href="Users">Usuários</a>
-                                        </li>
-                                        <li>
-                                            <a href="Permission">Permissões</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <!-- END Sidebar Navigation -->
+          <!-- Wrapper for scrolling functionality -->
+          <div id="sidebar-scroll">
+            <!-- Sidebar Content -->
+            <div class="sidebar-content">
+              <!-- Sidebar Navigation -->
+              <ul class="sidebar-nav">
+                <li>
+                  <a href="javascript:void(0)" class="active"><i class="gi gi-compass sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Navegar</span></a>
+                </li>
+                <li class="sidebar-separator">
+                  <i class="fa fa-ellipsis-h"></i>
+                </li>
+                <li>
+                  <a href="#" class="sidebar-nav-menu"><i class="fa fa-chevron-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-cog sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Sistema</span></a>
+                  <ul>
+                    <li>
+                      <a href="Users">Usuários</a>
+                    </li>
+                    <li>
+                      <a href="Permission">Permissões</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <!-- END Sidebar Navigation -->
 
-                            
-                        </div>
-                        <!-- END Sidebar Content -->
-                    </div>
-                    <!-- END Wrapper for scrolling functionality -->
 
-                    <!-- Sidebar Extra Info -->
-                    <!-- END Sidebar Extra Info -->
-                </div>
-                <!-- END Main Sidebar -->
+            </div>
+            <!-- END Sidebar Content -->
+          </div>
+          <!-- END Wrapper for scrolling functionality -->
 
-                <!-- Main Container -->
-                <div id="main-container">
-                    <!-- Header -->
-                    <!-- In the PHP version you can set the following options from inc/config file -->
-                    <!--
+          <!-- Sidebar Extra Info -->
+          <!-- END Sidebar Extra Info -->
+        </div>
+        <!-- END Main Sidebar -->
+
+        <!-- Main Container -->
+        <div id="main-container">
+          <!-- Header -->
+          <!-- In the PHP version you can set the following options from inc/config file -->
+          <!--
                         Available header.navbar classes:
 
                         'navbar-default'            for the default light header
@@ -220,85 +229,85 @@ modernizr-2.8.3.min.js"><?php echo '</script'; ?>
                         'navbar-fixed-bottom'       for a bottom fixed header (fixed main sidebar with scroll will be auto initialized, functionality can be found in js/app.js - handleSidebar()))
                             'header-fixed-bottom'   has to be added on #page-container only if the class 'navbar-fixed-bottom' was added
                         -->
-                        <header class="navbar navbar-inverse navbar-fixed-top">
-                            <!-- Left Header Navigation -->
-                            <ul class="nav navbar-nav-custom">
-                                <!-- Main Sidebar Toggle Button -->
-                                <li>
-                                    <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
+          <header class="navbar navbar-inverse navbar-fixed-top">
+            <!-- Left Header Navigation -->
+            <ul class="nav navbar-nav-custom">
+              <!-- Main Sidebar Toggle Button -->
+              <li>
+                <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
                                         <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
                                         <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
                                     </a>
-                                </li>
-                                <!-- END Main Sidebar Toggle Button -->
+              </li>
+              <!-- END Main Sidebar Toggle Button -->
 
-                                <!-- Header Link -->
-                                <li class="hidden-xs animation-fadeInQuick">
-                                    <a href=""><strong>DASHBOARD</strong></a>
-                                </li>
-                                <!-- END Header Link -->
-                            </ul>
-                            <!-- END Left Header Navigation -->
+              <!-- Header Link -->
+              <li class="hidden-xs animation-fadeInQuick">
+                <a href=""><strong>DASHBOARD</strong></a>
+              </li>
+              <!-- END Header Link -->
+            </ul>
+            <!-- END Left Header Navigation -->
 
-                            <!-- Right Header Navigation -->
-                            <ul class="nav navbar-nav-custom pull-right">
-                                <!-- Search Form -->
-                                <!-- END Search Form -->
-                                <!-- Alternative Sidebar Toggle Button -->
-                                <li>
-                                    <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar-alt');this.blur();">
+            <!-- Right Header Navigation -->
+            <ul class="nav navbar-nav-custom pull-right">
+              <!-- Search Form -->
+              <!-- END Search Form -->
+              <!-- Alternative Sidebar Toggle Button -->
+              <li>
+                <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar-alt');this.blur();">
                                         <i class="gi gi-settings"></i>
                                     </a>
-                                </li>
-                                <!-- END Alternative Sidebar Toggle Button -->
+              </li>
+              <!-- END Alternative Sidebar Toggle Button -->
 
-                                <!-- User Dropdown -->
-                                <li class="dropdown">
-                                    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+              <!-- User Dropdown -->
+              <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
                                         <img src="<?php echo $_smarty_tpl->tpl_vars['link_img']->value;?>
 placeholders/avatars/avatar.jpg" alt="avatar">
                                     </a>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li class="dropdown-header">
-                                            <strong>ADMINISTRATOR</strong>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li class="dropdown-header">
+                    <strong>ADMINISTRATOR</strong>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0)">
                                                 <i class="fa fa-inbox fa-fw pull-right"></i>
                                                 Link #1
                                             </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
+                  </li>
+                  <li>
+                    <a href="javascript:void(0)">
                                                 <i class="fa fa-pencil-square fa-fw pull-right"></i>
                                                 Link #2
                                             </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0)">
+                  </li>
+                  <li>
+                    <a href="javascript:void(0)">
                                                 <i class="fa fa-picture-o fa-fw pull-right"></i>
                                                 Link #3
                                             </a>
-                                        </li>
-                                        <li class="divider"><li>
-                                            <li>
-                                                <a href="javascript:void(0)">
+                  </li>
+                  <li class="divider">
+                    <li>
+                      <li>
+                        <a href="javascript:void(0)">
                                                     <i class="gi gi-settings fa-fw pull-right"></i>
                                                     Link #1
                                                 </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0)">
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">
                                                     <i class="gi gi-lock fa-fw pull-right"></i>
                                                     Link #2
                                                 </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <!-- END User Dropdown -->
-                                </ul>
-                                <!-- END Right Header Navigation -->
-                            </header>
-                            <!-- END Header -->
-<?php }
+                      </li>
+                </ul>
+                </li>
+                <!-- END User Dropdown -->
+            </ul>
+            <!-- END Right Header Navigation -->
+          </header>
+          <!-- END Header --><?php }
 }

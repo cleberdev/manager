@@ -1,15 +1,38 @@
 $( document ).ready(function() {
 
+  //Action for delete record
+$('.btn_delete').click(function(){
+    var idx = $(this).index(this);
+    var pKey = $(this).eq(idx).attr('flag');
+    $.confirm({
+    title: 'Excluir Registro',
+    content: 'Deseja realmente Apagar este registro Key: '+ pKey+'?',
+    theme: 'material',
+    closeIcon: true,
+    animation: 'scale',
+    type: 'red',
+    buttons: {
+        Sim: function () {
+            $.alert('Confirmed! Key: '+ pKey);
+        },
+        Não: function () {
+            $.alert('Canceled!');
+        }
+    }
+});
+});
+
+
   // Action for update of date
   $('.btn_update').click(function(){
     var idx = $(this).index(this);
-    var pKey = $(this).eq(idx).attr('flag');   
+    var pKey = $(this).eq(idx).attr('flag');
 
-    getDataUser('update', pKey, 'Users'); 
+    getDataUser('update', pKey, 'Users');
   });
 
 
-  
+
   //action for send data
   $('#form_users').submit(function(event){
    event.preventDefault();
@@ -26,17 +49,15 @@ $( document ).ready(function() {
       data: $('#form_users').serialize(),
       dataType: 'json',  //type data
       success: function(data){
-        console.log(data);
-        // if(data === null){
-        //   location.reload();
-        // }else{
-        //   $(".response-content").html( '' );
-        //   $.each(data, function () {
-        //     $.each(this, function (name, value) {
-        //      $(".response-content").append( "<span>"+value+"</span><br>" ).css('display', 'block');
-        //    });
-        //   });
-        // }
+        if(data === null){
+          location.reload();
+        }else{
+          $.each(data, function () {
+            $.each(this, function (name, value) {
+              $.notify(value, { position:"top left" });
+           });
+          });
+        }
         }//success
       });
   }
@@ -57,9 +78,9 @@ $( document ).ready(function() {
         $('input[name=type]').val(1); //waiting an momento for integrat
         $('input[name=name]').val(data[0]['name']);
         $('input[name=email]').val(data[0]['email']);
-        $('input[name=phone]').val(data[0]['phone']); 
+        $('input[name=phone]').val(data[0]['phone']);
         $('input[name=login]').val(data[0]['login']);
-        $('input[name=password]').val('');  
+        $('input[name=password]').val('');
       }//success
     });
   }//END getDataUser

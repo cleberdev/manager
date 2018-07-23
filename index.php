@@ -23,25 +23,25 @@ require_once ("Smarty_ini.php");
 // 	'module' => 'Users',
 // 	'action' => 'add',
 // 	'type' => '1',
-// 	'name' => 'te',
+// 	'name' => 'Cleber Silva santos',
 // 	'email' => 'teste@teste.com.br',
 // 	'phone' => '(83)98899-4466',
 // 	'login' => 'testeste',
 // 	'password' => 'cl159ss'
 // );
-
+//
 // print("<pre>");
 // print_r($post);
 // print("</pre>");
-
+//
 // $moduleNow = Config::_MCLASS_."\\"._ROUTER_NOW_;
 // $Obj_str   = new $moduleNow($post);
-
+//
 // print("<pre>");
 // var_dump($Obj_str->setResponse);
 // print("</pre>");
-
-
+//
+//
 // die;
 
 if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MCLASS_."/"._ROUTER_NOW_.".class.php")) {

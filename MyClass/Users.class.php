@@ -50,7 +50,7 @@ Class Users
 					return $this->setResponse = ValidatePosts::valida_users($setData);
 					exit;
 				} else {
-					$this->updateRecord($setData);
+					return $this->updateRecord($setData);
 				}
 				exit;
 				break;
@@ -69,10 +69,11 @@ Class Users
 			unset($setData['action']);
 			unset($setData['module']);
 			$identity = filter_var($setData['identity'], FILTER_SANITIZE_NUMBER_INT);
-			unset($setData);
+			unset($setData['identity']);
 
 			$setData['password']  = sha1(md5($data['password']));
 			$setData['inputDate'] = (new \Datetime())->format('Y-m-d H:i:s');
+
 			new Rewrite($setData, $this->table, $identity);
 		}
 
@@ -80,6 +81,7 @@ Class Users
 		private function addRecord($setData){
 			unset($setData['action']);
 			unset($setData['module']);
+			unset($setData['identity']);
 
 			$setData['password']  = sha1(md5($data['password']));
 			$setData['inputDate'] = (new \Datetime())->format('Y-m-d H:i:s');

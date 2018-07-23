@@ -7,28 +7,20 @@ use System\DB\Database;
 Class Rewrite extends database
 {
 
-	public function __construct($getData = [], $table = "", $paramId = "") 
+	public function __construct($getData = [], $table = "", $paramId = "")
 	{
-		self::Rewrite($getData, $table);
+		self::Rewrite($getData, $table, $paramId);
 	}
 
 	private function Rewrite($getData = [], $table = "", $paramId = "" )
 	{
 		if (!empty($getData) && !empty($table)) {
 			foreach ($getData as $key => $value) {
-				$newGetDataKey[]    = $key;
-				$newGetDataValues[] = $value;
+				$newGetDataKey[]    = $key.'='."'".$value."'";
 			}
 			$nameInputs = implode(',', $newGetDataKey);
-
-			foreach ($newGetDataValues as $key) {
-				$valoresTratatos[] = str_replace($key, "'".$key."'", $key);
-			}
-
-			$nameInputsForm = implode(',', $valoresTratatos);
-			$SQL            = "update ".$table." SET $nameInputsForm WHERE id=".$paramId;
-
-			return $this->insertDB($SQL);
+			$SQL            = "update ".$table." SET $nameInputs WHERE id=".$paramId;
+			return $this->updateDB($SQL);
 
 		} else {
 			throw new \Exception("Não foi possíve escrever as informações no banco de dados.", 1);

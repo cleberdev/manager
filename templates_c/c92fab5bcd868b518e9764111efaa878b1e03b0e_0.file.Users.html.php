@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-21 14:05:22
+/* Smarty version 3.1.32, created on 2018-07-23 20:29:04
   from '/Applications/AMPPS/www/manager/views/Users.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b533da22f0e36_73908218',
+  'unifunc' => 'content_5b563a904596c3_86470883',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c92fab5bcd868b518e9764111efaa878b1e03b0e' => 
     array (
       0 => '/Applications/AMPPS/www/manager/views/Users.html',
-      1 => 1532181861,
+      1 => 1532377617,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b533da22f0e36_73908218 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b563a904596c3_86470883 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Header -->
 <!-- In the PHP version you can set the following options from inc/config file -->
 <!--
@@ -181,27 +181,32 @@ placeholders/avatars/avatar9.jpg" alt="avatar">
   </div>
   <!-- END Contacts Header -->
   <!-- Contacts Content -->
-  <?php
+  <div class="row">
+    <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['response']->value, 'curr_id');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['curr_id']->value) {
 ?>
-  <div class="col-sm-6 col-md-4 col-lg-3 clearfix">
-    <a href="javascript:void(0)" class="widget">
-      <div class="widget-content text-right clearfix">
-        <img src="<?php echo $_smarty_tpl->tpl_vars['link_img']->value;?>
+    <div class="col-sm-6 col-md-4 col-lg-3 clearfix">
+      <a href="#modal-add-user" class="widget btn_update" data-toggle="modal" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+">
+        <div class="widget-content text-right clearfix">
+          <img src="<?php echo $_smarty_tpl->tpl_vars['link_img']->value;?>
 placeholders/avatars/avatar9.jpg" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar pull-left">
-        <h3 class="widget-heading h4"><strong><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->name;?>
+          <h3 class="widget-heading h4"><strong><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->name;?>
 </strong></h3>
-        <span class="text-muted"><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->type;?>
-</span>
-      </div>
-    </a>
-  </div>
-  <?php
+          <span><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->email;?>
+</span><br>
+        </div>
+      </a>
+      <buttom class="btn btn-error btn_delete" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+">Excluir</buttom>
+    </div>
+    <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+  </div>
 
 
   <!-- END Contacts Content -->
@@ -221,6 +226,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 " name="module">
           <input type="hidden" value="add" name="action">
           <input type="hidden" value="1" name="type">
+          <input type="hidden" value="" name="identity">
 
           <div class="msn_conteiner response-content">
 
@@ -236,7 +242,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           <div class="form-group">
             <label class="col-xs-3 control-label" for="add-contact-name">Name</label>
             <div class="col-xs-9">
-              <input type="text" id="add-contact-name" name="name" class="form-control" placeholder="Enter Full Name..">
+              <input type="text" id="add-contact-name" name="name" class="form-control" placeholder="Enter Full Name.." value="">
             </div>
           </div>
           <div class="form-group">
@@ -275,5 +281,5 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                       </div>
                                     </div>
                                   </div>
-<!-- END Add Contact Modal --><?php }
+                                  <!-- END Add Contact Modal --><?php }
 }
