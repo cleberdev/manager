@@ -13,22 +13,19 @@ use System\Config;
 
 
 $module = filter_var($_POST['module'], FILTER_SANITIZE_STRING);
+$action = filter_var($_GET['action'], FILTER_SANITIZE_STRING);
 
-//VERIFICAR ESSA LINHA
-//QUANDO ELA ESTÁ ATIVA NAO DEIXA A INSERCAO FUNCIONAR
-// if(isset($_GET)){
-// 	$action = filter_var($_GET['action'], FILTER_SANITIZE_STRING);
-// 	$module = filter_var($_GET['module'], FILTER_SANITIZE_STRING);
-// 	if($action == 'update'){
-// 		$pKey = filter_var($_GET['key'], FILTER_SANITIZE_NUMBER_INT);
+if($action == 'update'){
+	$module = filter_var($_GET['module'], FILTER_SANITIZE_STRING);
+	$pKey = filter_var($_GET['key'], FILTER_SANITIZE_NUMBER_INT);
 
-// 		$moduleNow = Config::_MCLASS_."\\".$module;
-// 		$Obj_str   = new $moduleNow();
-// 		$data = json_encode($Obj_str->getDataId($pKey));
-// 		print_r($data);
-// 		exit;
-// 	}
-// }
+	$moduleNow = Config::_MCLASS_."\\".$module;
+	$Obj_str   = new $moduleNow();
+	$data = json_encode($Obj_str->getDataId($pKey));
+	print_r($data);
+	exit;
+}
+
 
 
 

@@ -5,6 +5,7 @@ namespace MyClass;
 use MyClass\Vendor\ValidatePosts;
 use MyClass\Persistence\GetRecord;
 use MyClass\Persistence\Write;
+use MyClass\Persistence\Rewrite;
 
 Class Users
 {
@@ -45,18 +46,34 @@ Class Users
 				break;
 
 				case 'update':
-				return $this->setResponse = "Update data in database";
+				if (ValidatePosts::valida_users($setData) !== true) {
+					return $this->setResponse = ValidatePosts::valida_users($setData);
+					exit;
+				} else {
+					$this->updateRecord($setData);
+				}
 				exit;
 				break;
 
 				default:
-				return $this->getAllRecord();
+				// return $this->getAllRecord();
 				break;
 				}//and switchs
 
 			} else {
 				$this->getAllRecord($this->table);
 			}
+		}
+
+		private function updateRecord($setData){
+			unset($setData['action']);
+			unset($setData['module']);
+			$identity = filter_var($setData['identity'], FILTER_SANITIZE_NUMBER_INT);
+			unset($setData);
+
+			$setData['password']  = sha1(md5($data['password']));
+			$setData['inputDate'] = (new \Datetime())->format('Y-m-d H:i:s');
+			new Rewrite($setData, $this->table, $identity);
 		}
 
 

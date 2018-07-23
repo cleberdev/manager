@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-22 20:03:00
+/* Smarty version 3.1.32, created on 2018-07-23 01:05:21
   from 'C:\Program Files (x86)\Ampps\www\manager\views\Users.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b54e2f489e219_14200238',
+  'unifunc' => 'content_5b5529d12d72f0_66576416',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ce5a4d56d2eab060d46037e781afa16e1f3c01a7' => 
     array (
       0 => 'C:\\Program Files (x86)\\Ampps\\www\\manager\\views\\Users.html',
-      1 => 1532289777,
+      1 => 1532307586,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b54e2f489e219_14200238 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b5529d12d72f0_66576416 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Header -->
 <!-- In the PHP version you can set the following options from inc/config file -->
 <!--
@@ -222,6 +222,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 " name="module">
                                             <input type="hidden" value="add" name="action">
                                             <input type="hidden" value="1" name="type">
+                                            <input type="hidden" value="" name="identity">
 
                                             <div class="msn_conteiner response-content">
 
@@ -237,7 +238,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                                             <div class="form-group">
                                               <label class="col-xs-3 control-label" for="add-contact-name">Name</label>
                                               <div class="col-xs-9">
-                                                <input type="text" id="add-contact-name" name="name" class="form-control" placeholder="Enter Full Name..">
+                                                <input type="text" id="add-contact-name" name="name" class="form-control" placeholder="Enter Full Name.." value="">
                                               </div>
                                             </div>
                                             <div class="form-group">
