@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-23 01:05:21
+/* Smarty version 3.1.32, created on 2018-07-24 01:07:23
   from 'C:\Program Files (x86)\Ampps\www\manager\views\Users.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5529d12d72f0_66576416',
+  'unifunc' => 'content_5b567bcb69e5e3_41016311',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ce5a4d56d2eab060d46037e781afa16e1f3c01a7' => 
     array (
       0 => 'C:\\Program Files (x86)\\Ampps\\www\\manager\\views\\Users.html',
-      1 => 1532307586,
+      1 => 1532390113,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5529d12d72f0_66576416 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b567bcb69e5e3_41016311 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Header -->
 <!-- In the PHP version you can set the following options from inc/config file -->
 <!--
@@ -181,28 +181,32 @@ placeholders/avatars/avatar9.jpg" alt="avatar">
                                     </div>
                                     <!-- END Contacts Header -->
                                     <!-- Contacts Content -->
-                                    <?php
+                                    <div class="row">
+                                      <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['response']->value, 'curr_id');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['curr_id']->value) {
 ?>
-                                    <div class="col-sm-6 col-md-4 col-lg-3 clearfix">
-                                      <a href="javascript:void(0)" class="widget">
-                                        <div class="widget-content text-right clearfix">
-                                          <img src="<?php echo $_smarty_tpl->tpl_vars['link_img']->value;?>
+                                      <div class="col-sm-6 col-md-4 col-lg-3 clearfix">
+                                        <a href="#modal-add-user" class="widget btn_update" data-toggle="modal" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+">
+                                          <div class="widget-content text-right clearfix">
+                                            <img src="<?php echo $_smarty_tpl->tpl_vars['link_img']->value;?>
 placeholders/avatars/avatar9.jpg" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar pull-left">
-                                          <h3 class="widget-heading h4"><strong><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->name;?>
+                                            <h3 class="widget-heading h4"><strong><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->name;?>
 </strong></h3>
-                                          <button href="#modal-add-user" class="btn btn_update"  data-toggle="modal" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
-">Editar: <?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
-</button>
-                                        </div>
-                                      </a>
-                                    </div>
-                                    <?php
+                                            <span><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->email;?>
+</span><br>
+                                          </div>
+                                        </a>
+                                        <a href="javascript:void(0)" data-toggle="tooltip" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+" title="Excluir" class="btn btn-effect-ripple btn-sm btn-danger btn_delete" style="overflow: hidden; position: relative;margin-top: -67px; border-radius: 32px;" data-original-title="Delete User"><i class="fa fa-times"></i></a>
+                                      </div>
+                                      <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                                    </div>
 
 
                                     <!-- END Contacts Content -->

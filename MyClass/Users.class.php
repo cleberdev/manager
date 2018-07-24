@@ -6,6 +6,7 @@ use MyClass\Vendor\ValidatePosts;
 use MyClass\Persistence\GetRecord;
 use MyClass\Persistence\Write;
 use MyClass\Persistence\Rewrite;
+use MyClass\Persistence\DeleteRecord;
 
 Class Users
 {
@@ -55,6 +56,11 @@ Class Users
 				exit;
 				break;
 
+				case 'delete':
+				return $this->deleteRecord($pIdentity);
+				exit;
+				break;
+
 				default:
 				// return $this->getAllRecord();
 				break;
@@ -64,6 +70,24 @@ Class Users
 				$this->getAllRecord($this->table);
 			}
 		}
+
+
+
+		public function deleteRecord($paramId = null){
+			if(!is_null($paramId)){
+				try {
+
+					$dt = new DeleteRecord($this->table, $paramId);
+					$this->setResponse = $dt;
+					return $this->setResponse;
+				}catch (\Exception $e) {
+					print($e->getMessage());
+					die;
+				}
+			}
+		}
+
+
 
 		private function updateRecord($setData){
 			unset($setData['action']);

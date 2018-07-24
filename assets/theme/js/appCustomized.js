@@ -1,26 +1,25 @@
 $( document ).ready(function() {
 
   //Action for delete record
-$('.btn_delete').click(function(){
+  $('.btn_delete').click(function(){
     var idx = $(this).index(this);
     var pKey = $(this).eq(idx).attr('flag');
     $.confirm({
-    title: 'Excluir Registro',
-    content: 'Deseja realmente Apagar este registro Key: '+ pKey+'?',
-    theme: 'material',
-    closeIcon: true,
-    animation: 'scale',
-    type: 'red',
-    buttons: {
+      title: 'Excluir Registro',
+      content: 'Deseja realmente Apagar este registro Key: '+ pKey+'?',
+      theme: 'material',
+      closeIcon: true,
+      animation: 'scale',
+      type: 'red',
+      buttons: {
         Sim: function () {
-            $.alert('Confirmed! Key: '+ pKey);
+          deleteRecord('delete', pKey, 'Users');
+          location.reload(alert('Registro Excluído com sucesso!'));
         },
-        Não: function () {
-            $.alert('Canceled!');
-        }
-    }
-});
-});
+        Não: function () {  }
+      }
+    });
+  });
 
 
   // Action for update of date
@@ -55,7 +54,7 @@ $('.btn_delete').click(function(){
           $.each(data, function () {
             $.each(this, function (name, value) {
               $.notify(value, { position:"top left" });
-           });
+            });
           });
         }
         }//success
@@ -81,6 +80,18 @@ $('.btn_delete').click(function(){
         $('input[name=phone]').val(data[0]['phone']);
         $('input[name=login]').val(data[0]['login']);
         $('input[name=password]').val('');
+      }//success
+    });
+  }//END getDataUser
+
+
+  function deleteRecord(param_action, param_key, param_module){
+    $.ajax({
+      url : 'AjaxServices.php', /* url the service */
+      type : 'GET', /* request type */
+      data: 'action='+ param_action + '&key='+ param_key +'&module='+ param_module,
+      dataType: 'json',
+      success: function(data){
       }//success
     });
   }//END getDataUser

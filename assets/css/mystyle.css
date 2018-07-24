@@ -1,3 +1,4 @@
 
 .msn_conteiner{width: 100%; text-align: center; background: #b78c8c45; color: #967a7a; font-weight: bold; padding: 15px;  display: none;}
 .clearfix{height: 121px; margin-bottom: 14px;}
+.btn-danger { background-color: #de815c70;  border-color: #de815c30; }

@@ -28,7 +28,16 @@ if($action == 'update'){
 
 
 
+if($action == 'delete'){
+	$module = filter_var($_GET['module'], FILTER_SANITIZE_STRING);
+	$pKey = filter_var($_GET['key'], FILTER_SANITIZE_NUMBER_INT);
 
+	$moduleNow = Config::_MCLASS_."\\".$module;
+	$Obj_str   = new $moduleNow();
+	$data = json_encode($Obj_str->deleteRecord($pKey));
+	print_r($data);
+	exit;
+}
 
 
 /*
