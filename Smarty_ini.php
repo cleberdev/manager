@@ -10,7 +10,7 @@ $smarty->debugging      = false;
 $smarty->caching        = false;
 $smarty->cache_lifetime = 120;
 
-$smarty->assign("title", "Manager Sites", true);
+$smarty->assign("title", "Manager System", true);
 
 /*
  * header of system: config libs paths
@@ -28,7 +28,7 @@ $smarty->assign("link_pliguis", Config::_THJSp_);
 $smarty->assign("link_js", Config::_THJS_);
 
 /*
- * -instantly path current of URI
+ * -instance path current of URI
  * -provides URI for handling and searching the template respective
  * -The constant saves the current path
  */

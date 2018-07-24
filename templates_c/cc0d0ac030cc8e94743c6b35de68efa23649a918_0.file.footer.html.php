@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-24 01:07:23
-  from 'C:\Program Files (x86)\Ampps\www\manager\views\commons\footer.html' */
+/* Smarty version 3.1.32, created on 2018-07-24 19:56:05
+  from '/Applications/AMPPS/www/manager/views/commons/footer.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b567bcb8bff25_68991004',
+  'unifunc' => 'content_5b578455c15621_60019021',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '53c60354630db6a339f5224a102dd1fe66609c92' => 
+    'cc0d0ac030cc8e94743c6b35de68efa23649a918' => 
     array (
-      0 => 'C:\\Program Files (x86)\\Ampps\\www\\manager\\views\\commons\\footer.html',
-      1 => 1532388830,
+      0 => '/Applications/AMPPS/www/manager/views/commons/footer.html',
+      1 => 1532377350,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b567bcb8bff25_68991004 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b578455c15621_60019021 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- END Page Content -->
 
 </div>

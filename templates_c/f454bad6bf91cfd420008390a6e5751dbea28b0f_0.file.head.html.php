@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-24 01:07:23
-  from 'C:\Program Files (x86)\Ampps\www\manager\views\commons\head.html' */
+/* Smarty version 3.1.32, created on 2018-07-24 19:51:33
+  from '/Applications/AMPPS/www/manager/views/commons/head.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b567bcb395101_46829130',
+  'unifunc' => 'content_5b578345342fa6_47472801',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '812873ec181c24cb8ee9ac17e8a1fc4a322a8975' => 
+    'f454bad6bf91cfd420008390a6e5751dbea28b0f' => 
     array (
-      0 => 'C:\\Program Files (x86)\\Ampps\\www\\manager\\views\\commons\\head.html',
-      1 => 1532388830,
+      0 => '/Applications/AMPPS/www/manager/views/commons/head.html',
+      1 => 1532377273,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b567bcb395101_46829130 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b578345342fa6_47472801 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
 <!--[if gt IE 9]><!-->

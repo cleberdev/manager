@@ -12,7 +12,7 @@ Class Users
 {
 
 	private $table = "users";
-	private $response;
+	protected $response;
 
 	public function setResponse($response) {
 		$this->response = $response;
@@ -38,7 +38,7 @@ Class Users
 				case 'add':
 
 				if (ValidatePosts::valida_users($setData) !== true) {
-					return $this->setResponse = ValidatePosts::valida_users($setData);
+					return $this->setResponse( ValidatePosts::valida_users($setData));
 					exit;
 				} else {
 					$this->addRecord($setData);
@@ -48,7 +48,7 @@ Class Users
 
 				case 'update':
 				if (ValidatePosts::valida_users($setData) !== true) {
-					return $this->setResponse = ValidatePosts::valida_users($setData);
+					return $this->setResponse( ValidatePosts::valida_users($setData) );
 					exit;
 				} else {
 					return $this->updateRecord($setData);
@@ -62,7 +62,7 @@ Class Users
 				break;
 
 				default:
-				// return $this->getAllRecord();
+					$this->getAllRecord($this->table);
 				break;
 				}//and switchs
 
@@ -78,8 +78,8 @@ Class Users
 				try {
 
 					$dt = new DeleteRecord($this->table, $paramId);
-					$this->setResponse = $dt;
-					return $this->setResponse;
+					$this->setResponse( $dt );
+					return $this->getResponse();
 				}catch (\Exception $e) {
 					print($e->getMessage());
 					die;
@@ -98,7 +98,8 @@ Class Users
 			$setData['password']  = sha1(md5($data['password']));
 			$setData['inputDate'] = (new \Datetime())->format('Y-m-d H:i:s');
 
-			new Rewrite($setData, $this->table, $identity);
+			$this->setResponse( new Rewrite($setData, $this->table, $identity) );
+
 		}
 
 
@@ -113,17 +114,17 @@ Class Users
 		}
 
 
-		private function getAllRecord($tableName = ''){
-			if(!empty($tableName)){
+		private function getAllRecord($tableName){
+
 				try {
-					$dt = new GetRecord();
-					$this->setResponse = $dt->getAllList($tableName);
-					return $this->setResponse;
+					$result = (new GetRecord())->getAllList($tableName);
+					$this->setResponse( $result ) ;
 				}catch (\Exception $e) {
-					print($e->getMessage());
+						print($e->getMessage());
+						die;
 				}
-			}
-		}
+
+		}//END THE METHOD getAllList
 
 
 		public function getDataId($paramId = null){

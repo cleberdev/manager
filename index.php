@@ -38,9 +38,8 @@ require_once ("Smarty_ini.php");
 // $Obj_str   = new $moduleNow($post);
 //
 // print("<pre>");
-// var_dump($Obj_str->setResponse);
+// var_dump($Obj_str);
 // print("</pre>");
-//
 //
 // die;
 
@@ -49,7 +48,7 @@ if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MC
 	$Obj_str   = new $moduleNow($_POST);
 
 	$smarty->assign('MOD', _ROUTER_NOW_);
-	$smarty->assign('response', $Obj_str->setResponse);
+	$smarty->assign('response', $Obj_str->getResponse());
 	$smarty->display(Config::_VIEWS_._ROUTER_NOW_.'.html');
 
 } else {

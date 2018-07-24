@@ -11,6 +11,7 @@ class GetRecord extends Database {
 	public function getAllList($getTabel) {
 		$SQL = "select * from ".$getTabel;
 		return $this->selectDB($SQL);
+
 	}
 
 	public function getRecordId($getTabel, $paramId) {

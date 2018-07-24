@@ -41,14 +41,15 @@ if($action == 'delete'){
 
 
 /*
-* service ajax if the run 
+* service ajax if the run
 */
 if (file_exists(Config::_MCLASS_."/".$module.".class.php")) {
 	$moduleNow = Config::_MCLASS_."\\".$module;
 	$Obj_str   = new $moduleNow($_POST);
 
-	$data = json_encode($Obj_str->setResponse);
+	$data = json_encode($Obj_str->getResponse());
 	print_r($data);
 }else{
 	echo "Erro. Class not Found";
+	die;
 }

@@ -21,7 +21,7 @@ Class Rewrite extends database
 			$nameInputs = implode(',', $newGetDataKey);
 			$SQL            = "update ".$table." SET $nameInputs WHERE id=".$paramId;
 			return $this->updateDB($SQL);
-
+			
 		} else {
 			throw new \Exception("Não foi possíve escrever as informações no banco de dados.", 1);
 		}

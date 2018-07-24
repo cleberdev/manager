@@ -2,12 +2,19 @@
 namespace System\DB;
 
 /*Method construct of Database*/
-abstract class Database {
+abstract class Database
+{
 
-	private function __construct() {}
+	private function __construct()
+	{
+
+	}
 
 	/*Evita que a classe seja clonada*/
-	private function __clone() {}
+	private function __clone()
+	{
+
+	}
 
 	/*Método que destroi a conexão com banco de dados e remove da memória todas as variáveis setadas*/
 	public function __destruct() {
@@ -58,7 +65,7 @@ abstract class Database {
 		if (isset($class)) {
 			$rs = $query->fetchAll(\PDO::FETCH_CLASS, $class) or die(print_r($query->errorInfo(), true));
 		} else {
-			$rs = $query->fetchAll(\PDO::FETCH_OBJ) or die(print_r($query->errorInfo(), true));
+			$rs = $query->fetchAll(\PDO::FETCH_OBJ)  ;
 		}
 		self::__destruct();
 		return $rs;
@@ -82,7 +89,7 @@ abstract class Database {
 	public function updateDB($sql, $params = null) {
 		$query = $this->connect()->prepare($sql);
 		$query->execute($params);
-		$rs = $query->rowCount() or die(print_r($query->errorInfo(), true));
+		$rs = $query->rowCount();
 		self::__destruct();
 		return $rs;
 	}
@@ -96,8 +103,4 @@ abstract class Database {
 		return $rs;
 	}
 
-
-	public function test(){
-		print(" test in database ");
-	}
 }//final class

@@ -4,9 +4,10 @@ $( document ).ready(function() {
   $('.btn_delete').click(function(){
     var idx = $(this).index(this);
     var pKey = $(this).eq(idx).attr('flag');
+
     $.confirm({
       title: 'Excluir Registro',
-      content: 'Deseja realmente Apagar este registro Key: '+ pKey+'?',
+      content: 'Deseja realmente Apagar este registro ?',
       theme: 'material',
       closeIcon: true,
       animation: 'scale',
@@ -14,7 +15,7 @@ $( document ).ready(function() {
       buttons: {
         Sim: function () {
           deleteRecord('delete', pKey, 'Users');
-          location.reload(alert('Registro Excluído com sucesso!'));
+          location.reload();
         },
         Não: function () {  }
       }
@@ -48,7 +49,8 @@ $( document ).ready(function() {
       data: $('#form_users').serialize(),
       dataType: 'json',  //type data
       success: function(data){
-        if(data === null){
+        console.log(data);
+        if($.isEmptyObject(data)){
           location.reload();
         }else{
           $.each(data, function () {
@@ -92,6 +94,7 @@ $( document ).ready(function() {
       data: 'action='+ param_action + '&key='+ param_key +'&module='+ param_module,
       dataType: 'json',
       success: function(data){
+        $.alert('Registro Excluído com sucesso!');
       }//success
     });
   }//END getDataUser

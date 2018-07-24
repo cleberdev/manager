@@ -1,4 +1,27 @@
-<!-- Header -->
+<?php
+/* Smarty version 3.1.32, created on 2018-07-24 21:49:31
+  from '/Applications/AMPPS/www/manager/views/Users.html' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.32',
+  'unifunc' => 'content_5b579eeb315020_07442163',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'c92fab5bcd868b518e9764111efaa878b1e03b0e' => 
+    array (
+      0 => '/Applications/AMPPS/www/manager/views/Users.html',
+      1 => 1532468970,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5b579eeb315020_07442163 (Smarty_Internal_Template $_smarty_tpl) {
+?><!-- Header -->
 <!-- In the PHP version you can set the following options from inc/config file -->
 <!--
                         Available header.navbar classes:
@@ -53,7 +76,8 @@
     <!-- User Dropdown -->
     <li class="dropdown">
       <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-                                  <img src="{$link_img}placeholders/avatars/avatar9.jpg" alt="avatar">
+                                  <img src="<?php echo $_smarty_tpl->tpl_vars['link_img']->value;?>
+placeholders/avatars/avatar9.jpg" alt="avatar">
                                 </a>
       <ul class="dropdown-menu dropdown-menu-right">
         <li class="dropdown-header">
@@ -196,35 +220,52 @@
 
     <!-- Contacts Content -->
     <div class="row">
-      {foreach from=$response item=curr_id}
+      <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['response']->value, 'curr_id');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['curr_id']->value) {
+?>
       <div class="col-sm-4 col-lg-3">
         <div class="media-items animation-fadeInQuick2">
           <div class="media-items-options text-right">
             <!-- <a href="img/placeholders/photos/photo1.jpg" class="btn btn-xs btn-info" data-toggle="lightbox-image">View</a> -->
-            <a href="#modal-add-user" class="btn btn-xs btn-success btn_update" data-toggle="modal" flag="{$curr_id->id}"><i class="fa fa-pencil"></i></a>
-            <a href="javascript:void(0)" class="btn btn-xs btn-danger btn-danger btn_delete" data-toggle="tooltip" flag="{$curr_id->id}" title="Excluir"><i class="fa fa-times"></i></a>
+            <a href="#modal-add-user" class="btn btn-xs btn-success btn_update" data-toggle="modal" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+"><i class="fa fa-pencil"></i></a>
+            <a href="javascript:void(0)" class="btn btn-xs btn-danger btn-danger btn_delete" data-toggle="tooltip" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+" title="Excluir"><i class="fa fa-times"></i></a>
           </div>
           <div class="media-items-content">
-            <img src="{$link_img}placeholders/avatars/avatar9.jpg" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar pull-center">
+            <img src="<?php echo $_smarty_tpl->tpl_vars['link_img']->value;?>
+placeholders/avatars/avatar9.jpg" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar pull-center">
           </div>
           <h4>
 
-                <strong>{$curr_id->name}</strong><br>
-                <small>{$curr_id->email}</small>
+                <strong><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->name;?>
+</strong><br>
+                <small><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->email;?>
+</small>
             </h4>
         </div>
       </div>
-      {/foreach}
+      <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
       <!-- <div class="col-sm-6 col-md-4 col-lg-3 clearfix content-card">
-        <a href="#modal-add-user" class="widget btn_update" data-toggle="modal" flag="{$curr_id->id}">
+        <a href="#modal-add-user" class="widget btn_update" data-toggle="modal" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+">
           <div class="widget-content text-right clearfix">
-            <img src="{$link_img}placeholders/avatars/avatar9.jpg" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar pull-left">
-            <h3 class="widget-heading h4"><strong>{$curr_id->name}</strong></h3>
-            <span>{$curr_id->email}</span><br>
+            <img src="<?php echo $_smarty_tpl->tpl_vars['link_img']->value;?>
+placeholders/avatars/avatar9.jpg" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar pull-left">
+            <h3 class="widget-heading h4"><strong><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->name;?>
+</strong></h3>
+            <span><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->email;?>
+</span><br>
           </div>
         </a>
-        <a href="javascript:void(0)" data-toggle="tooltip" flag="{$curr_id->id}" title="Excluir" class="btn btn-effect-ripple btn-sm btn-danger btn_delete" style="overflow: hidden;position: relative;margin-top: -94px;border-radius: 6px;" data-original-title="Delete User"><i class="fa fa-times"></i></a>
+        <a href="javascript:void(0)" data-toggle="tooltip" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+" title="Excluir" class="btn btn-effect-ripple btn-sm btn-danger btn_delete" style="overflow: hidden;position: relative;margin-top: -94px;border-radius: 6px;" data-original-title="Delete User"><i class="fa fa-times"></i></a>
       </div> -->
 
 
@@ -246,7 +287,8 @@
       </div>
       <div class="modal-body">
         <form action="Users" method="post" id="form_users" class="form-horizontal form-bordered">
-          <input type="hidden" value="{$MOD}" name="module">
+          <input type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['MOD']->value;?>
+" name="module">
           <input type="hidden" value="add" name="action">
           <input type="hidden" value="1" name="type">
           <input type="hidden" value="" name="identity">
@@ -304,4 +346,5 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <!-- END Add Contact Modal -->
+                                  <!-- END Add Contact Modal --><?php }
+}
