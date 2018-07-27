@@ -50,6 +50,6 @@ if (file_exists(Config::_MCLASS_."/".$module.".class.php")) {
 	$data = json_encode($Obj_str->getResponse());
 	print_r($data);
 }else{
-	echo "Erro. Class not Found";
+	echo "Error. System not found";
 	die;
 }

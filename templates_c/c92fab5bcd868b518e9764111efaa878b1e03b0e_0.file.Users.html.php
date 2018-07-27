@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-24 21:49:31
+/* Smarty version 3.1.32, created on 2018-07-27 15:23:00
   from '/Applications/AMPPS/www/manager/views/Users.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b579eeb315020_07442163',
+  'unifunc' => 'content_5b5b38d4ef1593_02003702',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c92fab5bcd868b518e9764111efaa878b1e03b0e' => 
     array (
       0 => '/Applications/AMPPS/www/manager/views/Users.html',
-      1 => 1532468970,
+      1 => 1532704974,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b579eeb315020_07442163 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b5b38d4ef1593_02003702 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Header -->
 <!-- In the PHP version you can set the following options from inc/config file -->
 <!--
@@ -213,7 +213,7 @@ placeholders/avatars/avatar9.jpg" alt="avatar">
         </div>
       </div>
 
-      <a href="#modal-add-user" class="btn btn-sm btn-success" data-toggle="modal"><i class="fa fa-plus"></i>Novo Usuário</a>
+      <a href="#modal-add-user" class="btn btn-sm btn-success btn-new-user" data-toggle="modal"><i class="fa fa-plus"></i>Novo Usuário</a>
       <h2></h2>
     </div>
     <!-- END Example Title -->
@@ -317,7 +317,7 @@ placeholders/avatars/avatar9.jpg" alt="avatar" class="img-circle img-thumbnail i
             </div>
           </div>
           <div class="form-group">
-            <label class="col-xs-3 control-label" for="add-contact-phone">Phone</label>
+            <label class="col-xs-3 control-label" for="add-contact-phone">Telefone</label>
             <div class="col-xs-9">
               <input type="phone" id="add-contact-phone" name="phone" class="form-control" placeholder="(000) 000-0000">
             </div>

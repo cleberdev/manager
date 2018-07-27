@@ -99,4 +99,19 @@ $( document ).ready(function() {
     });
   }//END getDataUser
 
+
+
+
+$('.btn-new-user').click(function(){
+  $('input[name=identity]').val('');
+  $('input[name=action]').val('add');
+  $('input[name=type]').val(1); //waiting an momento for integrat
+  $('input[name=name]').val('');
+  $('input[name=email]').val('');
+  $('input[name=phone]').val('');
+  $('input[name=login]').val('');
+  $('input[name=password]').val('');
 });
+
+
+}); //END DOCUMENT LOAD

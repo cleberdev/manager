@@ -12,6 +12,7 @@ require_once ("Autoload.php");
  */
 
 use System\Config;
+
 /*
 *
 * Library of system that handling templates for he
@@ -19,6 +20,7 @@ use System\Config;
 
 
 require_once ("Smarty_ini.php");
+
 // $post = array(
 // 	'module' => 'Users',
 // 	'action' => 'add',
@@ -34,11 +36,14 @@ require_once ("Smarty_ini.php");
 // print_r($post);
 // print("</pre>");
 //
+
+//
+//
 // $moduleNow = Config::_MCLASS_."\\"._ROUTER_NOW_;
 // $Obj_str   = new $moduleNow($post);
 //
 // print("<pre>");
-// var_dump($Obj_str);
+// var_dump($Obj_str->getResponse());
 // print("</pre>");
 //
 // die;
@@ -49,9 +54,11 @@ if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MC
 
 	$smarty->assign('MOD', _ROUTER_NOW_);
 	$smarty->assign('response', $Obj_str->getResponse());
+	$smarty->display(Config::_VIEWS_C.'body.html');
 	$smarty->display(Config::_VIEWS_._ROUTER_NOW_.'.html');
 
 } else {
+	$smarty->display(Config::_VIEWS_C.'body.html');
 	$smarty->display(Config::_VIEWS_.'Dashboard.html');
 }
 
