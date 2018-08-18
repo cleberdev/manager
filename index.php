@@ -1,7 +1,7 @@
 <?php
 /*
  * Autor: Cleber Santos
- *  @param autoload for include for files
+ * @param autoload for include for files
  * Add new line
  */
 require_once ("Autoload.php");
@@ -12,6 +12,8 @@ require_once ("Autoload.php");
  */
 
 use System\Config;
+use MyClass\Permition;
+
 
 /*
 *
@@ -21,45 +23,91 @@ use System\Config;
 
 require_once ("Smarty_ini.php");
 
-// $post = array(
-// 	'module' => 'Users',
-// 	'action' => 'add',
-// 	'type' => '1',
-// 	'name' => 'Cleber Silva santos',
-// 	'email' => 'teste@teste.com.br',
-// 	'phone' => '(83)98899-4466',
-// 	'login' => 'testeste',
-// 	'password' => 'cl159ss'
-// );
-//
-// print("<pre>");
-// print_r($post);
-// print("</pre>");
-//
 
-//
-//
-// $moduleNow = Config::_MCLASS_."\\"._ROUTER_NOW_;
-// $Obj_str   = new $moduleNow($post);
-//
+$perm = new Permition();
+$perm->verifyAccess();
+
+
 // print("<pre>");
-// var_dump($Obj_str->getResponse());
+// print_r($_SESSION);
 // print("</pre>");
-//
-// die;
+
 
 if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MCLASS_."/"._ROUTER_NOW_.".class.php")) {
 	$moduleNow = Config::_MCLASS_."\\"._ROUTER_NOW_;
 	$Obj_str   = new $moduleNow($_POST);
 
+
 	$smarty->assign('MOD', _ROUTER_NOW_);
 	$smarty->assign('response', $Obj_str->getResponse());
-	$smarty->display(Config::_VIEWS_C.'body.html');
-	$smarty->display(Config::_VIEWS_._ROUTER_NOW_.'.html');
+	
+
+	if( $perm->getLogin() ){
+		$smarty->display(Config::_VIEWS_C.'body.html');
+		$smarty->display(Config::_VIEWS_._ROUTER_NOW_.'.html');
+	}else{
+		$smarty->display(Config::_VIEWS_.'Login.html');	
+	}
+
 
 } else {
-	$smarty->display(Config::_VIEWS_C.'body.html');
-	$smarty->display(Config::_VIEWS_.'Dashboard.html');
+	//$smarty->display(Config::_VIEWS_C.'body.html');
+	//$smarty->display(Config::_VIEWS_._ROUTER_NOW_.'.html');
+	
+	if( $perm->getLogin() ){
+		$smarty->display(Config::_VIEWS_C.'body.html');
+		$smarty->display(Config::_VIEWS_.'Dashboard.html');	
+	}else{
+		$smarty->display(Config::_VIEWS_.'Login.html');	
+	}
 }
+
+
+// if( $perm->getLogin() ){
+
+
+// 	if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MCLASS_."/"._ROUTER_NOW_.".class.php")) {
+// 		$moduleNow = Config::_MCLASS_."\\"._ROUTER_NOW_;
+// 		$Obj_str   = new $moduleNow($_POST);
+
+// 		if(get_class( $Obj_str ) === 'MyClass\\Login'){
+
+// 		}
+// 		$smarty->assign('MOD', _ROUTER_NOW_);
+// 		$smarty->assign('response', $Obj_str->getResponse());
+// 		$smarty->display(Config::_VIEWS_C.'body.html');
+
+
+// 	} else {
+
+// 		$smarty->display(Config::_VIEWS_C.'body.html');
+// 	}
+
+
+// }else{
+
+// 	if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MCLASS_."/"._ROUTER_NOW_.".class.php")) {
+// 		$moduleNow = Config::_MCLASS_."\\"._ROUTER_NOW_;
+// 		$Obj_str   = new $moduleNow($_POST);
+
+
+// 		$smarty->assign('MOD', _ROUTER_NOW_);
+// 		$smarty->assign('response', $Obj_str->getResponse());
+// 		//$smarty->display(Config::_VIEWS_C.'body.html');
+// 		$smarty->display(Config::_VIEWS_._ROUTER_NOW_.'.html');
+
+// 	} else {
+
+// 	//	$smarty->display(Config::_VIEWS_C.'body.html');
+// 		$smarty->display(Config::_VIEWS_.'Login.html');
+// 	}
+
+
+// } 
+
+
+
+
+
 
 $smarty->display(Config::_VIEWS_C.'footer.html');

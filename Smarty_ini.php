@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 use MyClass\Route;
 use System\Config;
 
