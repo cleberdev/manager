@@ -2,11 +2,15 @@
 
 namespace MyClass;
 
-use MyClass\Vendor\ValidatePosts;
+use MyClass\EngineTemplate\ValidatePosts;
 use MyClass\Persistence\GetRecord;
 use MyClass\Persistence\Write;
 use MyClass\Persistence\Rewrite;
 use MyClass\Persistence\DeleteRecord;
+
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+use Monolog\Handler\FirePHPHandler;
 
 Class Users
 {
@@ -31,44 +35,53 @@ Class Users
 
 
 	private function actionUser($setData = []) {
+
 		if (isset($setData['action'])) {
 			$action = $setData['action'];
 
-			switch ($action) {
-				case 'add':
+				switch ($action) {
+					case 'add':
 
-				if (ValidatePosts::valida_users($setData) !== true) {
-					return $this->setResponse( ValidatePosts::valida_users($setData));
-					exit;
-				} else {
-					$this->addRecord($setData);
-				}
+								if (ValidatePosts::valida_users($setData) !== true) {
+									return $this->setResponse( ValidatePosts::valida_users($setData));
+									exit;
+								} else {
 
-				break;
+									$this->addRecord($setData);
+								}
+								break;
 
-				case 'update':
-				if (ValidatePosts::valida_users($setData) !== true) {
-					return $this->setResponse( ValidatePosts::valida_users($setData) );
-					exit;
-				} else {
-					return $this->updateRecord($setData);
-				}
-				exit;
-				break;
+					case 'update':
+							if (ValidatePosts::valida_users($setData) !== true) {
+									return $this->setResponse( ValidatePosts::valida_users($setData) );
+									exit;
+								} else {
+									return $this->updateRecord($setData);
+							}
+							exit;
+							break;
 
-				case 'delete':
-				return $this->deleteRecord($pIdentity);
-				exit;
-				break;
+					case 'delete':
+							return $this->deleteRecord($pIdentity);
+								exit;
+								break;
 
-				default:
-					$this->getAllRecord($this->table);
-				break;
-				}//and switchs
+					default:
+						$this->getAllRecord($this->table);
+					break;
+					}//and switchs
 
 			} else {
 				$this->getAllRecord($this->table);
 			}
+
+			// $stream  = new StreamHandler(__DIR__.'/logger_app.log', Logger::DEBUG);
+			// $firephp = new FirePHPHandler();
+			// $logger  = new Logger('loggers');
+			//
+			// $logger->pushHandler($stream);
+			// $logger->pushHandler($firephp);
+		  // $logger->info('Ações do usuário! '.$setData['action']);
 		}
 
 

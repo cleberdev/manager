@@ -23,12 +23,12 @@ abstract Class Config {
 	CONST _VIEWS_C        = 'views/commons/';
 	CONST _VIEWS_ERR      = 'views/errors/';
 
-
 	//PATH FOR LAYOUT
 	CONST _THIMG_ = 'assets/theme/img/';
 	CONST _THCSS_ = 'assets/theme/css/';
 	CONST _THJS_  = 'assets/theme/js/';
 	CONST _THJSv_ = 'assets/theme/js/vendor/';
 	CONST _THJSp_ = 'assets/theme/js/plugins/';
+
 
 }//end class

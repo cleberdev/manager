@@ -1,8 +1,9 @@
 <?php
 
-namespace MyClass\Vendor;
+namespace MyClass\EngineTemplate;
 
 use MyClass\DataValidator;
+
 
 class ValidatePosts
 {
@@ -29,5 +30,5 @@ class ValidatePosts
 			return $dt->get_errors();
 		}
 	}
-	
+
 }
