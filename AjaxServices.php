@@ -3,6 +3,7 @@
  * @param autoload for include for files
  */
 require_once ("Autoload.php");
+require_once ("vendor/autoload.php");
 /*
  *
  * Start System Configuration

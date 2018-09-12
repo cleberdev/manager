@@ -2,3 +2,6 @@
 [2018-09-11 18:45:25] loggers.INFO: Acesso negado! Dados fornecidos: cleber@wdcom.com.br [] []
 [2018-09-11 18:45:36] loggers.INFO: Acesso negado! Dados fornecidos:  [] []
 [2018-09-11 18:45:40] loggers.INFO: Acesso autorizado ao sistema. Retorno: 1 [] []
+[2018-09-11 23:41:38] loggers.INFO: Acesso negado! Dados fornecidos:  [] []
+[2018-09-11 23:41:44] loggers.INFO: Acesso negado! Dados fornecidos: sistemaC [] []
+[2018-09-12 01:24:36] loggers.INFO: Usuário apagou o registro: [identity]=> 53 [] []
