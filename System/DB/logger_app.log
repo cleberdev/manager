@@ -1,0 +1,8 @@
+[2018-09-13 18:19:45] loggers.INFO: O script SQL delete from users where id=106 Foi executado pelo Usuário X [] []
+[2018-09-13 18:20:25] loggers.INFO: O script SQL delete from users where id=106 Foi executado pelo Usuário X [] []
+[2018-09-13 18:20:50] loggers.INFO: O script SQL delete from users where id=109 Foi executado pelo Usuário X [] []
+[2018-09-13 18:20:53] loggers.INFO: O script SQL delete from users where id=108 Foi executado pelo Usuário X [] []
+[2018-09-13 18:52:36] loggers.INFO: O script SQL update users SET type='1',name='Cleber Silva santos',email='cleber@wdcom.com.br',phone='83999982222',login='usuario',password='67a74306b06d0c01624fe0d0249a570f4d093747',inputDate='2018-09-13 18:52:36' WHERE id=104 Foi executado pelo Usuário X [] []
+[2018-09-13 18:58:08] loggers.INFO: O script SQL update users SET type='1',name='Cleber',email='cleber@wdcom.com.br',phone='83999982222',login='usuario',password='67a74306b06d0c01624fe0d0249a570f4d093747',inputDate='2018-09-13 18:58:08' WHERE id=104 Foi executado pelo Usuário X [] []
+[2018-09-13 20:54:06] loggers.INFO: O script SQL update users SET type='1',name='Cleber',email='cleber@wdcom.com.br',phone='83999982222',login='teste',password='67a74306b06d0c01624fe0d0249a570f4d093747',inputDate='2018-09-13 20:54:05' WHERE id=104 Foi executado pelo Usuário X [] []
+[2018-09-13 20:54:47] loggers.INFO: O script SQL update users SET type='1',name='Cleber Santos',email='cleber@wdcom.com.br',phone='83999982222',login='teste',password='67a74306b06d0c01624fe0d0249a570f4d093747',inputDate='2018-09-13 20:54:47' WHERE id=104 Foi executado pelo Usuário X [] []

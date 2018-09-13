@@ -53,11 +53,11 @@ $( document ).ready(function() {
         if($.isEmptyObject(data)){
           location.reload();
         }else{
-          $.each(data, function () {
-            $.each(this, function (name, value) {
-              $.notify(value, { position:"top left" });
-            });
-          });
+          var i;
+          for (i = 0; i < data.length; i++) {
+              $.notify(data[i], { position:"top left" }); ;
+          }
+
         }
         }//success
       });

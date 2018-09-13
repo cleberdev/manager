@@ -1,11 +1,9 @@
 <?php
 namespace System\DB;
 
-
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\FirePHPHandler;
-
 
 /*Method construct of Database*/
 abstract class Database
@@ -13,7 +11,7 @@ abstract class Database
 
 	private function __construct()
 	{
-		
+
 	}
 
 	/*Evita que a classe seja clonada*/
@@ -51,10 +49,10 @@ abstract class Database
 		$stream  = new StreamHandler(__DIR__.'/logger_app.log', Logger::DEBUG);
 		$firephp = new FirePHPHandler();
 		$logger  = new Logger('loggers');
-		
+
 		$logger->pushHandler($stream);
 		$logger->pushHandler($firephp);
-		
+
 		try
 		{
 			$this->conexao = new \PDO($this->getDBType().":host=".$this->getHost().";port=".$this->getPort().";dbname=".$this->getDB(), $this->getUser(), $this->getPassword());
@@ -92,11 +90,11 @@ abstract class Database
 		$stream  = new StreamHandler(__DIR__.'/logger_app.log', Logger::DEBUG);
 		$firephp = new FirePHPHandler();
 		$logger  = new Logger('loggers');
-		
+
 		$logger->pushHandler($stream);
 		$logger->pushHandler($firephp);
 		$msn = 'O método insertDB gerou uma excessão ao tentar inserir na base de Dados';
-		
+
 		$conexao = $this->connect();
 		$query   = $conexao->prepare($sql);
 		if (!$query->execute($params)) {
@@ -118,7 +116,7 @@ abstract class Database
 		$stream  = new StreamHandler(__DIR__.'/logger_app.log', Logger::DEBUG);
 		$firephp = new FirePHPHandler();
 		$logger  = new Logger('loggers');
-		
+
 		$logger->pushHandler($stream);
 		$logger->pushHandler($firephp);
 		$msn = 'O método updateDB gerou uma excessão ao tentar modificar um registro na base de Dados';
@@ -143,7 +141,7 @@ abstract class Database
 		$stream  = new StreamHandler(__DIR__.'/logger_app.log', Logger::DEBUG);
 		$firephp = new FirePHPHandler();
 		$logger  = new Logger('loggers');
-		
+
 		$logger->pushHandler($stream);
 		$logger->pushHandler($firephp);
 		$msn = 'O método deleteDB gerou uma excessão ao tentar excluir um registro na base de Dados';
