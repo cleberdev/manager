@@ -1,13 +1,19 @@
 <?php
 namespace System\DB;
 
+
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+use Monolog\Handler\FirePHPHandler;
+
+
 /*Method construct of Database*/
 abstract class Database
 {
 
 	private function __construct()
 	{
-
+		
 	}
 
 	/*Evita que a classe seja clonada*/
@@ -41,12 +47,21 @@ abstract class Database
 	private function getDB() {return self::$db;}
 
 	private function connect() {
+
+		$stream  = new StreamHandler(__DIR__.'/logger_app.log', Logger::DEBUG);
+		$firephp = new FirePHPHandler();
+		$logger  = new Logger('loggers');
+		
+		$logger->pushHandler($stream);
+		$logger->pushHandler($firephp);
+		
 		try
 		{
 			$this->conexao = new \PDO($this->getDBType().":host=".$this->getHost().";port=".$this->getPort().";dbname=".$this->getDB(), $this->getUser(), $this->getPassword());
 		}
 		catch (PDOException $i) {
 			//se houver exceção, exibe
+			$logger->error( $i->getMessage() );
 			die("Erro: <code>".$i->getMessage()."</code>");
 		}
 
@@ -73,10 +88,22 @@ abstract class Database
 
 	/*Método insert que insere valores no banco de dados e retorna o último id inserido*/
 	public function insertDB($sql, $params = null) {
+
+		$stream  = new StreamHandler(__DIR__.'/logger_app.log', Logger::DEBUG);
+		$firephp = new FirePHPHandler();
+		$logger  = new Logger('loggers');
+		
+		$logger->pushHandler($stream);
+		$logger->pushHandler($firephp);
+		$msn = 'O método insertDB gerou uma excessão ao tentar inserir na base de Dados';
+		
 		$conexao = $this->connect();
 		$query   = $conexao->prepare($sql);
 		if (!$query->execute($params)) {
-			throw new \Exception("Ocorreu um Erro ao executar a inserção na base dados!");
+			$logger->error($msn);
+			throw new \Exception($msn);
+		}else{
+			$logger->info('O script SQL '.$sql.' Foi executado pelo Usuário X');
 		}
 
 		$rs = $conexao->lastInsertId() or die(print_r($query->errorInfo(), true));
@@ -87,8 +114,24 @@ abstract class Database
 
 	/*Método update que altera valores do banco de dados e retorna o número de linhas afetadas*/
 	public function updateDB($sql, $params = null) {
+
+		$stream  = new StreamHandler(__DIR__.'/logger_app.log', Logger::DEBUG);
+		$firephp = new FirePHPHandler();
+		$logger  = new Logger('loggers');
+		
+		$logger->pushHandler($stream);
+		$logger->pushHandler($firephp);
+		$msn = 'O método updateDB gerou uma excessão ao tentar modificar um registro na base de Dados';
+
 		$query = $this->connect()->prepare($sql);
 		$query->execute($params);
+		if (!$query->execute($params)) {
+			$logger->error($msn);
+			throw new \Exception($msn);
+		}else{
+			$logger->info('O script SQL '.$sql.' Foi executado pelo Usuário X');
+		}
+
 		$rs = $query->rowCount();
 		self::__destruct();
 		return $rs;
@@ -96,8 +139,25 @@ abstract class Database
 
 	/*Método delete que excluí valores do banco de dados retorna o número de linhas afetadas*/
 	public function deleteDB($sql, $params = null) {
+
+		$stream  = new StreamHandler(__DIR__.'/logger_app.log', Logger::DEBUG);
+		$firephp = new FirePHPHandler();
+		$logger  = new Logger('loggers');
+		
+		$logger->pushHandler($stream);
+		$logger->pushHandler($firephp);
+		$msn = 'O método deleteDB gerou uma excessão ao tentar excluir um registro na base de Dados';
+
+
 		$query = $this->connect()->prepare($sql);
 		$query->execute($params);
+		if (!$query->execute($params)) {
+			$logger->error($msn);
+			throw new \Exception($msn);
+		}else{
+			$logger->info('O script SQL '.$sql.' Foi executado pelo Usuário X');
+		}
+
 		$rs = $query->rowCount() or die(print_r($query->errorInfo(), true));
 		self::__destruct();
 		return $rs;
