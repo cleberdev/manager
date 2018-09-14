@@ -6,11 +6,7 @@
  */
 require_once ("Autoload.php");
 require_once ("vendor/autoload.php");
-/*
- *
- * Start System Configuration
- * CONSTANTS special for the system
- */
+
 
 use System\Config;
 use MyClass\Permition;
@@ -59,7 +55,7 @@ if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MC
 } else {
 
 	if( $perm->getLogin() ){
-	
+
 		$smarty->display(Config::_VIEWS_C.'body.html');
 		$smarty->display(Config::_VIEWS_.'Dashboard.html');
 	}else{

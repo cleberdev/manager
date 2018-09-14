@@ -34,7 +34,6 @@ Class Autoload {
 		}
 		//dependency Library of require once in loop
 		require_once ('MyClass/EngineTemplate/libs/Smarty.class.php');
-
 	}
 
 }

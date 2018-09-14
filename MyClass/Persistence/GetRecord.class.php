@@ -18,4 +18,11 @@ class GetRecord extends Database {
 		$SQL = "select * from ".$getTabel." where id=".$paramId;
 		return $this->selectDB($SQL);
 	}
+
+	public function getRecordEmail($getTabel, $paramId) {
+		$SQL = "select * from ".$getTabel." where email= '".$paramId."'";
+		return $this->selectDB($SQL);
+	}
+
+
 }

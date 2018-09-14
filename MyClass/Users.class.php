@@ -52,7 +52,7 @@ Class Users
 					return $this->setResponse( ValidatePosts::valida_users($setData) );
 					exit;
 				} else {
-					
+
 					return $this->updateRecord($setData);
 				}
 				exit;
@@ -99,7 +99,7 @@ Class Users
 		$identity = filter_var($setData['identity'], FILTER_SANITIZE_NUMBER_INT);
 		unset($setData['identity']);
 
-		$setData['password']  = sha1(md5($data['password']));
+		$setData['password']  = sha1(md5($setData['password'])) ;
 		$setData['inputDate'] = (new \Datetime())->format('Y-m-d H:i:s');
 
 		$this->setResponse( new Rewrite($setData, $this->table, $identity) );
@@ -112,7 +112,7 @@ Class Users
 		unset($setData['module']);
 		unset($setData['identity']);
 
-		$setData['password']  = sha1(md5($data['password']));
+		$setData['password']  = sha1(md5($setData['password'])) ;
 		$setData['inputDate'] = (new \Datetime())->format('Y-m-d H:i:s');
 		new Write($setData, $this->table);
 	}
@@ -137,6 +137,18 @@ Class Users
 						$dt = new GetRecord();
 						$this->setResponse = $dt->getRecordId($this->table, $paramId);
 						return $this->setResponse;
+					}catch (\Exception $e) {
+						print($e->getMessage());
+					}
+				}
+			}
+
+			public function getDataEmail($paramEmail = null){
+				if(!is_null($paramEmail)){
+					try {
+						$dt = new GetRecord();
+						return $dt->getRecordEmail($this->table, $paramEmail);
+
 					}catch (\Exception $e) {
 						print($e->getMessage());
 					}
