@@ -56,8 +56,9 @@ class Permition extends Database
 		$passRequest = sha1(md5( $_POST['login-password'] ));
 		$passDB 		 = $emailDB[0]->password;
 
+
 		if(isset($_POST['login-email']) and isset($_POST['login-password'])){
-			if($_POST['login-email'] == $emailDB[0]->email && $passRequest == $passDB  ){
+			if($_POST['login-email'] == $emailDB[0]->email && $passRequest == $passDB ){
 				$_SESSION['login'] = $emailDB[0]->email;
 				$_SESSION['pass']  = $_POST['login-password'];
 				$_SESSION['access']= true;
@@ -66,9 +67,9 @@ class Permition extends Database
 
 
 
-						$logger->pushHandler($stream);
-						$logger->pushHandler($firephp);
-						$logger->info('Login:: CORRETO::'. $_POST['login-email'].' E '.$_POST['login-password'].' in DB: '.$emailDB[0]->email );
+				$logger->pushHandler($stream);
+				$logger->pushHandler($firephp);
+				$logger->info('Login:: CORRETO::'. $_POST['login-email'].' E '.$_POST['login-password'].' in DB: '.$emailDB[0]->email );
 
 
 			}else{

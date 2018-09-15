@@ -16,6 +16,8 @@ use System\Config;
 $module = filter_var($_POST['module'], FILTER_SANITIZE_STRING);
 $action = filter_var($_GET['action'], FILTER_SANITIZE_STRING);
 
+
+
 if($action == 'update'){
 	$module = filter_var($_GET['module'], FILTER_SANITIZE_STRING);
 	$pKey = filter_var($_GET['key'], FILTER_SANITIZE_NUMBER_INT);

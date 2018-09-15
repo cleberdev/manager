@@ -47,7 +47,7 @@ if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MC
 	}else{
 		$logger->pushHandler($stream);
 		$logger->pushHandler($firephp);
-		$logger->info('Login Rejeitado !');
+		$logger->error('Login Rejeitado !');
 		$smarty->display(Config::_VIEWS_.'Login.html');
 	}
 

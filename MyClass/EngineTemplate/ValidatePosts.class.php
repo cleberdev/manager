@@ -2,7 +2,6 @@
 
 namespace MyClass\EngineTemplate;
 
-use MyClass\DataValidator;
 use MyClass\Rules;
 
 use GUMP;
