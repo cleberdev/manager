@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-29 01:00:50
+/* Smarty version 3.1.32, created on 2018-09-15 13:18:49
   from 'C:\Program Files (x86)\Ampps\www\manager\views\Login.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5d11c2a2b305_63578222',
+  'unifunc' => 'content_5b9d06b9d1bff1_77098905',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd5914da91fc1d3f1223aebb6a47a1c7ba9ef4ef2' => 
     array (
       0 => 'C:\\Program Files (x86)\\Ampps\\www\\manager\\views\\Login.html',
-      1 => 1532824515,
+      1 => 1537017347,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5d11c2a2b305_63578222 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b9d06b9d1bff1_77098905 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Login Container -->
 <div id="login-container">
   <!-- Login Header -->
   <h1 class="h2 text-light text-center push-top-bottom animation-slideDown">
-        <i class="fa fa-cube"></i> <strong>Bem-vindo ao Sistema</strong>
-    </h1>
+    <i class="fa fa-cube"></i> <strong>Bem-vindo ao Sistema</strong>
+  </h1>
   <!-- END Login Header -->
 
   <!-- Login Block -->
@@ -45,20 +45,20 @@ function content_5b5d11c2a2b305_63578222 (Smarty_Internal_Template $_smarty_tpl)
     <form id="form-login" action="Login" method="post" class="form-horizontal">
       <div class="form-group">
         <div class="col-xs-12">
-          <input type="text" id="login-email" name="login-email" class="form-control" placeholder="Your email..">
+          <input type="text" id="login-email" name="login-email" class="form-control" placeholder="Seu E-mail">
         </div>
       </div>
       <div class="form-group">
         <div class="col-xs-12">
-          <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Your password..">
+          <input type="password" id="login-password" name="login-password" class="form-control" placeholder="Sua Senha">
         </div>
       </div>
       <div class="form-group form-actions">
         <div class="col-xs-8">
           <label class="csscheckbox csscheckbox-primary">
-                        <input type="checkbox" id="login-remember-me" name="login-remember-me">
-                        <span></span>
-                    </label> Lembrar Senha?
+            <input type="checkbox" id="login-remember-me" name="login-remember-me">
+            <span></span>
+          </label> Lembrar Senha?
         </div>
         <div class="col-xs-4 text-right">
           <button type="submit" class="btn btn-effect-ripple btn-sm btn-primary"><i class="fa fa-check"></i> Entar</button>

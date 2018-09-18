@@ -9,23 +9,32 @@ require_once ("vendor/autoload.php");
 
 
 use System\Config;
-use MyClass\Permition;
+
+use MyClass\GetInforSession;
+use MyClass\Logout;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\FirePHPHandler;
 
 
-/*
-*
-* Library of system that handling templates for he
-*/
-
-
+/***************
+ *
+ *Library of system that handling templates for he
+ *
+ **/
 require_once ("Smarty_ini.php");
 
 
-$perm = new Permition();
-$perm->verifyAccess();
+
+/**
+ * destroy a session exists and return for 
+ * the screen of the login
+**/
+if(_ROUTER_NOW_ === 'Logout'){
+	$logout = new Logout();
+	$logout->endSession();
+}
+
 
 // Create some handlers
 $stream  = new StreamHandler(__DIR__.'/logger_app.log', Logger::DEBUG);
@@ -58,6 +67,10 @@ if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MC
 
 		$smarty->display(Config::_VIEWS_C.'body.html');
 		$smarty->display(Config::_VIEWS_.'Dashboard.html');
+
+
+		var_dump(  getInforSession::getDataSessionInDb(getInforSession::getInfor('infor_user','userID'), 'users') );
+
 	}else{
 		$logger->pushHandler($stream);
 		$logger->pushHandler($firephp);
@@ -66,5 +79,5 @@ if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MC
 	}
 }
 
-
 $smarty->display(Config::_VIEWS_C.'footer.html');
+

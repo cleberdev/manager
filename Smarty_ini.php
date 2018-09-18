@@ -3,6 +3,8 @@ session_start();
 
 use MyClass\Route;
 use System\Config;
+use MyClass\GetInforSession;
+use MyClass\Permition;
 
 $smarty = new Smarty;
 
@@ -13,6 +15,10 @@ $smarty->caching        = false;
 $smarty->cache_lifetime = 120;
 
 $smarty->assign("title", "Manager System", true);
+
+$perm = new Permition();
+$perm->verifyAccess();
+
 
 /*
  * header of system: config libs paths
@@ -41,6 +47,13 @@ $routing->add("/Users");
 $routing->add("/Permission");
 $routing->add("/Dashboard");
 $routing->add("/Login");
+$routing->add("/Logout");
 define('_ROUTER_NOW_', $routing->submit());
+
+$dataOfUser = getInforSession::getDataSessionInDb(getInforSession::getInfor('infor_user','userID'), 'users');
+$smarty->assign("boasVindas", "Olá, Seja Bém-Vindo ".$dataOfUser[0][0]->name);
+$smarty->assign("userConected", $dataOfUser[0][0]->name);
+$smarty->assign("userEmail", $dataOfUser[0][0]->email);
+$smarty->assign("typeUser", 'ADMINISTRADOR'/*$dataOfUser[0][0]->type*/);
 
 $smarty->display(Config::_VIEWS_C.'head.html');

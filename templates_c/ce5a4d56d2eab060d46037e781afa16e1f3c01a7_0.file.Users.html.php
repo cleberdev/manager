@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-07-29 00:42:32
+/* Smarty version 3.1.32, created on 2018-09-15 12:08:58
   from 'C:\Program Files (x86)\Ampps\www\manager\views\Users.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b5d0d78a3f492_50790955',
+  'unifunc' => 'content_5b9cf65aec8472_54115316',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ce5a4d56d2eab060d46037e781afa16e1f3c01a7' => 
     array (
       0 => 'C:\\Program Files (x86)\\Ampps\\www\\manager\\views\\Users.html',
-      1 => 1532824515,
+      1 => 1537013335,
       2 => 'file',
     ),
   ),
@@ -20,113 +20,8 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b5d0d78a3f492_50790955 (Smarty_Internal_Template $_smarty_tpl) {
-?><!-- Header -->
-<!-- In the PHP version you can set the following options from inc/config file -->
-<!--
-                        Available header.navbar classes:
-
-                        'navbar-default'            for the default light header
-                        'navbar-inverse'            for an alternative dark header
-
-                        'navbar-fixed-top'          for a top fixed header (fixed main sidebar with scroll will be auto initialized, functionality can be found in js/app.js - handleSidebar())
-                            'header-fixed-top'      has to be added on #page-container only if the class 'navbar-fixed-top' was added
-
-                        'navbar-fixed-bottom'       for a bottom fixed header (fixed main sidebar with scroll will be auto initialized, functionality can be found in js/app.js - handleSidebar()))
-                            'header-fixed-bottom'   has to be added on #page-container only if the class 'navbar-fixed-bottom' was added
-                          -->
-<header class="navbar navbar-inverse navbar-fixed-top">
-  <!-- Left Header Navigation -->
-  <ul class="nav navbar-nav-custom">
-    <!-- Main Sidebar Toggle Button -->
-    <li>
-      <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
-                                  <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
-                                  <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
-                                </a>
-    </li>
-    <!-- END Main Sidebar Toggle Button -->
-
-    <!-- Header Link -->
-    <li class="hidden-xs animation-fadeInQuick">
-      <a href=""><strong>Usuários</strong></a>
-    </li>
-    <!-- END Header Link -->
-  </ul>
-  <!-- END Left Header Navigation -->
-
-  <!-- Right Header Navigation -->
-  <ul class="nav navbar-nav-custom pull-right">
-    <!-- Search Form -->
-    <li>
-      <form action="page_ready_search_results.html" method="post" class="navbar-form-custom">
-        <input type="text" id="top-search" name="top-search" class="form-control" placeholder="Search..">
-      </form>
-    </li>
-    <!-- END Search Form -->
-
-    <!-- Alternative Sidebar Toggle Button -->
-    <li>
-      <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar-alt');this.blur();">
-                                  <i class="gi gi-settings"></i>
-                                </a>
-    </li>
-    <!-- END Alternative Sidebar Toggle Button -->
-
-    <!-- User Dropdown -->
-    <li class="dropdown">
-      <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-                                  <img src="<?php echo $_smarty_tpl->tpl_vars['link_img']->value;?>
-placeholders/avatars/avatar9.jpg" alt="avatar">
-                                </a>
-      <ul class="dropdown-menu dropdown-menu-right">
-        <li class="dropdown-header">
-          <strong>ADMINISTRATOR</strong>
-        </li>
-        <li>
-          <a href="page_app_email.html">
-                                      <i class="fa fa-inbox fa-fw pull-right"></i>
-                                      Inbox
-                                    </a>
-        </li>
-        <li>
-          <a href="page_app_social.html">
-                                      <i class="fa fa-pencil-square fa-fw pull-right"></i>
-                                      Profile
-                                    </a>
-        </li>
-        <li>
-          <a href="page_app_media.html">
-                                      <i class="fa fa-picture-o fa-fw pull-right"></i>
-                                      Media Manager
-                                    </a>
-        </li>
-        <li class="divider">
-          <li>
-            <li>
-              <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar-alt');">
-                                          <i class="gi gi-settings fa-fw pull-right"></i>
-                                          Settings
-                                        </a>
-            </li>
-            <li>
-              <a href="page_ready_lock_screen.html">
-                                          <i class="gi gi-lock fa-fw pull-right"></i>
-                                          Lock Account
-                                        </a>
-            </li>
-            <li>
-              <a href="page_ready_login.html">
-                                          <i class="fa fa-power-off fa-fw pull-right"></i>
-                                          Log out
-                                        </a>
-            </li>
-      </ul>
-      </li>
-      <!-- END User Dropdown -->
-  </ul>
-  <!-- END Right Header Navigation -->
-</header>
+function content_5b9cf65aec8472_54115316 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!-- END Header -->
 
 <!-- Page content -->
@@ -177,77 +72,77 @@ placeholders/avatars/avatar9.jpg" alt="avatar">
                                         <a href="javascript:void(0)" class="btn btn-sm btn-default">X</a>
                                         <a href="javascript:void(0)" class="btn btn-sm btn-default">Y</a>
                                         <a href="javascript:void(0)" class="btn btn-sm btn-default">Z</a> -->
-    </div>
-  </div>
-  <!-- END Contacts Header -->
-  <div class="block">
-    <!-- Example Title -->
-    <div class="block-title">
-      <div class="block-options pull-right">
-        <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default" data-toggle="tooltip" title="" style="overflow: hidden; position: relative;" data-original-title="Settings"><i class="fa fa-cog"></i></a>
-        <div class="btn-group">
-          <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="" style="overflow: hidden; position: relative;" data-original-title="Options">
- 						<i class="fa fa-chevron-down"></i>
- 					</a>
-          <ul class="dropdown-menu dropdown-menu-right">
-            <li>
-              <a href="javascript:void(0)">
- 								<i class="fa fa-pencil pull-right"></i>
- 								Edit
- 							</a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">
- 								<i class="fa fa-refresh pull-right"></i>
- 								Update
- 							</a>
-            </li>
-            <li class="divider"></li>
-            <li>
-              <a href="javascript:void(0)">
- 								<i class="fa fa-trash-o fa-fw pull-right"></i>
- 								Delete
- 							</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+                                      </div>
+                                    </div>
+                                    <!-- END Contacts Header -->
+                                    <div class="block">
+                                      <!-- Example Title -->
+                                      <div class="block-title">
+                                        <div class="block-options pull-right">
+                                          <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default" data-toggle="tooltip" title="" style="overflow: hidden; position: relative;" data-original-title="Settings"><i class="fa fa-cog"></i></a>
+                                          <div class="btn-group">
+                                            <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="" style="overflow: hidden; position: relative;" data-original-title="Options">
+                                             <i class="fa fa-chevron-down"></i>
+                                           </a>
+                                           <ul class="dropdown-menu dropdown-menu-right">
+                                            <li>
+                                              <a href="javascript:void(0)">
+                                               <i class="fa fa-pencil pull-right"></i>
+                                               Edit
+                                             </a>
+                                           </li>
+                                           <li>
+                                            <a href="javascript:void(0)">
+                                             <i class="fa fa-refresh pull-right"></i>
+                                             Update
+                                           </a>
+                                         </li>
+                                         <li class="divider"></li>
+                                         <li>
+                                          <a href="javascript:void(0)">
+                                           <i class="fa fa-trash-o fa-fw pull-right"></i>
+                                           Delete
+                                         </a>
+                                       </li>
+                                     </ul>
+                                   </div>
+                                 </div>
 
-      <a href="#modal-add-user" class="btn btn-sm btn-success btn-new-user" data-toggle="modal"><i class="fa fa-plus"></i>Novo Usuário</a>
-      <h2></h2>
-    </div>
-    <!-- END Example Title -->
+                                 <a href="#modal-add-user" class="btn btn-sm btn-success btn-new-user" data-toggle="modal"><i class="fa fa-plus"></i>Novo Usuário</a>
+                                 <h2></h2>
+                               </div>
+                               <!-- END Example Title -->
 
-    <!-- Contacts Content -->
-    <div class="row">
-      <?php
+                               <!-- Contacts Content -->
+                               <div class="row">
+                                <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['response']->value, 'curr_id');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['curr_id']->value) {
 ?>
-      <div class="col-sm-4 col-lg-3">
-        <div class="media-items animation-fadeInQuick2">
-          <div class="media-items-options text-right">
-            <!-- <a href="img/placeholders/photos/photo1.jpg" class="btn btn-xs btn-info" data-toggle="lightbox-image">View</a> -->
-            <a href="#modal-add-user" class="btn btn-xs btn-success btn_update" data-toggle="modal" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+                                <div class="col-sm-4 col-lg-3">
+                                  <div class="media-items animation-fadeInQuick2">
+                                    <div class="media-items-options text-right">
+                                      <!-- <a href="img/placeholders/photos/photo1.jpg" class="btn btn-xs btn-info" data-toggle="lightbox-image">View</a> -->
+                                      <a href="#modal-add-user" class="btn btn-xs btn-success btn_update" data-toggle="modal" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
 "><i class="fa fa-pencil"></i></a>
-            <a href="javascript:void(0)" class="btn btn-xs btn-danger btn-danger btn_delete" data-toggle="tooltip" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+                                      <a href="javascript:void(0)" class="btn btn-xs btn-danger btn-danger btn_delete" data-toggle="tooltip" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
 " title="Excluir"><i class="fa fa-times"></i></a>
-          </div>
-          <div class="media-items-content">
-            <img src="<?php echo $_smarty_tpl->tpl_vars['link_img']->value;?>
+                                    </div>
+                                    <div class="media-items-content">
+                                      <img src="<?php echo $_smarty_tpl->tpl_vars['link_img']->value;?>
 placeholders/avatars/avatar9.jpg" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar pull-center">
-          </div>
-          <h4>
+                                    </div>
+                                    <h4>
 
-                <strong><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->name;?>
+                                      <strong><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->name;?>
 </strong><br>
-                <small><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->email;?>
+                                      <small><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->email;?>
 </small>
-            </h4>
-        </div>
-      </div>
-      <?php
+                                    </h4>
+                                  </div>
+                                </div>
+                                <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
@@ -332,19 +227,19 @@ placeholders/avatars/avatar9.jpg" alt="avatar" class="img-circle img-thumbnail i
             <label class="col-xs-3 control-label" for="add-contact-mobile">Senha</label>
             <div class="col-xs-9">
               <input type="password" id="add-pass-mobile" name="password" class="form-control data-loading-text=" Loading... " placeholder="Entre com a senha.. ">
-                                              </div>
-                                            </div>
+            </div>
+          </div>
 
 
-                                            <div class="form-group form-actions ">
-                                              <div class="col-xs-12 text-right ">
-                                                <button type="submit " class="btn btn-effect-ripple btn-success ">Salvar</button>
-                                              </div>
-                                            </div>
-                                          </form>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
+          <div class="form-group form-actions ">
+            <div class="col-xs-12 text-right ">
+              <button type="submit " class="btn btn-effect-ripple btn-success ">Salvar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
                                   <!-- END Add Contact Modal --><?php }
 }
