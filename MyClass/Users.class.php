@@ -31,36 +31,33 @@ Class Users
 
 
 	private function actionUser($setData = []) {
-
-
 		if (isset($setData['action'])) {
 			$action = $setData['action'];
 
 			switch ($action) {
 				case 'add':
-
-				if (ValidatePosts::valida_users($setData) !== true) {
-					return $this->setResponse( ValidatePosts::valida_users($setData));
-					exit;
-				} else {
-					$this->addRecord($setData);
-				}
+					if (ValidatePosts::valida_users($setData) !== true) {
+						return $this->setResponse( ValidatePosts::valida_users($setData));
+						exit;
+					} else {
+						$this->addRecord($setData);
+					}
 				break;
 
 				case 'update':
-				if (ValidatePosts::valida_users($setData) !== true) {
-					return $this->setResponse( ValidatePosts::valida_users($setData) );
-					exit;
-				} else {
+					if (ValidatePosts::valida_users($setData) !== true) {
+						return $this->setResponse( ValidatePosts::valida_users($setData) );
+						exit;
+					} else {
 
-					return $this->updateRecord($setData);
-				}
+						return $this->updateRecord($setData);
+					}
 				exit;
 				break;
 
 				case 'delete':
-				return $this->deleteRecord($pIdentity);
-				exit;
+					return $this->deleteRecord($pIdentity);
+					exit;
 				break;
 
 				default:
@@ -96,6 +93,7 @@ Class Users
 	private function updateRecord($setData){
 		unset($setData['action']);
 		unset($setData['module']);
+		unset($setData['password_confirm']);
 		$identity = filter_var($setData['identity'], FILTER_SANITIZE_NUMBER_INT);
 		unset($setData['identity']);
 
@@ -111,6 +109,7 @@ Class Users
 		unset($setData['action']);
 		unset($setData['module']);
 		unset($setData['identity']);
+		unset($setData['password_confirm']);
 
 		$setData['password']  = sha1(md5($setData['password'])) ;
 		$setData['inputDate'] = (new \Datetime())->format('Y-m-d H:i:s');

@@ -43,24 +43,35 @@ $( document ).ready(function() {
 
 
   function sendData(){
-    $.ajax({
-      url : 'AjaxServices.php', /* url the service */
-      type : 'POST', /* request type */
-      data: $('#form_users').serialize(),
-      dataType: 'json',  //type data
-      success: function(data){
-        console.log(data);
-        if($.isEmptyObject(data)){
-          location.reload();
-        }else{
-          var i;
-          for (i = 0; i < data.length; i++) {
-              $.notify(data[i], { position:"top left" }); ;
-          }
+    var passwod   = $('#add-pass-mobile').val();
+    var passwod_c = $('input[name=password_confirm]').val();
 
+        console.log(passwod+' Confirm: '+passwod_c);
+
+        if (passwod != passwod_c) {
+            $.notify("Confirmação de Senha não confere com a informada.", { position:"top left" });
+        }else{
+          $.ajax({
+            url : 'AjaxServices.php', /* url the service */
+            type : 'POST', /* request type */
+            data: $('#form_users').serialize(),
+            dataType: 'json',  //type data
+            success: function(data){
+              if($.isEmptyObject(data)){
+                location.reload();
+              }else{
+                var i;
+                for (i = 0; i < data.length; i++) {
+                    $.notify(data[i], { position:"top left" });
+                }
+
+              }
+              }//success
+            });
         }
-        }//success
-      });
+
+
+
   }
 
 
@@ -112,6 +123,9 @@ $('.btn-new-user').click(function(){
   $('input[name=login]').val('');
   $('input[name=password]').val('');
 });
+
+
+
 
 
 }); //END DOCUMENT LOAD

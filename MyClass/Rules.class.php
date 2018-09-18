@@ -2,7 +2,7 @@
 namespace MyClass;
 
 class Rules {
-	
+
 
 	/**
 	 * Construct an colection of URL's
@@ -12,11 +12,13 @@ class Rules {
 
 	public static function setRulesUserForm() {
 		$rulesUsers = array(
-			'name'  => 'required|min_len, 3',
-			'login' => 'required|alpha_numeric|min_len, 4',
-			'email' => 'required|valid_email',
-			'phone' => 'required'
-			
+			'name'  					=> 'required|min_len, 3',
+			'login' 					=> 'required|alpha_numeric|min_len, 4',
+			'email' 					=> 'required|valid_email',
+			'phone' 					=> 'required',
+			'password' 				=> 'required',
+			'password_confirm' => 'required'
+
 		);
 
 		return $rulesUsers;

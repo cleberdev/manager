@@ -2,7 +2,7 @@
 /**
  * class Permition *
  * handles the user login/logout/session
- *  
+ *
  */
 namespace Myclass;
 
@@ -29,12 +29,12 @@ class Permition extends Database
 		return $_SESSION['infor_user']['access'];
 	}
 
-	public function setResponse($response) 
+	public function setResponse($response)
 	{
 		$this->response = $response;
 	}
 
-	public function getResponse() 
+	public function getResponse()
 	{
 		return $this->response;
 	}
@@ -61,14 +61,14 @@ class Permition extends Database
 
 		if(isset($_POST['login-email']) and isset($_POST['login-password'])){
 			if($_POST['login-email'] == $dataUser[0]->email && $passRequest == $passDB ){
-				
+
 				$_SESSION['infor_user']['email'] 		= $dataUser[0]->email;
 				$_SESSION['infor_user']['userID']		= $dataUser[0]->id;
 				$_SESSION['infor_user']['userLogin']	= $dataUser[0]->login;
 				$_SESSION['infor_user']['access']		= true;
 
 				$this->setLogin( true );
-				
+
 				$logger->pushHandler($stream);
 				$logger->pushHandler($firephp);
 				$logger->info('Login Aceito. INFOR: '.'e-mail:'.$dataUser[0]->email.' - ' .'IdUser:'.$dataUser[0]->id );
@@ -79,7 +79,7 @@ class Permition extends Database
 
 				$logger->pushHandler($stream);
 				$logger->pushHandler($firephp);
-				
+
 				$this->setLogin( false );
 			}
 
@@ -88,7 +88,7 @@ class Permition extends Database
 
 
 	public function endSession(){
-		
+
 		unset($_SESSION['infor_user']);
 		$this->setLogin( false );
 	}
