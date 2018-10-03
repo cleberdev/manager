@@ -27,7 +27,7 @@ require_once ("Smarty_ini.php");
 
 
 /**
- * destroy a session exists and return for 
+ * destroy a session exists and return for
  * the screen of the login
 **/
 if(_ROUTER_NOW_ === 'Logout'){
@@ -68,8 +68,9 @@ if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MC
 		$smarty->display(Config::_VIEWS_C.'body.html');
 		$smarty->display(Config::_VIEWS_.'Dashboard.html');
 
-
+		print("<pre>");
 		var_dump(  getInforSession::getDataSessionInDb(getInforSession::getInfor('infor_user','userID'), 'users') );
+		print("</pre>");
 
 	}else{
 		$logger->pushHandler($stream);
@@ -80,4 +81,3 @@ if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MC
 }
 
 $smarty->display(Config::_VIEWS_C.'footer.html');
-

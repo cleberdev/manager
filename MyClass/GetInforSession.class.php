@@ -24,14 +24,14 @@ class GetInforSession
 	 * @param  string $param   [value of the session]
 	 * @return [type]          [String or Array of the session]
 	 */
-	public static function getInfor( $session = '', $value = '')
+	public static function getInfor( $session = '', $param = '')
 	{
 		if(!empty($session)){
 			if(isset($_SESSION[$session])){
-				if(empty($value)){
+				if(empty($param)){
 					return array($_SESSION[$session]);
 				}else{
-					return $_SESSION[$session][$value];
+					return $_SESSION[$session][$param];
 				}
 
 			}else{ return false ;}
