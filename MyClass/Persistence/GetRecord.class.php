@@ -25,4 +25,11 @@ class GetRecord extends Database {
 	}
 
 
+	public function getRecordLogin($getTabel, $paramId) {
+		$SQL = "select * from ".$getTabel." where login= '".$paramId."'";
+		return $this->selectDB($SQL);
+	}
+
+
+	
 }
