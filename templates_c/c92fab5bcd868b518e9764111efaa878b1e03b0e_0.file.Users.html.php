@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-09-18 18:51:28
+/* Smarty version 3.1.32, created on 2018-10-05 20:21:06
   from '/Applications/AMPPS/www/manager/views/Users.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ba149302cddb7_94667684',
+  'unifunc' => 'content_5bb7c7b2530ff7_33015946',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c92fab5bcd868b518e9764111efaa878b1e03b0e' => 
     array (
       0 => '/Applications/AMPPS/www/manager/views/Users.html',
-      1 => 1537296687,
+      1 => 1538770486,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ba149302cddb7_94667684 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bb7c7b2530ff7_33015946 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- END Header -->
 
 <!-- Page content -->
@@ -54,28 +54,28 @@ function content_5ba149302cddb7_94667684 (Smarty_Internal_Template $_smarty_tpl)
       <div class="block-options pull-right">
         <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default" data-toggle="tooltip" title="" style="overflow: hidden; position: relative;" data-original-title="Settings"><i class="fa fa-cog"></i></a>
         <div class="btn-group">
-          <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="" style="overflow: hidden; position: relative;" data-original-title="Options">
+          <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="" style="overflow: hidden; position: relative;" data-original-title="Opções">
                                              <i class="fa fa-chevron-down"></i>
                                            </a>
           <ul class="dropdown-menu dropdown-menu-right">
             <li>
-              <a href="javascript:void(0)">
-                                               <i class="fa fa-pencil pull-right"></i>
-                                               Edit
-                                             </a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">
-                                             <i class="fa fa-refresh pull-right"></i>
-                                             Update
-                                           </a>
-            </li>
-            <li class="divider"></li>
-            <li>
-              <a href="javascript:void(0)">
-                                           <i class="fa fa-trash-o fa-fw pull-right"></i>
-                                           Delete
-                                         </a>
+              <a href="Userlevel">
+                 <i class="fa fa-pencil pull-right"></i>
+                 Níveis de Permissão
+              </a>
+          </li>
+          <li>
+          <a href="javascript:void(0)">
+               <i class="fa fa-refresh pull-right"></i>
+               Update
+             </a>
+          </li>
+          <li class="divider"></li>
+          <li>
+          <a href="javascript:void(0)">
+             <i class="fa fa-trash-o fa-fw pull-right"></i>
+             Delete
+ </a>
             </li>
           </ul>
         </div>
@@ -202,5 +202,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </div>
   </div>
 </div>
-<!-- END Add Contact Modal --><?php }
+<!-- END Add Contact Modal -->
+<?php }
 }

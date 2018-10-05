@@ -68,9 +68,10 @@ if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MC
 		$smarty->display(Config::_VIEWS_C.'body.html');
 		$smarty->display(Config::_VIEWS_.'Dashboard.html');
 
-		print("<pre>");
-		var_dump(  getInforSession::getDataSessionInDb(getInforSession::getInfor('infor_user','userID'), 'users') );
-		print("</pre>");
+		//show infor the user that is at on session
+		// print("<pre>");
+		// var_dump(  getInforSession::getDataSessionInDb(getInforSession::getInfor('infor_user','userID'), 'users') );
+		// print("</pre>");
 
 	}else{
 		$logger->pushHandler($stream);
