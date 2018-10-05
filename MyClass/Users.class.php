@@ -7,6 +7,7 @@ use MyClass\Persistence\GetRecord;
 use MyClass\Persistence\Write;
 use MyClass\Persistence\Rewrite;
 use MyClass\Persistence\DeleteRecord;
+use MyClass\GetInforSession;
 
 Class Users
 {
@@ -36,28 +37,28 @@ Class Users
 
 			switch ($action) {
 				case 'add':
-					if (ValidatePosts::valida_users($setData) !== true) {
-						return $this->setResponse( ValidatePosts::valida_users($setData));
-						exit;
-					} else {
-						$this->addRecord($setData);
-					}
+				if (ValidatePosts::valida_users($setData) !== true) {
+					return $this->setResponse( ValidatePosts::valida_users($setData));
+					exit;
+				} else {
+					$this->addRecord($setData);
+				}
 				break;
 
 				case 'update':
-					if (ValidatePosts::valida_users($setData) !== true) {
-						return $this->setResponse( ValidatePosts::valida_users($setData) );
-						exit;
-					} else {
+				if (ValidatePosts::valida_users($setData) !== true) {
+					return $this->setResponse( ValidatePosts::valida_users($setData) );
+					exit;
+				} else {
 
-						return $this->updateRecord($setData);
-					}
+					return $this->updateRecord($setData);
+				}
 				exit;
 				break;
 
 				case 'delete':
-					return $this->deleteRecord($pIdentity);
-					exit;
+				return $this->deleteRecord($pIdentity);
+				exit;
 				break;
 
 				default:
@@ -147,6 +148,18 @@ Class Users
 					try {
 						$dt = new GetRecord();
 						return $dt->getRecordEmail($this->table, $paramEmail);
+
+					}catch (\Exception $e) {
+						print($e->getMessage());
+					}
+				}
+			}
+
+			public function getDataLogin($param = null){
+				if(!is_null($param)){
+					try {
+						$dt = new GetRecord();
+						return $dt->getRecordLogin($this->table, $param);
 
 					}catch (\Exception $e) {
 						print($e->getMessage());

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-09-15 13:18:49
+/* Smarty version 3.1.32, created on 2018-10-03 23:50:55
   from 'C:\Program Files (x86)\Ampps\www\manager\views\Login.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5b9d06b9d1bff1_77098905',
+  'unifunc' => 'content_5bb555df16f759_32732479',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd5914da91fc1d3f1223aebb6a47a1c7ba9ef4ef2' => 
     array (
       0 => 'C:\\Program Files (x86)\\Ampps\\www\\manager\\views\\Login.html',
-      1 => 1537017347,
+      1 => 1538610650,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b9d06b9d1bff1_77098905 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bb555df16f759_32732479 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Login Container -->
 <div id="login-container">
   <!-- Login Header -->
@@ -45,7 +45,7 @@ function content_5b9d06b9d1bff1_77098905 (Smarty_Internal_Template $_smarty_tpl)
     <form id="form-login" action="Login" method="post" class="form-horizontal">
       <div class="form-group">
         <div class="col-xs-12">
-          <input type="text" id="login-email" name="login-email" class="form-control" placeholder="Seu E-mail">
+          <input type="text" id="login-email" name="login-email" class="form-control" placeholder="Seu Login">
         </div>
       </div>
       <div class="form-group">

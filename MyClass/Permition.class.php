@@ -53,14 +53,14 @@ class Permition extends Database
 		$logger  = new Logger('loggers');
 
 		$dataUser = new Users();
-		$dataUser 	=  $dataUser->getDataEmail( $_POST['login-email'] );
+		$dataUser 	=  $dataUser->getDataLogin( $_POST['login-email'] );
 
 		$passRequest = sha1(md5( $_POST['login-password'] ));
 		$passDB 		 = $dataUser[0]->password;
 
 
 		if(isset($_POST['login-email']) and isset($_POST['login-password'])){
-			if($_POST['login-email'] == $dataUser[0]->email && $passRequest == $passDB ){
+			if($_POST['login-email'] == $dataUser[0]->login && $passRequest == $passDB ){
 
 				$_SESSION['infor_user']['email'] 		= $dataUser[0]->email;
 				$_SESSION['infor_user']['userID']		= $dataUser[0]->id;
