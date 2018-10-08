@@ -40,6 +40,12 @@ $( document ).ready(function() {
    });//END SUBMIT BUTTOM
 
 
+   //action for send data
+   $('#userLevelForm').submit(function(event){
+    event.preventDefault();
+    validationUserLevel('Userlevel');
+
+    });//END SUBMIT BUTTOM
 
 
   function sendData(){
@@ -74,6 +80,22 @@ $( document ).ready(function() {
 
   }
 
+
+
+  function validationUserLevel( param_module ){
+    var param_action = "validation";
+
+    $(".response-content").append( "<span></span><br>" ).css('display', 'none');
+    $.ajax({
+      url : 'AjaxServices.php', /* url the service */
+      type : 'GET', /* request type */
+      data: 'action='+ param_action + 'module='+ param_module,
+      dataType: 'json',
+      success: function(data){
+        alert(data);
+      }//success
+    });
+  }//END getDataUser
 
 
 

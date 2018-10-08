@@ -22,14 +22,15 @@ class Userlevel {
 	/**
 	 * Construct an colection of URL's
 	 */
-	public function __construct($data = []) {
+	public function __construct() {}
 
-    $result = ValidatePosts::valida_users($data, 'level');
-    var_dump($data);
-    var_dump($result);
-
-    //die();
-  }
+	public function validationData($data = []){
+		if (ValidatePosts::valida_users($data, 'level') !== true) {
+			return ValidatePosts::valida_users($data, 'level');
+		} else {
+			echo "OK. Add on DB";
+		}
+	}
 
 
 
