@@ -1,4 +1,27 @@
-<!-- END Header -->
+<?php
+/* Smarty version 3.1.32, created on 2018-10-07 13:46:56
+  from 'C:\Program Files (x86)\Ampps\www\manager\views\Userlevel.html' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.32',
+  'unifunc' => 'content_5bba0e500a01b1_36361562',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'dbce80fc83440d1c61e70fc7799a16928ba0ace5' => 
+    array (
+      0 => 'C:\\Program Files (x86)\\Ampps\\www\\manager\\views\\Userlevel.html',
+      1 => 1538919999,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5bba0e500a01b1_36361562 (Smarty_Internal_Template $_smarty_tpl) {
+?><!-- END Header -->
 
 <!-- Page content -->
 <div id="page-content">
@@ -106,3 +129,5 @@
   </div>
 </div>
 <!-- END Add Contact Modal -->
+<?php }
+}

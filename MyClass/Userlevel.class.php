@@ -2,9 +2,11 @@
 /**
  * Class that verify if user has permissions the modules
  */
+
 namespace MyClass;
 
-use MyClass\Users;
+
+use MyClass\EngineTemplate\ValidatePosts;
 
 class Userlevel {
 	private $_uri = array();
@@ -20,11 +22,14 @@ class Userlevel {
 	/**
 	 * Construct an colection of URL's
 	 */
-	public function __construct() {
+	public function __construct($data = []) {
 
-      var_dump($_POST);
+    $result = ValidatePosts::valida_users($data, 'level');
+    var_dump($data);
+    var_dump($result);
 
-  	}
+    //die();
+  }
 
 
 

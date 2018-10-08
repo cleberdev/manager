@@ -37,8 +37,8 @@ Class Users
 
 			switch ($action) {
 				case 'add':
-				if (ValidatePosts::valida_users($setData) !== true) {
-					return $this->setResponse( ValidatePosts::valida_users($setData));
+				if (ValidatePosts::valida_users($setData, 'userForm') !== true) {
+					return $this->setResponse( ValidatePosts::valida_users($setData, 'userForm'));
 					exit;
 				} else {
 					$this->addRecord($setData);
@@ -46,8 +46,8 @@ Class Users
 				break;
 
 				case 'update':
-				if (ValidatePosts::valida_users($setData) !== true) {
-					return $this->setResponse( ValidatePosts::valida_users($setData) );
+				if (ValidatePosts::valida_users($setData, 'userForm') !== true) {
+					return $this->setResponse( ValidatePosts::valida_users($setData, 'userForm') );
 					exit;
 				} else {
 
