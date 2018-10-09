@@ -67,7 +67,9 @@
           <!-- END General Elements Title -->
 
           <!-- General Elements Content -->
-          <form id="userLevelForm" action="Userlevel" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+          <form action="Userlevel" id="userLevelForm" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+            <input type="hidden" value="Userlevel" name="module">
+            <input type="hidden" value="validation" name="action">
 
             <div class="form-group">
               <label class="col-md-3 control-label" for="example-text-input">Nome nivél de acesso</label>

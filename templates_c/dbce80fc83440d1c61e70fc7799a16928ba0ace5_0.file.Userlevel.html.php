@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-10-07 13:46:56
+/* Smarty version 3.1.32, created on 2018-10-09 01:34:26
   from 'C:\Program Files (x86)\Ampps\www\manager\views\Userlevel.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5bba0e500a01b1_36361562',
+  'unifunc' => 'content_5bbc05a23204a7_41444880',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dbce80fc83440d1c61e70fc7799a16928ba0ace5' => 
     array (
       0 => 'C:\\Program Files (x86)\\Ampps\\www\\manager\\views\\Userlevel.html',
-      1 => 1538919999,
+      1 => 1539048862,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bba0e500a01b1_36361562 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bbc05a23204a7_41444880 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- END Header -->
 
 <!-- Page content -->
@@ -90,7 +90,9 @@ function content_5bba0e500a01b1_36361562 (Smarty_Internal_Template $_smarty_tpl)
           <!-- END General Elements Title -->
 
           <!-- General Elements Content -->
-          <form action="Userlevel" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" onsubmit="return true;">
+          <form action="Userlevel" id="userLevelForm" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+            <input type="hidden" value="Userlevel" name="module">
+            <input type="hidden" value="validation" name="action">
 
             <div class="form-group">
               <label class="col-md-3 control-label" for="example-text-input">Nome nivél de acesso</label>
@@ -117,7 +119,7 @@ function content_5bba0e500a01b1_36361562 (Smarty_Internal_Template $_smarty_tpl)
 
             <div class="form-group form-actions">
               <div class="col-md-9 col-md-offset-3">
-                <button type="submit" class="btn btn-effect-ripple btn-primary">Gravar</button>
+                <input type="submit" class="btn btn-effect-ripple btn-primary" value="Gravar">
               </div>
             </div>
           </form>
