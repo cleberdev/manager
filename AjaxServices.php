@@ -23,18 +23,6 @@ if(isset($_GET['action'])){
 }
 
 
-if($action == 'validation'){
-	$module = filter_var($_POST['module'], FILTER_SANITIZE_STRING);
-	
-	// $moduleNow = Config::_MCLASS_."\\".$module;
-	// $Obj_str   = new $moduleNow();
-	$data = json_encode( "file ajax"  );
-	print_r($data);
-	exit; 
-}
-
-
-
 if($action == 'update'){
 	$module = filter_var($_GET['module'], FILTER_SANITIZE_STRING);
 	$pKey = filter_var($_GET['key'], FILTER_SANITIZE_NUMBER_INT);

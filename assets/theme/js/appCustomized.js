@@ -40,16 +40,7 @@ $( document ).ready(function() {
    });//END SUBMIT BUTTOM
 
 
-   //action for send data
-   $('#userLevelForm').submit(function(event){
-    event.preventDefault();
-
-    validationUserLevel();
-
-    });//END SUBMIT BUTTOM
-
-
-   function sendData(){
+  function sendData(){
     var passwod   = $('#add-pass-mobile').val();
     var passwod_c = $('input[name=password_confirm]').val();
 
@@ -82,18 +73,6 @@ $( document ).ready(function() {
 
 
 
-  function validationUserLevel(){
-
-    $.ajax({
-      url : 'AjaxServices.php', /* url the service */
-      type : 'POST', /* request type */
-      data: $('#userLevelForm').serialize(),
-      dataType: 'json',
-      success: function(result){
-        console.log(result);
-      }//success
-    });
-  }//END getDataUser
 
 
 

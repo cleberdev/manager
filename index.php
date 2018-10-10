@@ -48,10 +48,12 @@ if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MC
 
 	$smarty->assign('MOD', _ROUTER_NOW_);
 	$smarty->assign('response', $Obj_str->getResponse());
+	$smarty->assign('msnErr', $Obj_str->getResponse());
 	
 	if( $perm->getLogin() ){
 		$smarty->display(Config::_VIEWS_C.'body.html');
 		$smarty->display(Config::_VIEWS_._ROUTER_NOW_.'.html');
+		var_dump( $Obj_str->getResponse() );
 
 	}else{
 		$logger->pushHandler($stream);
