@@ -19,6 +19,7 @@ class Userlevel {
 	public function getResponse() {
 		return $this->response;
 	}
+
 	/**
 	 * Construct an colection of URL's
 	 */
@@ -30,12 +31,18 @@ class Userlevel {
 
 		if(!empty($data)){
 			if (ValidatePosts::valida_users($data, 'level') !== true) {
-				$this->setResponse(ValidatePosts::valida_users($data, 'level') );
+				unset($_SESSION['resultValidation']);
+				$myClass = explode('\\', get_class($this));
+				$_SESSION['resultValidation'][ $myClass[1] ] = ValidatePosts::valida_users($data, 'level');
 			} else {
-				$this->setResponse( " Validação OK " ) ;
-			}	
+				if(isset($_SESSION['resultValidation'])){ 
+					unset($_SESSION['resultValidation']);
+				}
+
+				//$this->setResultValidation( " Validação OK " ) ;
+			}
 		}
-		
+
 	}
 
 

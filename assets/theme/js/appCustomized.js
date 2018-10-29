@@ -1,5 +1,10 @@
 $( document ).ready(function() {
 
+var theForm = document.getElementById("validationItens");
+for(var i = 0; i < theForm.resultValidation.length; i++){
+    console.log(theForm.resultValidation[i].value);
+   $(".msnErr").append('<p>'+theForm.resultValidation[i].value+'</p>');
+}
   //Action for delete record
   $('.btn_delete').click(function(){
     var idx = $(this).index(this);
@@ -66,15 +71,7 @@ $( document ).ready(function() {
               }//success
             });
     }
-
-
-
   }
-
-
-
-
-
 
   function getDataUser(param_action, param_key, param_module){
     $(".response-content").append( "<span></span><br>" ).css('display', 'none');

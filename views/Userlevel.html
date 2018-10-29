@@ -28,7 +28,13 @@
 
     </div>
     <!-- END Example Title -->
+    <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4><strong>Warning</strong></h4>
+        <div class="msnErr">
 
+        </div>
+    </div>
     <!-- Contacts Content -->
     <div class="row">
 
@@ -45,12 +51,8 @@
         <!-- END Labels on top Form Title -->
 
         <!-- Labels on top Form Content -->
-        {debug}
-        
-        <form action="Userlevel" method="post" class="form-bordered" onsubmit="return true;">
-          {foreach from=$msnErr item=curr_id}
-          <input type="text" value="{$curr_id->string}" name="msn">
-          {/foreach}
+
+        <form action="Userlevel" method="post" class="form-bordered" onsubmit="return true;" id="Userlevel">
           <div class="form-group">
             <label for="example-nf-email">Nome do tipo</label>
             <input type="text" name="typeLevel" id="example-nf-email" name="example-nf-email" class="form-control">
