@@ -40,27 +40,19 @@ $( document ).ready(function() {
    });//END SUBMIT BUTTOM
 
 
-   //action for send data
-   $('#userLevelForm').submit(function(event){
-    event.preventDefault();
-    validationUserLevel('Userlevel');
-
-    });//END SUBMIT BUTTOM
-
-
   function sendData(){
     var passwod   = $('#add-pass-mobile').val();
     var passwod_c = $('input[name=password_confirm]').val();
 
-        console.log(passwod+' Confirm: '+passwod_c);
+    console.log(passwod+' Confirm: '+passwod_c);
 
-        if (passwod != passwod_c) {
-            $.notify("Confirmação de Senha não confere com a informada.", { position:"top left" });
-        }else{
-          $.ajax({
-            url : 'AjaxServices.php', /* url the service */
-            type : 'POST', /* request type */
-            data: $('#form_users').serialize(),
+    if (passwod != passwod_c) {
+      $.notify("Confirmação de Senha não confere com a informada.", { position:"top left" });
+    }else{
+      $.ajax({
+        url : 'AjaxServices.php', /* url the service */
+        type : 'POST', /* request type */
+        data: $('#form_users').serialize(),
             dataType: 'json',  //type data
             success: function(data){
               if($.isEmptyObject(data)){
@@ -68,13 +60,12 @@ $( document ).ready(function() {
               }else{
                 var i;
                 for (i = 0; i < data.length; i++) {
-                    $.notify(data[i], { position:"top left" });
+                  $.notify(data[i], { position:"top left" });
                 }
-
               }
               }//success
             });
-        }
+    }
 
 
 
@@ -82,20 +73,6 @@ $( document ).ready(function() {
 
 
 
-  function validationUserLevel( param_module ){
-    var param_action = "validation";
-
-    $(".response-content").append( "<span></span><br>" ).css('display', 'none');
-    $.ajax({
-      url : 'AjaxServices.php', /* url the service */
-      type : 'GET', /* request type */
-      data: 'action='+ param_action + 'module='+ param_module,
-      dataType: 'json',
-      success: function(data){
-        alert(data);
-      }//success
-    });
-  }//END getDataUser
 
 
 
@@ -135,9 +112,9 @@ $( document ).ready(function() {
 
 
 
-$('.btn-new-user').click(function(){
-  $('input[name=identity]').val('');
-  $('input[name=action]').val('add');
+  $('.btn-new-user').click(function(){
+    $('input[name=identity]').val('');
+    $('input[name=action]').val('add');
   $('input[name=type]').val(1); //waiting an momento for integrat
   $('input[name=name]').val('');
   $('input[name=email]').val('');

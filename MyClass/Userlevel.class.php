@@ -10,26 +10,32 @@ use MyClass\EngineTemplate\ValidatePosts;
 
 class Userlevel {
 	private $_uri = array();
-  protected $response;
+	protected $response;
 
-  public function setResponse($response) {
-    $this->response = $response;
-  }
+	public function setResponse($response) {
+		$this->response = $response;
+	}
 
-  public function getResponse() {
-    return $this->response;
-  }
+	public function getResponse() {
+		return $this->response;
+	}
 	/**
 	 * Construct an colection of URL's
 	 */
-	public function __construct() {}
+	public function __construct() {
+		self::validationData($_POST);
+	}
 
 	public function validationData($data = []){
-		if (ValidatePosts::valida_users($data, 'level') !== true) {
-			return ValidatePosts::valida_users($data, 'level');
-		} else {
-			echo "OK. Add on DB";
+
+		if(!empty($data)){
+			if (ValidatePosts::valida_users($data, 'level') !== true) {
+				$this->setResponse(ValidatePosts::valida_users($data, 'level') );
+			} else {
+				$this->setResponse( " Validação OK " ) ;
+			}	
 		}
+		
 	}
 
 

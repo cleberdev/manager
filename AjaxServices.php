@@ -14,19 +14,13 @@ use System\Config;
 
 
 $module = filter_var($_POST['module'], FILTER_SANITIZE_STRING);
-$action = filter_var($_GET['action'], FILTER_SANITIZE_STRING);
 
 
-if($action == 'validation'){
-	$module = filter_var($_GET['module'], FILTER_SANITIZE_STRING);
-
-	$moduleNow = Config::_MCLASS_."\\".$module;
-	$Obj_str   = new $moduleNow();
-	$data = json_encode($Obj_str->validationData( $_POST ) );
-	print_r($data);
-	exit;
+if(isset($_GET['action'])){
+	$action = filter_var($_GET['action'], FILTER_SANITIZE_STRING);
+}else{
+	$action = filter_var($_POST['action'], FILTER_SANITIZE_STRING);
 }
-
 
 
 if($action == 'update'){
@@ -64,7 +58,7 @@ if (file_exists(Config::_MCLASS_."/".$module.".class.php")) {
 	$data = json_encode($Obj_str->getResponse());
 	print_r($data);
 }else{
-  	$redirect = "login";
-    header("location:$redirect");
+	$redirect = "login";
+	header("location:$redirect");
 	die;
 }
