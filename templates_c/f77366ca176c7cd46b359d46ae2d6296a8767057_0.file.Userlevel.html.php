@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-10-29 19:33:42
+/* Smarty version 3.1.32, created on 2018-10-30 19:39:56
   from '/Applications/AMPPS/www/manager/views/Userlevel.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5bd76096106a45_77168917',
+  'unifunc' => 'content_5bd8b38c310056_47432385',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f77366ca176c7cd46b359d46ae2d6296a8767057' => 
     array (
       0 => '/Applications/AMPPS/www/manager/views/Userlevel.html',
-      1 => 1540841546,
+      1 => 1540928394,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bd76096106a45_77168917 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bd8b38c310056_47432385 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- END Header -->
 
 <!-- Page content -->
@@ -51,12 +51,8 @@ function content_5bd76096106a45_77168917 (Smarty_Internal_Template $_smarty_tpl)
 
     </div>
     <!-- END Example Title -->
-    <div class="alert alert-danger alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <h4><strong>Warning</strong></h4>
-        <div class="msnErr">
+    <div class="msnResponse">
 
-        </div>
     </div>
     <!-- Contacts Content -->
     <div class="row">
@@ -75,7 +71,10 @@ function content_5bd76096106a45_77168917 (Smarty_Internal_Template $_smarty_tpl)
 
         <!-- Labels on top Form Content -->
 
-        <form action="Userlevel" method="post" class="form-bordered" onsubmit="return true;" id="Userlevel">
+        <form action="Userlevel" method="post" class="form-bordered" id="Userlevel">
+          <!-- input that autorized of system wear the recurse the validation -->
+          <input type="hidden" name="module" value="Userlevel">
+
           <div class="form-group">
             <label for="example-nf-email">Nome do tipo</label>
             <input type="text" name="typeLevel" id="example-nf-email" name="example-nf-email" class="form-control">

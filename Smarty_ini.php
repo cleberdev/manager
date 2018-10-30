@@ -49,6 +49,7 @@ $routing->add("/Dashboard");
 $routing->add("/Login");
 $routing->add("/Logout");
 $routing->add("/Userlevel");
+
 define('_ROUTER_NOW_', $routing->submit());
 
 $dataOfUser = getInforSession::getDataSessionInDb(getInforSession::getInfor('infor_user','userID'), 'users');

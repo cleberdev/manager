@@ -7,9 +7,12 @@ namespace MyClass;
 
 
 use MyClass\EngineTemplate\ValidatePosts;
+//use MyClass\Persistence\Write;
 
 class Userlevel {
-	private $_uri = array();
+
+	private $table = "userLevel";
+
 	protected $response;
 
 	public function setResponse($response) {
@@ -27,23 +30,23 @@ class Userlevel {
 		self::validationData($_POST);
 	}
 
-	public function validationData($data = []){
-
+public function validationData($data = []){
 		if(!empty($data)){
 			if (ValidatePosts::valida_users($data, 'level') !== true) {
-				unset($_SESSION['resultValidation']);
-				$myClass = explode('\\', get_class($this));
-				$_SESSION['resultValidation'][ $myClass[1] ] = ValidatePosts::valida_users($data, 'level');
+				return ValidatePosts::valida_users($data, 'level');
 			} else {
-				if(isset($_SESSION['resultValidation'])){ 
-					unset($_SESSION['resultValidation']);
-				}
+
+					return true; //$this->addRecord($data);
 
 				//$this->setResultValidation( " Validação OK " ) ;
 			}
 		}
-
 	}
+
+	// private function addRecord($setData){
+	// 	unset($data['module']);
+	// 	new Write($setData, $this->table);
+	// }
 
 
 

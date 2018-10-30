@@ -48,6 +48,18 @@ if($action == 'delete'){
 }
 
 
+/**
+ * return true if has correct datas
+ */
+if(isset($_POST['module']) && $_POST['module'] == 'Userlevel' ){
+	$module = filter_var($_POST['module'], FILTER_SANITIZE_STRING);
+	$moduleNow = Config::_MCLASS_."\\".$module;
+	$Obj_str   = new $moduleNow();
+	$result 	 = $Obj_str->validationData($_POST);
+	print(json_encode($result));
+	exit;
+}
+
 /*
 * service ajax if the run
 */

@@ -1,10 +1,64 @@
 $( document ).ready(function() {
 
-var theForm = document.getElementById("validationItens");
-for(var i = 0; i < theForm.resultValidation.length; i++){
-    console.log(theForm.resultValidation[i].value);
-   $(".msnErr").append('<p>'+theForm.resultValidation[i].value+'</p>');
-}
+    //var sendCountForm = parseIn( $("input[name='sendCount']").val() );
+
+    $("#Userlevel").submit(function( event ){
+      event.preventDefault();
+      $.ajax({
+        url : 'AjaxServices.php', /* url the service */
+        type : 'POST', /* request type */
+        data: $('#Userlevel').serialize(),
+            dataType: 'json',  //type data
+            success: function(data){
+
+
+              if(data !== true ){
+
+                if( data !== false){
+                  var i;
+                  for (i = 0; i < data.length; i++) {
+                    $.notify(data[i].replace(/<(?:.|\n)*?>/gm, ''), { position:"top left" });
+                  }
+                }else{
+                  $.confirm({
+                    title: 'Houve algum problema ao enviar os dados. Contate o Suporte!',
+                    content: '',
+                    theme: 'material',
+                    closeIcon: true,
+                    animation: 'scale',
+                    type: 'red',
+                    buttons: {
+                      Cancelar: function () {    },
+                    }
+                  });
+                }
+
+              }else{
+                console.log( data );
+                $.confirm({
+                  title: 'O registro foi salvo com Sucesso! Obrigado.',
+                  content: '',
+                  theme: 'material',
+                  closeIcon: true,
+                  animation: 'scale',
+                  type: 'green',
+                  buttons: {
+                    Ok: function () {
+                      console.log( data );
+                    },
+                  }
+                });
+              }
+          }//success
+
+          });
+
+
+    });
+
+
+
+
   //Action for delete record
   $('.btn_delete').click(function(){
     var idx = $(this).index(this);

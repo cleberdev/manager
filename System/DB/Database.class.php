@@ -56,6 +56,7 @@ abstract class Database
 		try
 		{
 			$this->conexao = new \PDO($this->getDBType().":host=".$this->getHost().";port=".$this->getPort().";dbname=".$this->getDB(), $this->getUser(), $this->getPassword());
+			$this->conexao->exec("set names utf8");
 		}
 		catch (PDOException $i) {
 			//se houver exceção, exibe

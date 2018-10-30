@@ -55,21 +55,6 @@ if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MC
 		$smarty->display(Config::_VIEWS_C.'body.html');
 		$smarty->display(Config::_VIEWS_._ROUTER_NOW_.'.html');
 
-					/**
-					 * Controll of mensage the of response moddule
-					 */
-				 if(isset($_SESSION['resultValidation'])){
-						 $currentClass = explode('\\', get_class($Obj_str) );
-						 $rs = array( $_SESSION['resultValidation'][$currentClass[1]]);
-		 			 	 print('<form id="validationItens">');
-						 for ($i=0; $i < count($rs[0]); $i++) {
-						 	print("<input type='hidden' value='".$rs[0][$i]."' id='resultValidation' name='resultValidation[]'>");
-						 }
-						 print('</form">');
-					}
-
-
-
  	}else{
 		$logger->pushHandler($stream);
 		$logger->pushHandler($firephp);

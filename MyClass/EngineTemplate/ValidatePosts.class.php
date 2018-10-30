@@ -12,9 +12,9 @@ class ValidatePosts
 
 	}
 
-	
+
 /**
- * Method for validation of datas the users
+ * Method for validation of datas
  * Receive parameters data of type array
  * [valida_users description]
  * @param  array  $data  [data send user of system, for validation]
@@ -33,7 +33,7 @@ public static function valida_users($data = [], $level = "") {
 	}else{
 		return false;
 	}
-	
+
 
 }
 

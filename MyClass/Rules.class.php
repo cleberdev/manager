@@ -23,12 +23,12 @@ class Rules {
 			),
 			'level' => array(
 				'typeLevel'  	=> 'required|min_len, 3',
-				'description' 	=> 'required|min_len, 10'
+				'description' => 'required|min_len, 10'
 			)
 		);
 
 		return $rules[ $typeFormUser ];
 	}
 
-	
+
 }
