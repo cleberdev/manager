@@ -10,48 +10,52 @@ $( document ).ready(function() {
         data: $('#Userlevel').serialize(),
             dataType: 'json',  //type data
             success: function(data){
-
-
+              console.log( data );
               if(data !== true ){
 
                 if( data !== false){
-                  var i;
-                  for (i = 0; i < data.length; i++) {
-                    $.notify(data[i].replace(/<(?:.|\n)*?>/gm, ''), { position:"top left" });
-                  }
-                }else{
-                  $.confirm({
-                    title: 'Houve algum problema ao enviar os dados. Contate o Suporte!',
+
+                  if(data !== null){
+                    var i;
+                    for (i = 0; i < data.length; i++) {
+                      $.notify(data[i].replace(/<(?:.|\n)*?>/gm, ''), { position:"top left" });
+                    }
+                  }else{
+                   console.log( data );
+                   $.confirm({
+                    title: 'O registro foi salvo com Sucesso! Obrigado.',
                     content: '',
                     theme: 'material',
                     closeIcon: true,
                     animation: 'scale',
-                    type: 'red',
+                    type: 'green',
                     buttons: {
-                      Cancelar: function () {    },
+                      Ok: function () {
+                        location.reload();
+                      },
                     }
                   });
-                }
+                 }
 
-              }else{
-                console.log( data );
+                 
+               }else{
                 $.confirm({
-                  title: 'O registro foi salvo com Sucesso! Obrigado.',
+                  title: 'Houve algum problema ao enviar os dados. Contate o Suporte!',
                   content: '',
                   theme: 'material',
                   closeIcon: true,
                   animation: 'scale',
-                  type: 'green',
+                  type: 'red',
                   buttons: {
-                    Ok: function () {
-                      console.log( data );
-                    },
+                    Cancelar: function () {    },
                   }
                 });
               }
+
+            }
           }//success
 
-          });
+        });
 
 
     });

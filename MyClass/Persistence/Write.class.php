@@ -32,6 +32,7 @@ Class Write extends database
 
 			return $this->insertDB($SQL);
 
+
 		} else {
 			throw new \Exception("Não foi possíve escrever as informações no banco de dados.", 1);
 		}

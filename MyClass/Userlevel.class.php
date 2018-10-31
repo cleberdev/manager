@@ -7,11 +7,11 @@ namespace MyClass;
 
 
 use MyClass\EngineTemplate\ValidatePosts;
-//use MyClass\Persistence\Write;
+use MyClass\Persistence\Write;
 
 class Userlevel {
 
-	private $table = "userLevel";
+	private $table = "Userlevel";
 
 	protected $response;
 
@@ -27,26 +27,24 @@ class Userlevel {
 	 * Construct an colection of URL's
 	 */
 	public function __construct() {
-		self::validationData($_POST);
+		//self::validationData($_POST);
 	}
 
-public function validationData($data = []){
+	public function validationData($data = []){
 		if(!empty($data)){
 			if (ValidatePosts::valida_users($data, 'level') !== true) {
 				return ValidatePosts::valida_users($data, 'level');
 			} else {
 
-					return true; //$this->addRecord($data);
-
-				//$this->setResultValidation( " Validação OK " ) ;
+				return $this->addRecord($data );
 			}
 		}
 	}
 
-	// private function addRecord($setData){
-	// 	unset($data['module']);
-	// 	new Write($setData, $this->table);
-	// }
+	private function addRecord($setData){
+		unset($setData['module']);
+		new Write($setData, $this->table);
+	}
 
 
 

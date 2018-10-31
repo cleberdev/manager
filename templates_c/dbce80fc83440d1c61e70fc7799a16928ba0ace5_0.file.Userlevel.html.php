@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-10-10 01:11:00
+/* Smarty version 3.1.32, created on 2018-10-30 22:46:23
   from 'C:\Program Files (x86)\Ampps\www\manager\views\Userlevel.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5bbd51a4643ec7_85286397',
+  'unifunc' => 'content_5bd8df3f699d73_03608137',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'dbce80fc83440d1c61e70fc7799a16928ba0ace5' => 
     array (
       0 => 'C:\\Program Files (x86)\\Ampps\\www\\manager\\views\\Userlevel.html',
-      1 => 1539133855,
+      1 => 1540939332,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bbd51a4643ec7_85286397 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bd8df3f699d73_03608137 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- END Header -->
 
 <!-- Page content -->
@@ -51,7 +51,9 @@ function content_5bbd51a4643ec7_85286397 (Smarty_Internal_Template $_smarty_tpl)
 
     </div>
     <!-- END Example Title -->
+    <div class="msnResponse">
 
+    </div>
     <!-- Contacts Content -->
     <div class="row">
 
@@ -68,23 +70,11 @@ function content_5bbd51a4643ec7_85286397 (Smarty_Internal_Template $_smarty_tpl)
         <!-- END Labels on top Form Title -->
 
         <!-- Labels on top Form Content -->
-        <?php $_smarty_debug = new Smarty_Internal_Debug;
- $_smarty_debug->display_debug($_smarty_tpl);
-unset($_smarty_debug);
-?>
-        
-        <form action="Userlevel" method="post" class="form-bordered" onsubmit="return true;">
-          <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['msnErr']->value, 'curr_id');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['curr_id']->value) {
-?>
-          <input type="text" value="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->string;?>
-" name="msn">
-          <?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+
+        <form action="Userlevel" method="post" class="form-bordered" id="Userlevel">
+          <!-- input that autorized of system wear the recurse the validation -->
+          <input type="hidden" name="module" value="Userlevel">
+
           <div class="form-group">
             <label for="example-nf-email">Nome do tipo</label>
             <input type="text" name="typeLevel" id="example-nf-email" name="example-nf-email" class="form-control">
