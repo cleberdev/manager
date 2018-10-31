@@ -8,6 +8,7 @@ namespace MyClass;
 
 use MyClass\EngineTemplate\ValidatePosts;
 use MyClass\Persistence\Write;
+use MyClass\Persistence\GetRecord;
 
 class Userlevel {
 
@@ -27,7 +28,7 @@ class Userlevel {
 	 * Construct an colection of URL's
 	 */
 	public function __construct() {
-		//self::validationData($_POST);
+		self::getAllRecord( $this->table );
 	}
 
 	public function validationData($data = []){
@@ -41,10 +42,27 @@ class Userlevel {
 		}
 	}
 
+/**
+ *
+ */
 	private function addRecord($setData){
 		unset($setData['module']);
 		new Write($setData, $this->table);
 	}
+
+
+/**
+ *
+ */
+	private function getAllRecord($tableName = ""){
+		try {
+			$result = (new GetRecord())->getAllList($tableName);
+			$this->setResponse( $result ) ;
+		}catch (\Exception $e) {
+			print($e->getMessage());
+			die;
+		}
+}
 
 
 

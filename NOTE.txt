@@ -1,0 +1,2 @@
+IMPLEMENTAÇÕES NO SISTEMA
+1-Em Database.class.php implementar o ID de usuários nos Logs.

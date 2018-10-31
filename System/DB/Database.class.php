@@ -73,7 +73,29 @@ abstract class Database
 
 	/*Método select que retorna um VO ou um array de objetos*/
 	public function selectDB($sql, $params = null, $class = null) {
+
+		$stream  = new StreamHandler(__DIR__.'/logger_app.log', Logger::DEBUG);
+		$firephp = new FirePHPHandler();
+		$logger  = new Logger('loggers');
+
+		$logger->pushHandler($stream);
+		$logger->pushHandler($firephp);
+		$msn = 'O método Select gerou uma excessão ao acessar a base de dados';
+
+
 		$query = $this->connect()->prepare($sql);
+
+		if (!$query->execute($params)) {
+			$GETerror = $query->errorInfo();
+			for ($i=0; $i < count($GETerror) ; $i++) {
+				$logger->error($msn."::".$GETerror[$i]);
+			}
+			throw new \Exception($msn." - ".$query->errorInfo());
+		}else{
+			$logger->info('O script SQL '.$sql.' Foi executado pelo Usuário X');
+		}
+
+
 		$query->execute($params);
 
 		if (isset($class)) {
@@ -99,8 +121,12 @@ abstract class Database
 		$conexao = $this->connect();
 		$query   = $conexao->prepare($sql);
 		if (!$query->execute($params)) {
-			$logger->error($msn);
-			throw new \Exception($msn);
+			$GETerror = $query->errorInfo();
+
+			for ($i=0; $i < count($GETerror) ; $i++) {
+				$logger->error($msn."::".$GETerror[$i]);
+			}
+			throw new \Exception($msn." - ".$query->errorInfo());
 		}else{
 			$logger->info('O script SQL '.$sql.' Foi executado pelo Usuário X');
 		}
@@ -125,7 +151,9 @@ abstract class Database
 		$query = $this->connect()->prepare($sql);
 		$query->execute($params);
 		if (!$query->execute($params)) {
-			$logger->error($msn);
+			$GETerror = $query->errorInfo();
+			$logger->error($msn. " - ".$GETerror[2]);
+
 			throw new \Exception($msn);
 		}else{
 			$logger->info('O script SQL '.$sql.' Foi executado pelo Usuário X');
@@ -147,11 +175,12 @@ abstract class Database
 		$logger->pushHandler($firephp);
 		$msn = 'O método deleteDB gerou uma excessão ao tentar excluir um registro na base de Dados';
 
-
 		$query = $this->connect()->prepare($sql);
 		$query->execute($params);
 		if (!$query->execute($params)) {
-			$logger->error($msn);
+			$GETerror = $query->errorInfo();
+			$logger->error($msn. " - ".$GETerror[2]);
+
 			throw new \Exception($msn);
 		}else{
 			$logger->info('O script SQL '.$sql.' Foi executado pelo Usuário X');

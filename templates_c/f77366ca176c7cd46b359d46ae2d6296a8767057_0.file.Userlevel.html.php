@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-10-30 19:39:56
+/* Smarty version 3.1.32, created on 2018-10-31 17:53:20
   from '/Applications/AMPPS/www/manager/views/Userlevel.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5bd8b38c310056_47432385',
+  'unifunc' => 'content_5bd9ec107c8e01_92398325',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f77366ca176c7cd46b359d46ae2d6296a8767057' => 
     array (
       0 => '/Applications/AMPPS/www/manager/views/Userlevel.html',
-      1 => 1540928394,
+      1 => 1541008398,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bd8b38c310056_47432385 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bd9ec107c8e01_92398325 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- END Header -->
 
 <!-- Page content -->
@@ -56,6 +56,79 @@ function content_5bd8b38c310056_47432385 (Smarty_Internal_Template $_smarty_tpl)
     </div>
     <!-- Contacts Content -->
     <div class="row">
+
+
+
+
+
+
+
+
+
+
+      <div class="block full">
+          <div class="block-title">
+              <h2>Datatables</h2>
+          </div>
+          <div class="table-responsive">
+              <table id="example-datatable" class="table table-striped table-bordered table-vcenter">
+                  <thead>
+                      <tr>
+                          <th class="text-center" style="width: 50px;">ID</th>
+                          <th>User</th>
+                          <th>Email</th>
+                          <th style="width: 120px;">Status</th>
+                          <th class="text-center" style="width: 75px;"><i class="fa fa-flash"></i></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      
+                      <tr>
+                          <td class="text-center">28</td>
+                          <td><strong>AppUser28</strong></td>
+                          <td>app.user28@example.com</td>
+                          <td><span class="label label-info">On hold..</span></td>
+                          <td class="text-center">
+                              <a href="javascript:void(0)" data-toggle="tooltip" title="Edit User" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
+                              <a href="javascript:void(0)" data-toggle="tooltip" title="Delete User" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="text-center">29</td>
+                          <td><strong>AppUser29</strong></td>
+                          <td>app.user29@example.com</td>
+                          <td><span class="label label-danger">Disabled</span></td>
+                          <td class="text-center">
+                              <a href="javascript:void(0)" data-toggle="tooltip" title="Edit User" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
+                              <a href="javascript:void(0)" data-toggle="tooltip" title="Delete User" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="text-center">30</td>
+                          <td><strong>AppUser30</strong></td>
+                          <td>app.user30@example.com</td>
+                          <td><span class="label label-success">Active</span></td>
+                          <td class="text-center">
+                              <a href="javascript:void(0)" data-toggle="tooltip" title="Edit User" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
+                              <a href="javascript:void(0)" data-toggle="tooltip" title="Delete User" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
       <!-- Labels on top Form Block -->
       <div class="block">

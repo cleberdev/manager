@@ -119,7 +119,6 @@ Class Users
 
 
 	private function getAllRecord($tableName){
-
 		try {
 			$result = (new GetRecord())->getAllList($tableName);
 			$this->setResponse( $result ) ;
