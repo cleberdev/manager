@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-10-05 20:21:06
+/* Smarty version 3.1.32, created on 2018-11-01 17:12:47
   from '/Applications/AMPPS/www/manager/views/Users.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5bb7c7b2530ff7_33015946',
+  'unifunc' => 'content_5bdb340f512420_90822995',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c92fab5bcd868b518e9764111efaa878b1e03b0e' => 
     array (
       0 => '/Applications/AMPPS/www/manager/views/Users.html',
-      1 => 1538770486,
+      1 => 1541090767,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bb7c7b2530ff7_33015946 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bdb340f512420_90822995 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- END Header -->
 
 <!-- Page content -->
@@ -108,14 +108,14 @@ placeholders/avatars/avatar9.jpg" alt="avatar" class="img-circle img-thumbnail i
           </div>
           <h4>
 
-                                      <strong><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->name;?>
+        <strong><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->name;?>
 </strong><br>
-                                      <small><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->email;?>
+        <small><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->email;?>
 </small>
-                                    </h4>
-        </div>
-      </div>
-      <?php
+      </h4>
+</div>
+</div>
+<?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>

@@ -26,7 +26,7 @@ require_once ("Smarty_ini.php");
 
 
 
-/**
+/***
  * destroy a session exists and return for
  * the screen of the login
 **/
@@ -48,15 +48,12 @@ if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MC
 
 	$smarty->assign('MOD', _ROUTER_NOW_);
 	$smarty->assign('response', $Obj_str->getResponse());
-	$smarty->assign('msnErr', $Obj_str->getResponse());
 
 
 	if( $perm->getLogin() ){
 		$smarty->display(Config::_VIEWS_C.'body.html');
 		$smarty->display(Config::_VIEWS_._ROUTER_NOW_.'.html');
-		print("<pre>");
-		print_r($Obj_str->getResponse() );
-		print("</pre>");
+		
  	}else{
 		$logger->pushHandler($stream);
 		$logger->pushHandler($firephp);

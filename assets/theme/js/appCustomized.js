@@ -1,6 +1,23 @@
 $( document ).ready(function() {
 
-    //var sendCountForm = parseIn( $("input[name='sendCount']").val() );
+var dominioURL = "manager/"
+
+  $('.block_add_user').css('display', 'none');
+
+  /* start of js */
+  $('#user_button').click(function() {
+      $('.block_add_user').toggle();
+      $(this).toggleClass('active');
+    $('.block_list_user').css('display', 'none');
+      return false;
+  });
+
+  $('#button_add_cancel').click(function() {
+      $('.block_list_user').toggle();
+      $(this).toggleClass('active');
+    $('.block_add_user').css('display', 'none');
+      return false;
+  });
 
     $("#Userlevel").submit(function( event ){
       event.preventDefault();
@@ -37,7 +54,7 @@ $( document ).ready(function() {
                   });
                  }
 
-                 
+
                }else{
                 $.confirm({
                   title: 'Houve algum problema ao enviar os dados. Contate o Suporte!',
@@ -60,6 +77,28 @@ $( document ).ready(function() {
 
     });
 
+
+    //Action for delete record
+    $('.btn_del_userLevel').click(function(){
+      var idx = $(this).index(this);
+      var pKey = $(this).eq(idx).attr('flag');
+
+      $.confirm({
+        title: 'Excluir Registro',
+        content: 'Deseja realmente Apagar este registro ?',
+        theme: 'material',
+        closeIcon: true,
+        animation: 'scale',
+        type: 'red',
+        buttons: {
+          Sim: function () {
+            deleteRecord('delete', pKey, 'userLevel');
+            document.location.href= "../"+dominioURL+"Userlevel";
+          },
+          Não: function () {  }
+        }
+      });
+    });
 
 
 
@@ -152,6 +191,16 @@ $( document ).ready(function() {
   }//END getDataUser
 
 
+
+
+/**
+ * Delete record of system on module current
+ * @method deleteRecord
+ * @param  {[string]}   param_action [action that goe using for system]
+ * @param  {[int]}      param_key    [key for clausure where SQL]
+ * @param  {[type]}     param_module [reference do current module]
+ * @return {[type]}                  [description]
+ */
   function deleteRecord(param_action, param_key, param_module){
     $.ajax({
       url : 'AjaxServices.php', /* url the service */

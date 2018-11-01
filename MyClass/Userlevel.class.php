@@ -9,10 +9,11 @@ namespace MyClass;
 use MyClass\EngineTemplate\ValidatePosts;
 use MyClass\Persistence\Write;
 use MyClass\Persistence\GetRecord;
+use MyClass\Persistence\DeleteRecord;
 
 class Userlevel {
 
-	private $table = "Userlevel";
+	private $table = "userLevel";
 
 	protected $response;
 
@@ -21,7 +22,8 @@ class Userlevel {
 	}
 
 	public function getResponse() {
-		return $this->response;
+		$dataJson = json_encode($this->response);
+		return $dataJson;
 	}
 
 	/**
@@ -62,6 +64,27 @@ class Userlevel {
 			print($e->getMessage());
 			die;
 		}
+}
+
+
+/**
+ * [deleteRecord description]
+ * @method deleteRecord
+ * @param  [inf]       $paramId   [key of record for using in wehere clausure SQL]
+ * @return [array]                [description]
+ */
+public function deleteRecord($paramId = null){
+	if(!is_null($paramId)){
+		try {
+
+			$dt = new DeleteRecord($this->table, $paramId);
+			$this->setResponse( $dt );
+			return $this->getResponse();
+		}catch (\Exception $e) {
+			print($e->getMessage());
+			die;
+		}
+	}
 }
 
 

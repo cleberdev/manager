@@ -1,4 +1,12 @@
 
 .msn_conteiner{width: 100%; text-align: center; background: #b78c8c45; color: #967a7a; font-weight: bold; padding: 15px;  display: none;}
-.clearfix{height: 121px; margin-bottom: 14px;}
+/* .clearfix{height: 121px; margin-bottom: 14px;} */
 .btn-danger { background-color: #dedede; border-color: #f7f7f7; }
+
+.block_add_user.active {
+    display: block;
+}
+
+.block_list_user.disable{
+  display: none;
+}

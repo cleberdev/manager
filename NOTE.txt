@@ -1,2 +1,21 @@
+------ TAREFAS PENDENTES --------------------------------------------------
 IMPLEMENTAÇÕES NO SISTEMA
 1-Em Database.class.php implementar o ID de usuários nos Logs.
+---------------------------------------------------------------------------
+
+                                ***
+
+----- SMARTY TEMPLATES PHP -------------------------------------------------
+
+//Depuration of the code
+{debug}
+
+//Loop
+{foreach from=$response item=curr_id}
+      {$curr_id->name}
+      {$curr_id->email}
+{/foreach}
+
+//Loop with json_decode
+{foreach from=$response|json_decode item=curr_id}
+----------------------------------------------------------------------------

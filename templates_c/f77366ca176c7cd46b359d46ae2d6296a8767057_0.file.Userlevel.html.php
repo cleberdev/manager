@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-10-31 17:53:20
+/* Smarty version 3.1.32, created on 2018-11-01 20:26:45
   from '/Applications/AMPPS/www/manager/views/Userlevel.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5bd9ec107c8e01_92398325',
+  'unifunc' => 'content_5bdb6185a5cb77_59216905',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f77366ca176c7cd46b359d46ae2d6296a8767057' => 
     array (
       0 => '/Applications/AMPPS/www/manager/views/Userlevel.html',
-      1 => 1541008398,
+      1 => 1541104003,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bd9ec107c8e01_92398325 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bdb6185a5cb77_59216905 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- END Header -->
 
 <!-- Page content -->
@@ -46,73 +46,48 @@ function content_5bd9ec107c8e01_92398325 (Smarty_Internal_Template $_smarty_tpl)
   </div>
   <!-- END Contacts Header -->
   <div class="block">
-    <!-- Example Title -->
-    <div class="block-title">
-
-    </div>
-    <!-- END Example Title -->
-    <div class="msnResponse">
-
-    </div>
     <!-- Contacts Content -->
     <div class="row">
 
-
-
-
-
-
-
-
-
-
-      <div class="block full">
+      <div class="block full block_list_user">
           <div class="block-title">
-              <h2>Datatables</h2>
+              <h2><button type="button" name="button" id="user_button">Novo + </button></h2>
           </div>
           <div class="table-responsive">
               <table id="example-datatable" class="table table-striped table-bordered table-vcenter">
                   <thead>
                       <tr>
                           <th class="text-center" style="width: 50px;">ID</th>
-                          <th>User</th>
-                          <th>Email</th>
+                          <th>Nome do Tipo</th>
+                          <th>Descrição</th>
                           <th style="width: 120px;">Status</th>
                           <th class="text-center" style="width: 75px;"><i class="fa fa-flash"></i></th>
                       </tr>
                   </thead>
                   <tbody>
-                      
-                      <tr>
-                          <td class="text-center">28</td>
-                          <td><strong>AppUser28</strong></td>
-                          <td>app.user28@example.com</td>
-                          <td><span class="label label-info">On hold..</span></td>
-                          <td class="text-center">
-                              <a href="javascript:void(0)" data-toggle="tooltip" title="Edit User" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
-                              <a href="javascript:void(0)" data-toggle="tooltip" title="Delete User" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td class="text-center">29</td>
-                          <td><strong>AppUser29</strong></td>
-                          <td>app.user29@example.com</td>
-                          <td><span class="label label-danger">Disabled</span></td>
-                          <td class="text-center">
-                              <a href="javascript:void(0)" data-toggle="tooltip" title="Edit User" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
-                              <a href="javascript:void(0)" data-toggle="tooltip" title="Delete User" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td class="text-center">30</td>
-                          <td><strong>AppUser30</strong></td>
-                          <td>app.user30@example.com</td>
-                          <td><span class="label label-success">Active</span></td>
-                          <td class="text-center">
-                              <a href="javascript:void(0)" data-toggle="tooltip" title="Edit User" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
-                              <a href="javascript:void(0)" data-toggle="tooltip" title="Delete User" class="btn btn-effect-ripple btn-xs btn-danger"><i class="fa fa-times"></i></a>
-                          </td>
-                      </tr>
+                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, json_decode($_smarty_tpl->tpl_vars['response']->value), 'curr_id');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['curr_id']->value) {
+?>
+                        <tr>
+                            <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+</td>
+                            <td><strong><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->typeLevel;?>
+</strong></td>
+                            <td><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->description;?>
+</td>
+                            <td><span class="label label-info">On hold..</span></td>
+                            <td class="text-center">
+                                <a href="javascript:void(0)" data-toggle="tooltip" title="Edit User" class="btn btn-effect-ripple btn-xs btn-success"><i class="fa fa-pencil"></i></a>
+                                <a href="javascript:void(0)" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+" data-toggle="tooltip" title="Delete User" class="btn btn-effect-ripple btn-xs btn-danger btn_del_userLevel"><i class="fa fa-times"></i></a>
+                            </td>
+                        </tr>
+                    <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                   </tbody>
               </table>
           </div>
@@ -120,24 +95,14 @@ function content_5bd9ec107c8e01_92398325 (Smarty_Internal_Template $_smarty_tpl)
 
 
 
-
-
-
-
-
-
-
-
-
-
       <!-- Labels on top Form Block -->
-      <div class="block">
+      <div class="block block_add_user">
         <!-- Labels on top Form Title -->
         <div class="block-title">
           <div class="block-options pull-right">
-            <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default toggle-bordered enable-tooltip" data-toggle="button" title="Toggles .form-bordered class">Borderless</a>
+            <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default toggle-bordered enable-tooltip" data-toggle="button" title="Tipos de acesso ao sistema">Tipos de acesso ao sistema</a>
           </div>
-          <h2>Cadastro do tipo de acesso</h2>
+          <h2><button type="button" name="button" id="button_add_cancel">Cancelar</button></h2>
 
         </div>
         <!-- END Labels on top Form Title -->
