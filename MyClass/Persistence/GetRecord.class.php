@@ -18,6 +18,11 @@ class GetRecord extends Database {
 		return $this->selectDB($SQL);
 	}
 
+	public function getRecord($getTabel) {
+		$SQL = "select id, typeLevel from ".$getTabel;
+		return $this->selectDB($SQL);
+	}
+
 	public function getRecordEmail($getTabel, $paramId) {
 		$SQL = "select * from ".$getTabel." where email= '".$paramId."'";
 		return $this->selectDB($SQL);

@@ -31,7 +31,7 @@ class AccessList {
 	 * Construct an colection of URL's
 	 */
 	public function __construct() {
-		
+
 		self::getAllRecord( $this->table );
 	}
 
@@ -50,15 +50,15 @@ class AccessList {
  *
  */
 private function addRecord($setData){
-	
+
 	if(empty($setData['updateData'])){
 		unset($setData['module']);
 		unset($setData['updateData']);
-		new Write($setData, $this->table);	
+		new Write($setData, $this->table);
 	}else{
 		$this->updateRecord($setData);
 	}
-	
+
 }
 
 

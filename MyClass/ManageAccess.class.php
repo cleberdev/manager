@@ -11,11 +11,13 @@ use MyClass\Persistence\Write;
 use MyClass\Persistence\Rewrite;
 use MyClass\Persistence\GetRecord;
 use MyClass\Persistence\DeleteRecord;
+use MyClass\Userlevel;
 
-class ManageAccess {
+class ManageAccess extends Userlevel
+{
 
 	private $table = "manageAccess";
-
+	private $colectionDataSelect;
 	protected $response;
 
 	public function setResponse($response) {
@@ -27,10 +29,19 @@ class ManageAccess {
 		return $dataJson;
 	}
 
+	public function setColectionDataSelect( $colection ){
+		$this->colectionDataSelect = $colection;
+	}
+
+	public function getColectionDataSelect(){
+		return $this->colectionDataSelect;
+	}
+
 	/**
 	 * Construct an colection of URL's
 	 */
 	public function __construct() {
+		$this->setColectionDataSelect( $this->getUserLevelInputs() );
 		self::getAllRecord( $this->table );
 	}
 
@@ -49,15 +60,15 @@ class ManageAccess {
  *
  */
 private function addRecord($setData){
-	
+
 	if(empty($setData['updateData'])){
 		unset($setData['module']);
 		unset($setData['updateData']);
-		new Write($setData, $this->table);	
+		new Write($setData, $this->table);
 	}else{
 		$this->updateRecord($setData);
 	}
-	
+
 }
 
 

@@ -49,15 +49,15 @@ class Userlevel {
  *
  */
 private function addRecord($setData){
-	
+
 	if(empty($setData['updateData'])){
 		unset($setData['module']);
 		unset($setData['updateData']);
-		new Write($setData, $this->table);	
+		new Write($setData, $this->table);
 	}else{
 		$this->updateRecord($setData);
 	}
-	
+
 }
 
 
@@ -96,7 +96,7 @@ public function deleteRecord($paramId = null){
 }
 
 /**
- * [Get data for insert in form for update]
+ * []
  * @param  [INT] $paramId [key for using on structure  SQL ]
  * @return [data]         [record existing in database]
  */
@@ -110,6 +110,21 @@ public function getDataId($paramId = null){
 			print($e->getMessage());
 		}
 	}
+}
+
+
+/**
+ * [return try typeLevel and ID of record ]
+ * @method getRecord
+ * @return [type]    [description]
+ */
+public function getUserLevelInputs(){
+		try {
+			$dt = new GetRecord();
+			return json_encode($dt->getRecord($this->table));
+		}catch (\Exception $e) {
+			print($e->getMessage());
+		}
 }
 
 /**

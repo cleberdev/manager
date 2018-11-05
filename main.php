@@ -49,10 +49,16 @@ if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MC
 	$smarty->assign('MOD', _ROUTER_NOW_);
 	$smarty->assign('response', $Obj_str->getResponse());
 
+	//loading method of module-specific components
+	if(method_exists($Obj_str, getColectionDataSelect ) ){
+			$smarty->assign('colectionDataSelect', $Obj_str->getColectionDataSelect());
+	}
 
 	if( $perm->getLogin() ){
 		$smarty->display(Config::_VIEWS_C.'body.html');
 		$smarty->display(Config::_VIEWS_._ROUTER_NOW_.'.html');
+
+
 
 	}else{
 		$logger->pushHandler($stream);

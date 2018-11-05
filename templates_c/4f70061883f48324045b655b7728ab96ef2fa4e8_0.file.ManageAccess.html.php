@@ -1,4 +1,27 @@
-<!-- END Header -->
+<?php
+/* Smarty version 3.1.32, created on 2018-11-05 20:05:23
+  from '/Applications/AMPPS/www/manager/views/ManageAccess.html' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.32',
+  'unifunc' => 'content_5be0a283c81395_44321212',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '4f70061883f48324045b655b7728ab96ef2fa4e8' => 
+    array (
+      0 => '/Applications/AMPPS/www/manager/views/ManageAccess.html',
+      1 => 1541448315,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5be0a283c81395_44321212 (Smarty_Internal_Template $_smarty_tpl) {
+?><!-- END Header -->
 
 <!-- Page content -->
 <div id="page-content">
@@ -42,18 +65,30 @@
               </tr>
             </thead>
             <tbody>
-              {foreach from=$response|json_decode item=curr_id}
+              <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, json_decode($_smarty_tpl->tpl_vars['response']->value), 'curr_id');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['curr_id']->value) {
+?>
               <tr>
-                <td class="text-center">{$curr_id->id}</td>
-                <td><strong>{$curr_id->name}</strong></td>
-                <td>{$curr_id->description}</td>
+                <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+</td>
+                <td><strong><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->name;?>
+</strong></td>
+                <td><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->description;?>
+</td>
                 <td><span class="label label-info">ativo</span></td>
                 <td class="text-center">
-                  <a href="javascript:void(0)" flag="{$curr_id->id}" data-toggle="tooltip" title="Editar Registro" class="btn btn-effect-ripple btn-xs btn-success btn_edit_accessList"><i class="fa fa-pencil"></i></a>
-                  <a href="javascript:void(0)" flag="{$curr_id->id}" data-toggle="tooltip" title="Excluir Registro" class="btn btn-effect-ripple btn-xs btn-danger btn_del_accessList"><i class="fa fa-times"></i></a>
+                  <a href="javascript:void(0)" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+" data-toggle="tooltip" title="Editar Registro" class="btn btn-effect-ripple btn-xs btn-success btn_edit_accessList"><i class="fa fa-pencil"></i></a>
+                  <a href="javascript:void(0)" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+" data-toggle="tooltip" title="Excluir Registro" class="btn btn-effect-ripple btn-xs btn-danger btn_del_accessList"><i class="fa fa-times"></i></a>
                 </td>
               </tr>
-              {/foreach}
+              <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             </tbody>
           </table>
         </div>
@@ -83,9 +118,18 @@
           <div class="form-group">
             <label class="col-md-3 control-label" for="example-select">Tipo de Acesso</label>
             <select id="example-select" name="example-select" class="form-control" size="1">
-              {foreach from=$colectionDataSelect|json_decode item=curr_id}
-                    <option value="{$curr_id->id}">{$curr_id->typeLevel}</option>
-              {/foreach}
+              <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, json_decode($_smarty_tpl->tpl_vars['colectionDataSelect']->value), 'curr_id');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['curr_id']->value) {
+?>
+                    <option value="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+"><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->typeLevel;?>
+</option>
+              <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             </select>
 
           </div>
@@ -116,3 +160,5 @@
 
 </div>
 <!-- END Page Content -->
+<?php }
+}

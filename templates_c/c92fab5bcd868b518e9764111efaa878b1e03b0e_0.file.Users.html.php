@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-11-01 17:12:47
+/* Smarty version 3.1.32, created on 2018-11-05 18:59:51
   from '/Applications/AMPPS/www/manager/views/Users.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5bdb340f512420_90822995',
+  'unifunc' => 'content_5be09327948be1_35091850',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c92fab5bcd868b518e9764111efaa878b1e03b0e' => 
     array (
       0 => '/Applications/AMPPS/www/manager/views/Users.html',
-      1 => 1541090767,
+      1 => 1541437708,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bdb340f512420_90822995 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5be09327948be1_35091850 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- END Header -->
 
 <!-- Page content -->
@@ -52,78 +52,79 @@ function content_5bdb340f512420_90822995 (Smarty_Internal_Template $_smarty_tpl)
     <!-- Example Title -->
     <div class="block-title">
       <div class="block-options pull-right">
-        <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default" data-toggle="tooltip" title="" style="overflow: hidden; position: relative;" data-original-title="Settings"><i class="fa fa-cog"></i></a>
-        <div class="btn-group">
-          <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="" style="overflow: hidden; position: relative;" data-original-title="Opções">
-                                             <i class="fa fa-chevron-down"></i>
-                                           </a>
-          <ul class="dropdown-menu dropdown-menu-right">
-            <li>
-              <a href="Userlevel">
-                 <i class="fa fa-pencil pull-right"></i>
-                 Níveis de Permissão
-              </a>
-          </li>
-          <li>
-          <a href="javascript:void(0)">
-               <i class="fa fa-refresh pull-right"></i>
-               Update
-             </a>
-          </li>
-          <li class="divider"></li>
-          <li>
-          <a href="javascript:void(0)">
-             <i class="fa fa-trash-o fa-fw pull-right"></i>
-             Delete
- </a>
-            </li>
-          </ul>
-        </div>
-      </div>
+       <!--  <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default" data-toggle="tooltip" title="" style="overflow: hidden; position: relative;" data-original-title="Settings"><i class="fa fa-cog"></i></a> -->
+       <div class="btn-group">
+        <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="" style="overflow: hidden; position: relative;" data-original-title="Opções">
+         <i class="fa fa-cog"></i></i>
+       </a>
+       <ul class="dropdown-menu dropdown-menu-right">
+        <li>
+          <a href="Userlevel">
+           <i class="fa fa-pencil pull-right"></i>
+           Níveis de Permissão
+         </a>
+       </li>
+       <li>
+        <a href="AccessList">
+         <i class="fa fa-pencil pull-right"></i>
+         Lista de Acesso
+       </a>
+     </li>
+     
+     <li class="divider"></li>
+     <li>
+      <a href="ManageAccess">
+       <i class="fa fa-pencil pull-right"></i>
+       Gerir Acessos
+     </a>
+   </li>
+ </ul>
+</div>
+</div>
 
-      <a href="#modal-add-user" class="btn btn-sm btn-success btn-new-user" data-toggle="modal"><i class="fa fa-plus"></i>Novo Usuário</a>
-      <h2></h2>
-    </div>
-    <!-- END Example Title -->
+<a href="#modal-add-user" class="btn btn-sm btn-success btn-new-user" data-toggle="modal"><i class="fa fa-plus"></i>Novo Usuário</a>
+<h2></h2>
+</div>
+<!-- END Example Title -->
 
-    <!-- Contacts Content -->
-    <div class="row">
-      <?php
+<!-- Contacts Content -->
+<div class="row">
+  <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['response']->value, 'curr_id');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['curr_id']->value) {
 ?>
-      <div class="col-sm-4 col-lg-3">
-        <div class="media-items animation-fadeInQuick2">
-          <div class="media-items-options text-right">
-            <!-- <a href="img/placeholders/photos/photo1.jpg" class="btn btn-xs btn-info" data-toggle="lightbox-image">View</a> -->
-            <a href="#modal-add-user" class="btn btn-xs btn-success btn_update" data-toggle="modal" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+  <div class="col-sm-4 col-lg-3">
+    <div class="media-items animation-fadeInQuick2">
+      <div class="media-items-options text-right">
+        <!-- <a href="img/placeholders/photos/photo1.jpg" class="btn btn-xs btn-info" data-toggle="lightbox-image">View</a> -->
+        <a href="#modal-add-user" class="btn btn-xs btn-success btn_update" data-toggle="modal" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
 "><i class="fa fa-pencil"></i></a>
-            <a href="javascript:void(0)" class="btn btn-xs btn-danger btn-danger btn_delete" data-toggle="tooltip" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+        <a href="javascript:void(0)" class="btn btn-xs btn-danger btn-danger btn_delete" data-toggle="tooltip" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
 " title="Excluir"><i class="fa fa-times"></i></a>
-          </div>
-          <div class="media-items-content">
-            <img src="<?php echo $_smarty_tpl->tpl_vars['link_img']->value;?>
+      </div>
+      <div class="media-items-content">
+        <img src="<?php echo $_smarty_tpl->tpl_vars['link_img']->value;?>
 placeholders/avatars/avatar9.jpg" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar pull-center">
-          </div>
-          <h4>
+      </div>
+      <h4>
 
         <strong><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->name;?>
 </strong><br>
         <small><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->email;?>
 </small>
       </h4>
-</div>
-</div>
-<?php
+    </div>
+  </div>
+  <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 
-    </div>
-    <!-- END Contacts Content -->
-  </div>
+</div>
+<!-- END Contacts Content -->
+</div>
 
 </div>
 <!-- END Page Content -->
