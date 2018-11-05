@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-11-04 15:46:27
-  from 'C:\Program Files (x86)\Ampps\www\manager\views\Userlevel.html' */
+/* Smarty version 3.1.32, created on 2018-11-05 00:35:46
+  from 'C:\Program Files (x86)\Ampps\www\manager\views\AccessList.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5bdf1453d09709_33077473',
+  'unifunc' => 'content_5bdf90623885d4_36797778',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'dbce80fc83440d1c61e70fc7799a16928ba0ace5' => 
+    'a8085b2a3cc0fc94f668d7bf28e7a6641f935243' => 
     array (
-      0 => 'C:\\Program Files (x86)\\Ampps\\www\\manager\\views\\Userlevel.html',
-      1 => 1541343617,
+      0 => 'C:\\Program Files (x86)\\Ampps\\www\\manager\\views\\AccessList.html',
+      1 => 1541378143,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bdf1453d09709_33077473 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bdf90623885d4_36797778 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- END Header -->
 
 <!-- Page content -->
@@ -37,7 +37,7 @@ function content_5bdf1453d09709_33077473 (Smarty_Internal_Template $_smarty_tpl)
         <div class="header-section">
           <ul class="breadcrumb breadcrumb-top">
             <li><a href="Dashboard">Dashboard</a></li>
-            <li><a href="javascript:void(0)">Níveis de Usuários</a></li>
+            <li><a href="javascript:void(0)">Lista de Acesso</a></li>
           </ul>
         </div>
       </div>
@@ -58,7 +58,7 @@ function content_5bdf1453d09709_33077473 (Smarty_Internal_Template $_smarty_tpl)
             <thead>
               <tr>
                 <th class="text-center" style="width: 50px;">ID</th>
-                <th>Nome do Tipo</th>
+                <th>Nome</th>
                 <th>Descrição</th>
                 <th style="width: 120px;">Status</th>
                 <th class="text-center" style="width: 75px;"><i class="fa fa-flash"></i></th>
@@ -73,16 +73,16 @@ foreach ($_from as $_smarty_tpl->tpl_vars['curr_id']->value) {
               <tr>
                 <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
 </td>
-                <td><strong><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->typeLevel;?>
+                <td><strong><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->name;?>
 </strong></td>
                 <td><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->description;?>
 </td>
-                <td><span class="label label-info">On hold..</span></td>
+                <td><span class="label label-info">ativo</span></td>
                 <td class="text-center">
                   <a href="javascript:void(0)" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
-" data-toggle="tooltip" title="Editar Registro" class="btn btn-effect-ripple btn-xs btn-success btn_edit_userLevel"><i class="fa fa-pencil"></i></a>
+" data-toggle="tooltip" title="Editar Registro" class="btn btn-effect-ripple btn-xs btn-success btn_edit_accessList"><i class="fa fa-pencil"></i></a>
                   <a href="javascript:void(0)" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
-" data-toggle="tooltip" title="Excluir Registro" class="btn btn-effect-ripple btn-xs btn-danger btn_del_userLevel"><i class="fa fa-times"></i></a>
+" data-toggle="tooltip" title="Excluir Registro" class="btn btn-effect-ripple btn-xs btn-danger btn_del_accessList"><i class="fa fa-times"></i></a>
                 </td>
               </tr>
               <?php
@@ -101,7 +101,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <!-- Labels on top Form Title -->
         <div class="block-title">
           <div class="block-options pull-right">
-            <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default toggle-bordered enable-tooltip" data-toggle="button" title="Tipos de acesso ao sistema">Tipos de acesso ao sistema</a>
+            <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default toggle-bordered enable-tooltip" data-toggle="button" title="Tipos de acesso ao sistema">Lista de Acesso</a>
           </div>
           <h2><button type="button" name="button" id="button_add_cancel">Cancelar</button></h2>
 
@@ -110,19 +110,19 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
         <!-- Labels on top Form Content -->
 
-        <form action="Userlevel" method="post" class="form-bordered" id="Userlevel">
+        <form action="AccessList" method="post" class="form-bordered" id="AccessList">
           <!-- field that authorizes the system to use the module -->
-          <input type="hidden" name="module" value="Userlevel">
+          <input type="hidden" name="module" value="AccessList">
           <input type="hidden" name="updateData" value="">
 
           <div class="form-group">
             <label for="example-nf-email">Nome do tipo</label>
-            <input type="text" name="typeLevel" id="example-nf-email" name="example-nf-email" class="form-control">
-            <span class="help-block">Por favor entre com o nome para o tipo</span>
+            <input type="text" name="name" id="example-nf-email" name="example-nf-email" class="form-control">
+            <span class="help-block">Por favor entre com o nome</span>
           </div>
           <div class="form-group">
             <label for="example-nf-password">Descrição</label>
-            <textarea id="example-textarea-input" name="description" rows="7" class="form-control" placeholder="Description.."></textarea>
+            <textarea id="example-textarea-input" name="description" rows="7" class="form-control" placeholder="Descrição.."></textarea>
             <span class="help-block">Por favor entre com a descrição</span>
           </div>
 

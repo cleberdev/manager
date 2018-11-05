@@ -1,0 +1,6 @@
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Modus operandi para criar um módulo novo
+-HTML: criar o arquivo html e no form atentar aos campos abaixo:
+-<input type="hidden" name="module" value="xxxx">
+<input type="hidden" name="updateData" value=""> " se vazio irá ADD caso contrário terá o ID para UPDATE"

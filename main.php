@@ -53,8 +53,8 @@ if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MC
 	if( $perm->getLogin() ){
 		$smarty->display(Config::_VIEWS_C.'body.html');
 		$smarty->display(Config::_VIEWS_._ROUTER_NOW_.'.html');
-		
- 	}else{
+
+	}else{
 		$logger->pushHandler($stream);
 		$logger->pushHandler($firephp);
 		$logger->error('Login Rejeitado !');

@@ -49,6 +49,9 @@ $routing->add("/Dashboard");
 $routing->add("/Login");
 $routing->add("/Logout");
 $routing->add("/Userlevel");
+$routing->add("/AccessList");
+$routing->add("/ManageAccess");
+
 
 define('_ROUTER_NOW_', $routing->submit());
 

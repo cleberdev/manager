@@ -12,9 +12,9 @@ use MyClass\Persistence\Rewrite;
 use MyClass\Persistence\GetRecord;
 use MyClass\Persistence\DeleteRecord;
 
-class Userlevel {
+class AccessList {
 
-	private $table = "userLevel";
+	private $table = "AccessList";
 
 	protected $response;
 
@@ -31,13 +31,14 @@ class Userlevel {
 	 * Construct an colection of URL's
 	 */
 	public function __construct() {
+		
 		self::getAllRecord( $this->table );
 	}
 
 	public function validationData($data = []){
 		if(!empty($data)){
-			if (ValidatePosts::valida_users($data, 'level') !== true) {
-				return ValidatePosts::valida_users($data, 'level');
+			if (ValidatePosts::valida_users($data, 'accessList') !== true) {
+				return ValidatePosts::valida_users($data, 'accessList');
 			} else {
 
 				return $this->addRecord($data );

@@ -1,30 +1,30 @@
 $( document ).ready(function() {
 
-var dominioURL = "manager/"
+  var dominioURL = "manager/"
 
   $('.block_add_user').css('display', 'none');
 
   /* start of js */
   $('#user_button').click(function() {
-      $('.block_add_user').toggle();
-      $(this).toggleClass('active');
+    $('.block_add_user').toggle();
+    $(this).toggleClass('active');
     $('.block_list_user').css('display', 'none');
-      return false;
+    return false;
   });
 
   $('#button_add_cancel').click(function() {
-      $('.block_list_user').toggle();
-      $(this).toggleClass('active');
+    $('.block_list_user').toggle();
+    $(this).toggleClass('active');
     $('.block_add_user').css('display', 'none');
-      return false;
+    return false;
   });
 
-    $("#Userlevel").submit(function( event ){
-      event.preventDefault();
-      $.ajax({
-        url : 'AjaxServices.php', /* url the service */
-        type : 'POST', /* request type */
-        data: $('#Userlevel').serialize(),
+  $("#Userlevel").submit(function( event ){
+    event.preventDefault();
+    $.ajax({
+      url : 'AjaxServices.php', /* url the service */
+      type : 'POST', /* request type */
+      data: $('#Userlevel').serialize(),
             dataType: 'json',  //type data
             success: function(data){
               console.log( data );
@@ -73,9 +73,95 @@ var dominioURL = "manager/"
           }//success
 
         });
+  });
 
 
-    });
+
+
+
+
+/**
+ * [description]
+ * @param  {[type]} event ){              event.preventDefault();    $.ajax({      url : 'AjaxServices.php',       type : 'POST',       data: $('#AccessList').serialize(),            dataType: 'json',              success: function(data){              console.log( data );              if(data ! [description]
+ * @return {[type]}       [description]
+ */
+ $("#AccessList").submit(function( event ){
+  event.preventDefault();
+  $.ajax({
+    url : 'AjaxServices.php', /* url the service */
+    type : 'POST', /* request type */
+    data: $('#AccessList').serialize(),
+            dataType: 'json',  //type data
+            success: function(data){
+              console.log( data );
+              if(data !== true ){
+
+                if( data !== false){
+
+                  if(data !== null){
+                    var i;
+                    for (i = 0; i < data.length; i++) {
+                      $.notify(data[i].replace(/<(?:.|\n)*?>/gm, ''), { position:"top left" });
+                    }
+                  }else{
+                   console.log( data );
+                   $.confirm({
+                    title: 'O registro foi salvo com Sucesso! Obrigado.',
+                    content: '',
+                    theme: 'material',
+                    closeIcon: true,
+                    animation: 'scale',
+                    type: 'green',
+                    buttons: {
+                      Ok: function () {
+                        location.reload();
+                      },
+                    }
+                  });
+                 }
+
+
+               }else{
+                $.confirm({
+                  title: 'Houve algum problema ao enviar os dados. Contate o Suporte!',
+                  content: '',
+                  theme: 'material',
+                  closeIcon: true,
+                  animation: 'scale',
+                  type: 'red',
+                  buttons: {
+                    Cancelar: function () {    },
+                  }
+                });
+              }
+
+            }
+          }//success
+
+        });
+});
+
+
+
+//Action for update of records
+$('.btn_edit_userLevel').click(function(){
+  var idx = $(this).index(this);
+  var pKey = $(this).eq(idx).attr('flag');
+  updateRecord('update', pKey, 'userLevel');
+
+  $('#user_button').click();
+
+});
+
+//Action for update of records
+$('.btn_edit_accessList').click(function(){
+  var idx = $(this).index(this);
+  var pKey = $(this).eq(idx).attr('flag');
+  updateRecord('update', pKey, 'AccessList');
+
+  $('#user_button').click();
+
+});
 
 
     //Action for delete record
@@ -99,6 +185,30 @@ var dominioURL = "manager/"
         }
       });
     });
+
+
+//Action for delete record
+$('.btn_del_accessList').click(function(){
+  var idx = $(this).index(this);
+  var pKey = $(this).eq(idx).attr('flag');
+
+  $.confirm({
+    title: 'Excluir Registro',
+    content: 'Deseja realmente Apagar este registro ?',
+    theme: 'material',
+    closeIcon: true,
+    animation: 'scale',
+    type: 'red',
+    buttons: {
+      Sim: function () {
+        deleteRecord('delete', pKey, 'accessList');
+        document.location.href= "../"+dominioURL+"AccessList";
+      },
+      Não: function () {  }
+    }
+  });
+});
+
 
 
 
@@ -201,24 +311,56 @@ var dominioURL = "manager/"
  * @param  {[type]}     param_module [reference do current module]
  * @return {[type]}                  [description]
  */
-  function deleteRecord(param_action, param_key, param_module){
-    $.ajax({
-      url : 'AjaxServices.php', /* url the service */
-      type : 'GET', /* request type */
-      data: 'action='+ param_action + '&key='+ param_key +'&module='+ param_module,
-      dataType: 'json',
-      success: function(data){
-        $.alert('Registro Excluído com sucesso!');
+ function deleteRecord(param_action, param_key, param_module){
+  $.ajax({
+    url : 'AjaxServices.php', /* url the service */
+    type : 'GET', /* request type */
+    data: 'action='+ param_action + '&key='+ param_key +'&module='+ param_module,
+    dataType: 'json',
+    success: function(data){
+      $.alert('Registro Excluído com sucesso!');
       }//success
     });
   }//END getDataUser
 
 
 
+/**
+ * Delete record of system on module current
+ * @method deleteRecord
+ * @param  {[string]}   param_action [action that goe using for system]
+ * @param  {[int]}      param_key    [key for clausure where SQL]
+ * @param  {[type]}     param_module [reference do current module]
+ * @return {[type]}                  [description]
+ */
+ function updateRecord(param_action, param_key, param_module){
+  $.ajax({
+    url : 'AjaxServices.php', /* url the service */
+    type : 'GET', /* request type */
+    data: 'action='+ param_action + '&key='+ param_key +'&module='+ param_module,
+    dataType: 'json',
+    success: function(data){
+      //$.alert('Registro atualizados com sucesso!');
+      if(data.length > 0){
+        $('input[name=updateData]').val( data[0].id );
+        $('input[name=typeLevel]').val( data[0].typeLevel );
 
-  $('.btn-new-user').click(function(){
-    $('input[name=identity]').val('');
-    $('input[name=action]').val('add');
+        $('input[name=name]').val( data[0].name );
+        $('textarea[name=description]').text( data[0].description );
+        console.log( data[0] );
+      }
+
+     }//success
+   });
+}//END getDataUser
+
+
+
+
+
+$('.btn-new-user').click(function(){
+  $('input[name=identity]').val('');
+  $('input[name=action]').val('add');
   $('input[name=type]').val(1); //waiting an momento for integrat
   $('input[name=name]').val('');
   $('input[name=email]').val('');

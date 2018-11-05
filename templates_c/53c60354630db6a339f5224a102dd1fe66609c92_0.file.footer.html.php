@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-10-10 00:58:18
+/* Smarty version 3.1.32, created on 2018-11-04 13:55:55
   from 'C:\Program Files (x86)\Ampps\www\manager\views\commons\footer.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5bbd4eaa125427_85258105',
+  'unifunc' => 'content_5bdefa6bbbe5e8_03324017',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '53c60354630db6a339f5224a102dd1fe66609c92' => 
     array (
       0 => 'C:\\Program Files (x86)\\Ampps\\www\\manager\\views\\commons\\footer.html',
-      1 => 1539132926,
+      1 => 1541339639,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bbd4eaa125427_85258105 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bdefa6bbbe5e8_03324017 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- END Page Content -->
 
 </div>
@@ -59,17 +59,17 @@ app.js"><?php echo '</script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['link_js']->value;?>
 appCustomized.js"><?php echo '</script'; ?>
 >
-<!-- Load and execute javascript code used only in this page -->
-<!-- <?php echo '<script'; ?>
- src="js/pages/uiTables.js"><?php echo '</script'; ?>
->
-	<?php echo '<script'; ?>
->$(function(){ UiTables.init(); });<?php echo '</script'; ?>
-> -->
 
-	<!-- Load and execute javascript code used only in this page -->
+<?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['link_js']->value;?>
+uiTables.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>$(function(){ UiTables.init(); });<?php echo '</script'; ?>
+>
 
 </body>
 
-</html><?php }
+</html>
+<?php }
 }

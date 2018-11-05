@@ -12,9 +12,9 @@ use MyClass\Persistence\Rewrite;
 use MyClass\Persistence\GetRecord;
 use MyClass\Persistence\DeleteRecord;
 
-class Userlevel {
+class ManageAccess {
 
-	private $table = "userLevel";
+	private $table = "manageAccess";
 
 	protected $response;
 
