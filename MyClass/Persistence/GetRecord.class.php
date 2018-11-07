@@ -19,7 +19,7 @@ class GetRecord extends Database {
 	}
 
 	public function getRecord($getTabel) {
-		$SQL = "select id, typeLevel from ".$getTabel;
+		$SQL = "select * from ".$getTabel;
 		return $this->selectDB($SQL);
 	}
 

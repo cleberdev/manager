@@ -14,7 +14,8 @@ use MyClass\Persistence\DeleteRecord;
 
 class Userlevel {
 
-	private $table = "userLevel";
+	private $table 						= "userLevel";
+	private $tableAccessList	= "AccessList";
 
 	protected $response;
 
@@ -122,6 +123,20 @@ public function getUserLevelInputs(){
 		try {
 			$dt = new GetRecord();
 			return json_encode($dt->getRecord($this->table));
+		}catch (\Exception $e) {
+			print($e->getMessage());
+		}
+}
+
+/**
+ * [getAccessItens description]
+ * @method getAccessItens
+ * @return [type]         [description]
+ */
+public function getAccessItens(){
+		try {
+			$dt = new GetRecord();
+			return json_encode($dt->getRecord($this->tableAccessList));
 		}catch (\Exception $e) {
 			print($e->getMessage());
 		}

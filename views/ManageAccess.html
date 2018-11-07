@@ -89,18 +89,35 @@
             </select>
 
           </div>
-          <div class="form-group">
-            <div class="form-group">
-              <label class="col-md-3 control-label">Inline Checkboxes</label>
-              <div class="col-md-9">
-                <label class="checkbox-inline" for="example-inline-checkbox1">
-                  <input type="checkbox" id="example-inline-checkbox1" name="example-inline-checkbox1" value="option1"> HTML
-                </label>
-              </div>
 
-              
+      <div class="block">
+        <!-- Checkboxes Title -->
+        <div class="block-title">
+            <div class="block-options pull-right">
+                <!-- <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default toggle-bordered enable-tooltip" data-toggle="button" title="" style="overflow: hidden; position: relative;" data-original-title="Toggles .form-bordered class"></a> -->
             </div>
-          </div>
+            <h2>Esse tipo poderá: </h2>
+        </div>
+
+{debug}
+        <!-- Switches Content -->
+        {foreach from=$colectionDataCHK|json_decode item=curr_id}
+        <div class="checkbox">
+                <label for="example-checkbox{$curr_id->id}">
+                    <input type="checkbox" id="example-checkbox{$curr_id->id}" name="example-checkbox1" value="{$curr_id->id}">{$curr_id->name}
+                </label>
+            </div>
+        {/foreach}
+        </div>
+
+
+
+
+        <!-- END Checkboxes Content -->
+
+
+      </div>
+
 
           <div class="form-group form-actions">
             <button type="submit" class="btn btn-effect-ripple btn-primary">Gravar</button>

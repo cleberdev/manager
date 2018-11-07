@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-11-05 20:05:23
+/* Smarty version 3.1.32, created on 2018-11-07 20:28:23
   from '/Applications/AMPPS/www/manager/views/ManageAccess.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5be0a283c81395_44321212',
+  'unifunc' => 'content_5be34ae7d4efb9_28979582',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4f70061883f48324045b655b7728ab96ef2fa4e8' => 
     array (
       0 => '/Applications/AMPPS/www/manager/views/ManageAccess.html',
-      1 => 1541448315,
+      1 => 1541622500,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5be0a283c81395_44321212 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5be34ae7d4efb9_28979582 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- END Header -->
 
 <!-- Page content -->
@@ -133,18 +133,49 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             </select>
 
           </div>
-          <div class="form-group">
-            <div class="form-group">
-              <label class="col-md-3 control-label">Inline Checkboxes</label>
-              <div class="col-md-9">
-                <label class="checkbox-inline" for="example-inline-checkbox1">
-                  <input type="checkbox" id="example-inline-checkbox1" name="example-inline-checkbox1" value="option1"> HTML
-                </label>
-              </div>
 
-              
+      <div class="block">
+        <!-- Checkboxes Title -->
+        <div class="block-title">
+            <div class="block-options pull-right">
+                <!-- <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default toggle-bordered enable-tooltip" data-toggle="button" title="" style="overflow: hidden; position: relative;" data-original-title="Toggles .form-bordered class"></a> -->
             </div>
-          </div>
+            <h2>Esse tipo poderá: </h2>
+        </div>
+
+<?php $_smarty_debug = new Smarty_Internal_Debug;
+ $_smarty_debug->display_debug($_smarty_tpl);
+unset($_smarty_debug);
+?>
+        <!-- Switches Content -->
+        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, json_decode($_smarty_tpl->tpl_vars['colectionDataCHK']->value), 'curr_id');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['curr_id']->value) {
+?>
+        <div class="checkbox">
+                <label for="example-checkbox<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+">
+                    <input type="checkbox" id="example-checkbox<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+" name="example-checkbox1" value="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+"><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->name;?>
+
+                </label>
+            </div>
+        <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+        </div>
+
+
+
+
+        <!-- END Checkboxes Content -->
+
+
+      </div>
+
 
           <div class="form-group form-actions">
             <button type="submit" class="btn btn-effect-ripple btn-primary">Gravar</button>

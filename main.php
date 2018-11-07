@@ -53,6 +53,9 @@ if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MC
 	if(method_exists($Obj_str, getColectionDataSelect ) ){
 			$smarty->assign('colectionDataSelect', $Obj_str->getColectionDataSelect());
 	}
+	if(method_exists($Obj_str, getColectionDataCHK ) ){
+			$smarty->assign('colectionDataCHK', $Obj_str->getColectionDataCHK());
+	}
 
 	if( $perm->getLogin() ){
 		$smarty->display(Config::_VIEWS_C.'body.html');

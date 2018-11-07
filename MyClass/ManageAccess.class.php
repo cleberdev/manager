@@ -18,6 +18,7 @@ class ManageAccess extends Userlevel
 
 	private $table = "manageAccess";
 	private $colectionDataSelect;
+	private $ColectionDataCHK;
 	protected $response;
 
 	public function setResponse($response) {
@@ -37,11 +38,20 @@ class ManageAccess extends Userlevel
 		return $this->colectionDataSelect;
 	}
 
+	public function setColectionDataCHK( $colection ){
+		$this->ColectionDataCHK = $colection;
+	}
+
+	public function getColectionDataCHK(){
+		return $this->ColectionDataCHK;
+	}
+
 	/**
 	 * Construct an colection of URL's
 	 */
 	public function __construct() {
 		$this->setColectionDataSelect( $this->getUserLevelInputs() );
+		$this->setColectionDataCHK( $this->getAccessItens() );
 		self::getAllRecord( $this->table );
 	}
 
