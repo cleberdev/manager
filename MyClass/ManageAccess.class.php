@@ -12,11 +12,13 @@ use MyClass\Persistence\Rewrite;
 use MyClass\Persistence\GetRecord;
 use MyClass\Persistence\DeleteRecord;
 use MyClass\Userlevel;
+use MyClass\Aux as aux;
 
 class ManageAccess extends Userlevel
 {
 
-	private $table = "manageAccess";
+	private $table 	 = "permissionList";
+	private $tableVW = "vw_permissionlist";
 	private $colectionDataSelect;
 	private $ColectionDataCHK;
 	protected $response;
@@ -49,10 +51,18 @@ class ManageAccess extends Userlevel
 	/**
 	 * Construct an colection of URL's
 	 */
-	public function __construct() {
-		$this->setColectionDataSelect( $this->getUserLevelInputs() );
-		$this->setColectionDataCHK( $this->getAccessItens() );
-		self::getAllRecord( $this->table );
+	public function __construct($data = "") {
+		if(empty($data)){
+			$this->setColectionDataSelect( $this->getUserLevelInputs() );
+			$this->setColectionDataCHK( $this->getAccessItens() );
+			self::getAllRecord( $this->tableVW );
+		}else{
+			$this->setColectionDataSelect( $this->getUserLevelInputs() );
+			$this->setColectionDataCHK( $this->getAccessItens() );
+			self::getAllRecord( $this->tableVW );
+			$this->addRecord( $data );
+		}
+
 	}
 
 	public function validationData($data = []){
@@ -69,17 +79,23 @@ class ManageAccess extends Userlevel
 /**
  *
  */
-private function addRecord($setData){
-
+private function addRecord($setData)
+{
 	if(empty($setData['updateData'])){
 		unset($setData['module']);
 		unset($setData['updateData']);
-		new Write($setData, $this->table);
-	}else{
-		$this->updateRecord($setData);
-	}
+		for ($i=0; $i <count($setData['permission']) ; $i++) {
+			$arrayField['idUserlevel'] = $setData['idUserlevel'];
+			$arrayField['idAccessList'] = $setData['permission'][$i];
+				new Write($arrayField, $this->table);
+		}
 
-}
+		aux::redirect( get_class($this), true );
+
+		}else{
+			$this->updateRecord($setData);
+		}
+	}
 
 
 /**

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-11-05 19:03:37
+/* Smarty version 3.1.32, created on 2018-11-08 20:55:37
   from '/Applications/AMPPS/www/manager/views/AccessList.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5be09409b72af1_80385144',
+  'unifunc' => 'content_5be4a2c9dab868_54298388',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '26ac65bd52f7004ae9bb9f923e854886f9238386' => 
     array (
       0 => '/Applications/AMPPS/www/manager/views/AccessList.html',
-      1 => 1541437708,
+      1 => 1541710533,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5be09409b72af1_80385144 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5be4a2c9dab868_54298388 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- END Header -->
 
 <!-- Page content -->
@@ -117,7 +117,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
           <div class="form-group">
             <label for="example-nf-email">Nome do tipo</label>
-            <input type="text" name="name" id="example-nf-email" name="example-nf-email" class="form-control">
+            <input type="text" name="name" id="example-nf-email" class="form-control">
             <span class="help-block">Por favor entre com o nome</span>
           </div>
           <div class="form-group">

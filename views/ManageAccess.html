@@ -35,9 +35,9 @@
             <thead>
               <tr>
                 <th class="text-center" style="width: 50px;">ID</th>
-                <th>Nome</th>
-                <th>Descrição</th>
-                <th style="width: 120px;">Status</th>
+                <th>Tipo</th>
+                <th>Premissões</th>
+                <th style="width: 120px; display:none">Status</th>
                 <th class="text-center" style="width: 75px;"><i class="fa fa-flash"></i></th>
               </tr>
             </thead>
@@ -45,12 +45,11 @@
               {foreach from=$response|json_decode item=curr_id}
               <tr>
                 <td class="text-center">{$curr_id->id}</td>
-                <td><strong>{$curr_id->name}</strong></td>
-                <td>{$curr_id->description}</td>
-                <td><span class="label label-info">ativo</span></td>
+                <td><strong>{$curr_id->typeLevel}</strong></td>
+                <td>{$curr_id->name}</td>
+                <td style="display:none"><span class="label label-info">ativo</span></td>
                 <td class="text-center">
-                  <a href="javascript:void(0)" flag="{$curr_id->id}" data-toggle="tooltip" title="Editar Registro" class="btn btn-effect-ripple btn-xs btn-success btn_edit_accessList"><i class="fa fa-pencil"></i></a>
-                  <a href="javascript:void(0)" flag="{$curr_id->id}" data-toggle="tooltip" title="Excluir Registro" class="btn btn-effect-ripple btn-xs btn-danger btn_del_accessList"><i class="fa fa-times"></i></a>
+                  <a href="javascript:void(0)" flag="{$curr_id->id}" data-toggle="tooltip" title="Excluir Registro" class="btn btn-effect-ripple btn-xs btn-danger btn_del_manageAccess"><i class="fa fa-times"></i></a>
                 </td>
               </tr>
               {/foreach}
@@ -75,14 +74,14 @@
 
         <!-- Labels on top Form Content -->
 
-        <form action="AccessList" method="post" class="form-bordered" id="AccessList">
+        <form action="ManageAccess" method="post" class="form-bordered" id="ManageAccess">
           <!-- field that authorizes the system to use the module -->
-          <input type="hidden" name="module" value="AccessList">
+          <input type="hidden" name="module" value="ManageAccess">
           <input type="hidden" name="updateData" value="">
 
           <div class="form-group">
             <label class="col-md-3 control-label" for="example-select">Tipo de Acesso</label>
-            <select id="example-select" name="example-select" class="form-control" size="1">
+            <select id="example-select" name="idUserlevel" class="form-control" size="1">
               {foreach from=$colectionDataSelect|json_decode item=curr_id}
                     <option value="{$curr_id->id}">{$curr_id->typeLevel}</option>
               {/foreach}
@@ -99,18 +98,29 @@
             <h2>Esse tipo poderá: </h2>
         </div>
 
-{debug}
+
         <!-- Switches Content -->
-        {foreach from=$colectionDataCHK|json_decode item=curr_id}
-        <div class="checkbox">
-                <label for="example-checkbox{$curr_id->id}">
-                    <input type="checkbox" id="example-checkbox{$curr_id->id}" name="example-checkbox1" value="{$curr_id->id}">{$curr_id->name}
-                </label>
-            </div>
-        {/foreach}
+          <div class="row">
+            {foreach from=$colectionDataCHK|json_decode item=curr_id}
+              <div class="col-md-6 col-xs-6 col-lg-3">
+                  <div class="block checkbox">
+                    <p>
+                    <label for="example-checkbox{$curr_id->id}">
+                        <input type="checkbox" id="example-checkbox{$curr_id->id}" name="permission[]" value="{$curr_id->id}">{$curr_id->name}
+                    </label>
+                    </p>
+                  </div>
+              </div>
+              {/foreach}
+
+          </div>
+
         </div>
 
-
+        <div class="form-group form-actions">
+          <button type="submit" class="btn btn-effect-ripple btn-primary">Gravar</button>
+        </div>
+        </form>
 
 
         <!-- END Checkboxes Content -->
@@ -119,10 +129,7 @@
       </div>
 
 
-          <div class="form-group form-actions">
-            <button type="submit" class="btn btn-effect-ripple btn-primary">Gravar</button>
-          </div>
-        </form>
+
         <!-- END Labels on top Form Content -->
       </div>
       <!-- END Labels on top Form Block -->

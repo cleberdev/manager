@@ -210,6 +210,27 @@ $('.btn_del_accessList').click(function(){
 });
 
 
+//Action for delete record
+$('.btn_del_manageAccess').click(function(){
+  var idx = $(this).index(this);
+  var pKey = $(this).eq(idx).attr('flag');
+
+  $.confirm({
+    title: 'Excluir Registro',
+    content: 'Deseja realmente Apagar este registro ?',
+    theme: 'material',
+    closeIcon: true,
+    animation: 'scale',
+    type: 'red',
+    buttons: {
+      Sim: function () {
+        deleteRecord('delete', pKey, 'manageAccess');
+        document.location.href= "../"+dominioURL+"ManageAccess";
+      },
+      Não: function () {  }
+    }
+  });
+});
 
 
   //Action for delete record

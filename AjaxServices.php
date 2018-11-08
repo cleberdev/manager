@@ -72,8 +72,6 @@ if(isset($_POST['module']) && $_POST['module'] == 'AccessList' ){
 	exit;
 }
 
-
-
 /*
 * service ajax if the run
 */

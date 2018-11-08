@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-11-07 20:28:23
+/* Smarty version 3.1.32, created on 2018-11-08 20:08:37
   from '/Applications/AMPPS/www/manager/views/ManageAccess.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5be34ae7d4efb9_28979582',
+  'unifunc' => 'content_5be497c5022801_07647045',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4f70061883f48324045b655b7728ab96ef2fa4e8' => 
     array (
       0 => '/Applications/AMPPS/www/manager/views/ManageAccess.html',
-      1 => 1541622500,
+      1 => 1541707063,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5be34ae7d4efb9_28979582 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5be497c5022801_07647045 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- END Header -->
 
 <!-- Page content -->
@@ -58,9 +58,9 @@ function content_5be34ae7d4efb9_28979582 (Smarty_Internal_Template $_smarty_tpl)
             <thead>
               <tr>
                 <th class="text-center" style="width: 50px;">ID</th>
-                <th>Nome</th>
-                <th>Descrição</th>
-                <th style="width: 120px;">Status</th>
+                <th>Tipo</th>
+                <th>Premissões</th>
+                <th style="width: 120px; display:none">Status</th>
                 <th class="text-center" style="width: 75px;"><i class="fa fa-flash"></i></th>
               </tr>
             </thead>
@@ -73,16 +73,14 @@ foreach ($_from as $_smarty_tpl->tpl_vars['curr_id']->value) {
               <tr>
                 <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
 </td>
-                <td><strong><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->name;?>
+                <td><strong><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->typeLevel;?>
 </strong></td>
-                <td><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->description;?>
+                <td><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->name;?>
 </td>
-                <td><span class="label label-info">ativo</span></td>
+                <td style="display:none"><span class="label label-info">ativo</span></td>
                 <td class="text-center">
                   <a href="javascript:void(0)" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
-" data-toggle="tooltip" title="Editar Registro" class="btn btn-effect-ripple btn-xs btn-success btn_edit_accessList"><i class="fa fa-pencil"></i></a>
-                  <a href="javascript:void(0)" flag="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
-" data-toggle="tooltip" title="Excluir Registro" class="btn btn-effect-ripple btn-xs btn-danger btn_del_accessList"><i class="fa fa-times"></i></a>
+" data-toggle="tooltip" title="Excluir Registro" class="btn btn-effect-ripple btn-xs btn-danger btn_del_manageAccess"><i class="fa fa-times"></i></a>
                 </td>
               </tr>
               <?php
@@ -110,14 +108,14 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
         <!-- Labels on top Form Content -->
 
-        <form action="AccessList" method="post" class="form-bordered" id="AccessList">
+        <form action="ManageAccess" method="post" class="form-bordered" id="ManageAccess">
           <!-- field that authorizes the system to use the module -->
-          <input type="hidden" name="module" value="AccessList">
+          <input type="hidden" name="module" value="ManageAccess">
           <input type="hidden" name="updateData" value="">
 
           <div class="form-group">
             <label class="col-md-3 control-label" for="example-select">Tipo de Acesso</label>
-            <select id="example-select" name="example-select" class="form-control" size="1">
+            <select id="example-select" name="idUserlevel" class="form-control" size="1">
               <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, json_decode($_smarty_tpl->tpl_vars['colectionDataSelect']->value), 'curr_id');
 if ($_from !== null) {
@@ -143,32 +141,40 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             <h2>Esse tipo poderá: </h2>
         </div>
 
-<?php $_smarty_debug = new Smarty_Internal_Debug;
- $_smarty_debug->display_debug($_smarty_tpl);
-unset($_smarty_debug);
-?>
+
         <!-- Switches Content -->
-        <?php
+          <div class="row">
+            <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, json_decode($_smarty_tpl->tpl_vars['colectionDataCHK']->value), 'curr_id');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['curr_id']->value) {
 ?>
-        <div class="checkbox">
-                <label for="example-checkbox<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+              <div class="col-md-6 col-xs-6 col-lg-3">
+                  <div class="block checkbox">
+                    <p>
+                    <label for="example-checkbox<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
 ">
-                    <input type="checkbox" id="example-checkbox<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
-" name="example-checkbox1" value="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+                        <input type="checkbox" id="example-checkbox<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
+" name="permission[]" value="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->id;?>
 "><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->name;?>
 
-                </label>
-            </div>
-        <?php
+                    </label>
+                    </p>
+                  </div>
+              </div>
+              <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+
+          </div>
+
         </div>
 
-
+        <div class="form-group form-actions">
+          <button type="submit" class="btn btn-effect-ripple btn-primary">Gravar</button>
+        </div>
+        </form>
 
 
         <!-- END Checkboxes Content -->
@@ -177,10 +183,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
       </div>
 
 
-          <div class="form-group form-actions">
-            <button type="submit" class="btn btn-effect-ripple btn-primary">Gravar</button>
-          </div>
-        </form>
+
         <!-- END Labels on top Form Content -->
       </div>
       <!-- END Labels on top Form Block -->

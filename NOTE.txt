@@ -19,3 +19,15 @@ IMPLEMENTAÇÕES NO SISTEMA
 //Loop with json_decode
 {foreach from=$response|json_decode item=curr_id}
 ----------------------------------------------------------------------------
+
+COPY VIEW
+SELECT
+a.id,
+a.idUserlevel,
+a.idAccessList,
+b.typeLevel,
+c.name
+ FROM permissionList a
+ left outer join Userlevel b ON (a.idUserlevel = b.id)
+  left outer join AccessList c ON (a.idAccessList = c.id)
+ WHERE 1

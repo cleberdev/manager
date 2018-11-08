@@ -23,7 +23,7 @@ class Rules {
 			),
 			'level' => array(
 				'typeLevel'    	=> 'required|min_len, 3|alpha_space',
-				'description' 	=> 'required|min_len, 10|alpha_space'
+				'description' 	=> 'required|min_len, 10|alpha_space|alpha_dash'
 			),
 			'accessList' => array(
 				'name'    		=> 'required|min_len, 3|alpha_space',
