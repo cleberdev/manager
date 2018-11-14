@@ -10,7 +10,7 @@ use MyClass\Persistence\DeleteRecord;
 use MyClass\GetInforSession;
 use MyClass\Userlevel;
 
-Class Users
+Class Users extends Userlevel
 {
 
 	private $table = "users";
@@ -22,19 +22,71 @@ Class Users
 	}
 
 	public function getResponse() {
-		$dataJson = json_encode($this->response);
-		return $dataJson;
+		return $this->response;
 	}
+
+	public function setColectionDataSelect( $colection ){
+		$this->colectionDataSelect = $colection;
+	}
+
+	public function getColectionDataSelect(){
+		return $this->colectionDataSelect;
+	}
+
 
 	/*
 	* Show data according to the action
 	* @param $data is a array
 	*/
 	public function __construct($data = []) {
-		self::getAllRecord( $this->table );
+		//$this->setColectionDataSelect( $this->getUserLevelInputs() );
+		self::actionUser($data);
 
 	}
 
+
+	private function actionUser($setData = []) {
+		if (isset($setData['action'])) {
+			$action = $setData['action'];
+
+			switch ($action) {
+				case 'add':
+				if (ValidatePosts::valida_users($setData, 'userForm') !== true) {
+					return $this->setResponse( ValidatePosts::valida_users($setData, 'userForm'));
+					exit;
+				} else {
+					$this->addRecord($setData);
+				}
+				break;
+
+				case 'update':
+				if (ValidatePosts::valida_users($setData, 'userForm') !== true) {
+					return $this->setResponse( ValidatePosts::valida_users($setData, 'userForm') );
+					exit;
+				} else {
+
+					return $this->updateRecord($setData);
+				}
+				exit;
+				break;
+
+				case 'delete':
+				return $this->deleteRecord($pIdentity);
+				exit;
+				break;
+
+				default:
+				$this->getAllRecord($this->table);
+				break;
+			}
+
+		} else {
+
+			$this->getAllRecord($this->table);
+		}
+
+
+	}
 
 
 
@@ -58,9 +110,8 @@ Class Users
 		unset($setData['action']);
 		unset($setData['module']);
 		unset($setData['password_confirm']);
-
-		$identity = filter_var($setData['updateData'], FILTER_SANITIZE_NUMBER_INT);
-		unset($setData['updateData']);
+		$identity = filter_var($setData['identity'], FILTER_SANITIZE_NUMBER_INT);
+		unset($setData['identity']);
 
 		$setData['password']  = sha1(md5($setData['password'])) ;
 		$setData['inputDate'] = (new \Datetime())->format('Y-m-d H:i:s');
@@ -70,36 +121,16 @@ Class Users
 	}
 
 
-	public function validationData($data = []){
-		if(!empty($data)){
-			if (ValidatePosts::valida_users($data, 'userForm') !== true) {
-				return ValidatePosts::valida_users($data, 'userForm');
-			} else {
-				return $this->addRecord($data );
-			}
-		}
-	}
-
-
 	private function addRecord($setData){
+		unset($setData['action']);
+		unset($setData['module']);
+		unset($setData['identity']);
+		unset($setData['password_confirm']);
 
-		if(empty($setData['updateData'])){
-			unset($setData['module']);
-			unset($setData['updateData']);
-			unset($setData['password_confirm']);
-
-			$setData['password']  = sha1(md5($setData['password'])) ;
-			$setData['inputDate'] = (new \Datetime())->format('Y-m-d H:i:s');
-
-			new Write($setData, $this->table);
-
-		}else{
-			$this->updateRecord($setData);
-		}
-
+		$setData['password']  = sha1(md5($setData['password'])) ;
+		$setData['inputDate'] = (new \Datetime())->format('Y-m-d H:i:s');
+		new Write($setData, $this->table);
 	}
-
-
 
 
 	private function getAllRecord($tableName){
@@ -149,12 +180,5 @@ Class Users
 					}
 				}
 			}
-
-
-
-
-
-
-
 
 		}

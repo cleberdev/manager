@@ -14,99 +14,111 @@
         <div class="header-section">
           <ul class="breadcrumb breadcrumb-top">
             <li><a href="Dashboard">Dashboard</a></li>
-            <li><a href="javascript:void(0)">Cadastro de Usuários</a></li>
+            <li><a href="javascript:void(0)">Usuários</a></li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="text-center border-top push-inner-top-bottom">
 
-
-    </div>
   </div>
   <!-- END Contacts Header -->
   <div class="block">
-    <!-- Example Title -->
-    <div class="block-title">
-      <div class="block-options pull-right">
-       <!--  <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default" data-toggle="tooltip" title="" style="overflow: hidden; position: relative;" data-original-title="Settings"><i class="fa fa-cog"></i></a> -->
-       <div class="btn-group">
-        <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="" style="overflow: hidden; position: relative;" data-original-title="Opções">
-         <i class="fa fa-cog"></i></i>
-       </a>
-       <ul class="dropdown-menu dropdown-menu-right">
-        <li>
-          <a href="Userlevel">
+    <!-- Contacts Content -->
+    <div class="row">
+
+      <div class="block full block_list_user">
+
+
+        <div class="block-title">
+          <div class="block-options pull-right">
+           <!--  <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default" data-toggle="tooltip" title="" style="overflow: hidden; position: relative;" data-original-title="Settings"><i class="fa fa-cog"></i></a> -->
+           <div class="btn-group">
+            <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default dropdown-toggle enable-tooltip" data-toggle="dropdown" title="" style="overflow: hidden; position: relative;" data-original-title="Opções">
+             <i class="fa fa-cog"></i></i>
+           </a>
+           <ul class="dropdown-menu dropdown-menu-right">
+            <li>
+              <a href="Userlevel">
+               <i class="fa fa-pencil pull-right"></i>
+               Níveis de Permissão
+             </a>
+           </li>
+           <li>
+            <a href="AccessList">
+             <i class="fa fa-pencil pull-right"></i>
+             Lista de Acesso
+           </a>
+         </li>
+
+         <li class="divider"></li>
+         <li>
+          <a href="ManageAccess">
            <i class="fa fa-pencil pull-right"></i>
-           Níveis de Permissão
+           Gerir Acessos
          </a>
-       </li>
-       <li>
-        <a href="AccessList">
-         <i class="fa fa-pencil pull-right"></i>
-         Lista de Acesso
-       </a>
-     </li>
-     
-     <li class="divider"></li>
-     <li>
-      <a href="ManageAccess">
-       <i class="fa fa-pencil pull-right"></i>
-       Gerir Acessos
-     </a>
-   </li>
- </ul>
-</div>
-</div>
+        </li>
+        </ul>
+        </div>
+        </div>
 
-<a href="#modal-add-user" class="btn btn-sm btn-success btn-new-user" data-toggle="modal"><i class="fa fa-plus"></i>Novo Usuário</a>
-<h2></h2>
-</div>
-<!-- END Example Title -->
+        <button class="btn btn-effect-ripple btn-info" type="button" name="button" id="user_button"><i class="fa fa-plus"></i>Novo Usuário</button>
+        <h2></h2>
 
-<!-- Contacts Content -->
-<div class="row">
-  {foreach from=$response item=curr_id}
-  <div class="col-sm-4 col-lg-3">
-    <div class="media-items animation-fadeInQuick2">
-      <div class="media-items-options text-right">
-        <!-- <a href="img/placeholders/photos/photo1.jpg" class="btn btn-xs btn-info" data-toggle="lightbox-image">View</a> -->
-        <a href="#modal-add-user" class="btn btn-xs btn-success btn_update" data-toggle="modal" flag="{$curr_id->id}"><i class="fa fa-pencil"></i></a>
-        <a href="javascript:void(0)" class="btn btn-xs btn-danger btn-danger btn_delete" data-toggle="tooltip" flag="{$curr_id->id}" title="Excluir"><i class="fa fa-times"></i></a>
+
+
+        </div>
+        <div class="table-responsive">
+
+          <table id="example-datatable" class="table table-striped table-bordered table-vcenter">
+            <thead>
+              <tr>
+                <th class="text-center" style="width: 50px;">ID</th>
+                <th>Usuário</th>
+                <th>E-mail</th>
+                <th style="width: 120px;">Status</th>
+                <th class="text-center" style="width: 75px;"><i class="fa fa-flash"></i></th>
+              </tr>
+            </thead>
+            <tbody>
+                {foreach from=$response|json_decode item=curr_id}
+              <tr>
+                <td class="text-center">{$curr_id->id}</td>
+                <td><strong>{$curr_id->name}</strong></td>
+                <td>{$curr_id->email}</td>
+                <td><span class="label label-info">Ativo</span></td>
+                <td class="text-center">
+                  <a href="javascript:void(0)" flag="{$curr_id->id}" data-toggle="tooltip" title="Editar Registro" class="btn btn-effect-ripple btn-xs btn-success btn_edit_users"><i class="fa fa-pencil"></i></a>
+                  <a href="javascript:void(0)" flag="{$curr_id->id}" data-toggle="tooltip" title="Excluir Registro" class="btn btn-effect-ripple btn-xs btn-danger btn_del_users"><i class="fa fa-times"></i></a>
+                </td>
+              </tr>
+              {/foreach}
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div class="media-items-content">
-        <img src="{$link_img}placeholders/avatars/avatar9.jpg" alt="avatar" class="img-circle img-thumbnail img-thumbnail-avatar pull-center">
-      </div>
-      <h4>
-
-        <strong>{$curr_id->name}</strong><br>
-        <small>{$curr_id->email}</small>
-      </h4>
-    </div>
-  </div>
-  {/foreach}
 
 
-</div>
-<!-- END Contacts Content -->
-</div>
 
-</div>
-<!-- END Page Content -->
-<!-- Add Contact Modal -->
-<div id="modal-add-user" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3 class="modal-title"><i class="fa fa-plus"></i> <strong>Novo Usuário</strong></h3>
-      </div>
-      <div class="modal-body">
-        <form action="Users" method="post" id="form_users" class="form-horizontal form-bordered">
-          <input type="hidden" value="{$MOD}" name="module">
-          <input type="hidden" value="add" name="action">
+      <!-- Labels on top Form Block -->
+      <div class="block block_add_user">
+        <!-- Labels on top Form Title -->
+        <div class="block-title">
+          <!-- <div class="block-options pull-right">
+            <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default toggle-bordered enable-tooltip" data-toggle="button" title="Tipos de acesso ao sistema">Tipos de acesso ao sistem</a>
+          </div> -->
+          <h2><button class="btn btn-effect-ripple btn-danger" type="button" name="button" id="button_add_cancel">Cancelar</button></h2>
+
+        </div>
+        <!-- END Labels on top Form Title -->
+
+        <!-- Labels on top Form Content -->
+
+        <form action="Users" method="post" id="form_users_two" class="form-horizontal form-bordered">
+
+          <input type="hidden" name="module" value="Users">
+          <input type="hidden" name="updateData" value="">
           <input type="hidden" value="1" name="type">
-          <input type="hidden" value="" name="identity">
+
 
           <div class="msn_conteiner response-content">
 
@@ -163,8 +175,13 @@
             </div>
           </div>
         </form>
+        <!-- END Labels on top Form Content -->
       </div>
+      <!-- END Labels on top Form Block -->
+
     </div>
+    <!-- END Contacts Content -->
   </div>
+
 </div>
-<!-- END Add Contact Modal -->
+<!-- END Page Content -->

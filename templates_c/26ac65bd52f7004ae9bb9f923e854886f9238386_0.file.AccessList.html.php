@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-11-08 20:55:37
+/* Smarty version 3.1.32, created on 2018-11-14 19:39:48
   from '/Applications/AMPPS/www/manager/views/AccessList.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5be4a2c9dab868_54298388',
+  'unifunc' => 'content_5bec7a04469127_21256218',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '26ac65bd52f7004ae9bb9f923e854886f9238386' => 
     array (
       0 => '/Applications/AMPPS/www/manager/views/AccessList.html',
-      1 => 1541710533,
+      1 => 1542224362,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5be4a2c9dab868_54298388 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bec7a04469127_21256218 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- END Header -->
 
 <!-- Page content -->
@@ -51,7 +51,7 @@ function content_5be4a2c9dab868_54298388 (Smarty_Internal_Template $_smarty_tpl)
 
       <div class="block full block_list_user">
         <div class="block-title">
-          <h2><button type="button" name="button" id="user_button">Novo + </button></h2>
+          <h2><button class="btn btn-effect-ripple btn-info" type="button" name="button" id="user_button">Novo + </button></h2>
         </div>
         <div class="table-responsive">
           <table id="example-datatable" class="table table-striped table-bordered table-vcenter">
@@ -103,7 +103,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           <div class="block-options pull-right">
             <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default toggle-bordered enable-tooltip" data-toggle="button" title="Tipos de acesso ao sistema">Lista de Acesso</a>
           </div>
-          <h2><button type="button" name="button" id="button_add_cancel">Cancelar</button></h2>
+          <h2><button class="btn btn-effect-ripple btn-danger" type="button" name="button" id="button_add_cancel">Cancelar</button></h2>
 
         </div>
         <!-- END Labels on top Form Title -->
@@ -127,7 +127,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           </div>
 
           <div class="form-group form-actions">
-            <button type="submit" class="btn btn-effect-ripple btn-primary">Gravar</button>
+            <button type="submit" class="btn btn-effect-ripple btn-info">Gravar</button>
           </div>
         </form>
         <!-- END Labels on top Form Content -->

@@ -22,10 +22,19 @@ if(isset($_GET['action'])){
 	$action = filter_var($_POST['action'], FILTER_SANITIZE_STRING);
 }
 
-
+//OBTENDO DADOS PARA FORM
 if($action == 'update'){
-	$module = filter_var($_GET['module'], FILTER_SANITIZE_STRING);
-	$pKey = filter_var($_GET['key'], FILTER_SANITIZE_NUMBER_INT);
+	if(isset($_GET['module'])){
+		$module = filter_var($_GET['module'], FILTER_SANITIZE_STRING);
+	}else{
+		$module = filter_var($_POST['module'], FILTER_SANITIZE_STRING);
+	}
+
+	if(isset($_GET['key']) && !empty($_GET['key'])){
+		$pKey = filter_var($_GET['key'], FILTER_SANITIZE_NUMBER_INT);
+	}else{
+		$pKey = filter_var($_POST['identity'], FILTER_SANITIZE_NUMBER_INT);
+	}
 
 	$moduleNow = Config::_MCLASS_."\\".$module;
 	$Obj_str   = new $moduleNow();
@@ -33,6 +42,7 @@ if($action == 'update'){
 	print_r($data);
 	exit;
 }
+
 
 
 
@@ -46,6 +56,22 @@ if($action == 'delete'){
 	print_r($data);
 	exit;
 }
+
+
+
+/**
+ * return true if has correct datas
+ */
+if(isset($_POST['module']) && $_POST['module'] == 'Users' ){
+	$module = filter_var($_POST['module'], FILTER_SANITIZE_STRING);
+	$moduleNow = Config::_MCLASS_."\\".$module;
+	$Obj_str   = new $moduleNow();
+	$result 	 = $Obj_str->validationData($_POST);
+	print(json_encode($result));
+	exit;
+}
+
+
 
 
 /**
