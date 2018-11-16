@@ -13,9 +13,10 @@ use MyClass\Userlevel;
 Class Users
 {
 
-	private $table = "users";
+	private $table 	= "users";
+	private $tbView = "vw_permissionlist";
 	protected $response;
-	private $colectionDataSelect;
+	protected $dropdownList;
 
 	public function setResponse($response) {
 		$this->response = $response;
@@ -26,12 +27,23 @@ Class Users
 		return $dataJson;
 	}
 
+
+	public function setDropdownList($response) {
+		$this->dropdownList = $response;
+	}
+
+	public function getDropdownList() {
+		$dataJson = json_encode($this->dropdownList);
+		return $dataJson;
+	}
+
 	/*
 	* Show data according to the action
 	* @param $data is a array
 	*/
 	public function __construct($data = []) {
 		self::getAllRecord( $this->table );
+		self::getDropdownUserType( $this->tbView );
 
 	}
 
@@ -99,8 +111,21 @@ Class Users
 
 	}
 
-
-
+	/**
+	 * [Get list if names and IDs for type user for dropdown list of type de ]
+	 * @method getDropdownUserType
+	 * @param  [type]              $tableName [name table of database]
+	 *
+	 */
+	private function getDropdownUserType($tableName){
+		try {
+			$result = (new GetRecord())->dropdownUserType();
+			$this->setDropdownList( $result ) ;
+		}catch (\Exception $e) {
+			print($e->getMessage());
+			die;
+		}
+	}//END THE METHOD getAllList
 
 	private function getAllRecord($tableName){
 		try {
@@ -110,8 +135,7 @@ Class Users
 			print($e->getMessage());
 			die;
 		}
-
-			}//END THE METHOD getAllList
+	}//END THE METHOD getAllList
 
 
 			public function getDataId($paramId = null){
@@ -149,12 +173,4 @@ Class Users
 					}
 				}
 			}
-
-
-
-
-
-
-
-
-		}
+}

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-09-18 17:32:26
+/* Smarty version 3.1.32, created on 2018-11-16 14:04:37
   from '/Applications/AMPPS/www/manager/views/commons/body.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ba136aaae68a0_67802241',
+  'unifunc' => 'content_5beece7541e628_24916418',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '070b1c60279906f79c253dcb257652c9b54a9c5d' => 
     array (
       0 => '/Applications/AMPPS/www/manager/views/commons/body.html',
-      1 => 1537286354,
+      1 => 1542377074,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ba136aaae68a0_67802241 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5beece7541e628_24916418 (Smarty_Internal_Template $_smarty_tpl) {
 ?><body>
   <!-- Page Wrapper -->
   <!-- In the PHP version you can set the following options from inc/config file -->
@@ -116,7 +116,13 @@ function content_5ba136aaae68a0_67802241 (Smarty_Internal_Template $_smarty_tpl)
                 <a href="Users">Usuários</a>
               </li>
               <li>
-                <a href="Permission">Permissões</a>
+                <a href="Userlevel">Níveis de Usuários</a>
+              </li>
+              <li>
+                <a href="AccessList">Lista de Acesso</a>
+              </li>
+              <li>
+                <a href="ManageAccess">Gerir Acessos</a>
               </li>
             </ul>
           </li>
@@ -227,5 +233,6 @@ placeholders/avatars/avatar.jpg" alt="avatar">
 </ul>
 <!-- END Right Header Navigation -->
 </header>
-        <!-- END Header --><?php }
+        <!-- END Header -->
+<?php }
 }

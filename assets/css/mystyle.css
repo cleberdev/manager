@@ -10,3 +10,8 @@
 .block_list_user.disable{
   display: none;
 }
+
+select{
+    padding: 6px;
+    height: 36px!important;
+}

@@ -62,6 +62,10 @@ if (file_exists(Config::_VIEWS_._ROUTER_NOW_.'.html') && file_exists(Config::_MC
 			$smarty->assign('colectionDataCHK', $Obj_str->getColectionDataCHK());
 	}
 
+	if(method_exists($Obj_str, getDropdownList ) ){
+			$smarty->assign('dropdownListUserType', $Obj_str->getDropdownList());
+	}
+
 	if( $perm->getLogin() ){
 		$smarty->display(Config::_VIEWS_C.'body.html');
 		$smarty->display(Config::_VIEWS_._ROUTER_NOW_.'.html');

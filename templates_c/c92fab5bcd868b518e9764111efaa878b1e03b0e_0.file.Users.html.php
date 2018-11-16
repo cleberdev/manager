@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2018-11-14 19:37:34
+/* Smarty version 3.1.32, created on 2018-11-16 16:39:28
   from '/Applications/AMPPS/www/manager/views/Users.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5bec797ebce718_40692118',
+  'unifunc' => 'content_5beef2c004b600_69622231',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c92fab5bcd868b518e9764111efaa878b1e03b0e' => 
     array (
       0 => '/Applications/AMPPS/www/manager/views/Users.html',
-      1 => 1542224253,
+      1 => 1542386366,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bec797ebce718_40692118 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5beef2c004b600_69622231 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- END Header -->
 
 <!-- Page content -->
@@ -152,8 +152,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
           <input type="hidden" name="module" value="Users">
           <input type="hidden" name="updateData" value="">
-          <input type="hidden" value="1" name="type">
-
 
           <div class="msn_conteiner response-content">
 
@@ -167,7 +165,31 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             </div>
           </div>
           <div class="form-group">
-            <label class="col-xs-3 control-label" for="add-contact-name">Name</label>
+            <label class="col-md-3 control-label" for="example-select">Tipo de Usuário</label>
+            <div class="col-md-6">
+                <select id="select_tipo_user" name="type" class="form-control select_tipo_user" size="1">
+                    <option value="">Por favor selecione um tipo...</option>
+                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, json_decode($_smarty_tpl->tpl_vars['dropdownListUserType']->value), 'curr_id');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['curr_id']->value) {
+?>
+                    <option value="<?php echo $_smarty_tpl->tpl_vars['curr_id']->value->idUserlevel;?>
+"><?php echo $_smarty_tpl->tpl_vars['curr_id']->value->typeLevel;?>
+</option>
+                    <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+
+                </select>
+            </div>
+        </div>
+
+
+
+          <div class="form-group">
+            <label class="col-xs-3 control-label" for="add-contact-name">Nome</label>
             <div class="col-xs-9">
               <input type="text" id="add-contact-name" name="name" class="form-control" placeholder="Enter Full Name.." value="">
             </div>

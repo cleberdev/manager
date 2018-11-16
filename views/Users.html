@@ -117,8 +117,6 @@
 
           <input type="hidden" name="module" value="Users">
           <input type="hidden" name="updateData" value="">
-          <input type="hidden" value="1" name="type">
-
 
           <div class="msn_conteiner response-content">
 
@@ -132,7 +130,22 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-xs-3 control-label" for="add-contact-name">Name</label>
+            <label class="col-md-3 control-label" for="example-select">Tipo de Usuário</label>
+            <div class="col-md-6">
+                <select id="select_tipo_user" name="type" class="form-control select_tipo_user" size="1">
+                    <option value="">Por favor selecione um tipo...</option>
+                    {foreach from=$dropdownListUserType|json_decode item=curr_id}
+                    <option value="{$curr_id->idUserlevel}">{$curr_id->typeLevel}</option>
+                    {/foreach}
+
+                </select>
+            </div>
+        </div>
+
+
+
+          <div class="form-group">
+            <label class="col-xs-3 control-label" for="add-contact-name">Nome</label>
             <div class="col-xs-9">
               <input type="text" id="add-contact-name" name="name" class="form-control" placeholder="Enter Full Name.." value="">
             </div>

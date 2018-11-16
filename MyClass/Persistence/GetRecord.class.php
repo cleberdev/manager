@@ -34,6 +34,15 @@ class GetRecord extends Database {
 		return $this->selectDB($SQL);
 	}
 
+/**
+ * [Get list of data specific of the module Userlevel for listing in dropdown]
+ * @method dropdownUserType
+ * @return [type]           [array data]
+ */
+	public function dropdownUserType() {
+		$SQL = "select distinct(idUserlevel), typeLevel FROM vw_permissionlist";
+		return $this->selectDB($SQL);
+	}
 
 
 }
